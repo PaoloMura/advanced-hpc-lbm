@@ -102,7 +102,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
 ** timestep calls, in order, the functions:
 ** accelerate_flow(), propagate(), rebound() & collision()
 */
-int timestep(const t_param params, t_cells* cells, t_cells* tmp_cells, int* obstacles);
+int timestep(const t_param params, t_cells* cells, t_cells* tmp_cells, int* obstacles, int last);
 int accelerate_flow(const t_param params, t_cells* cells, int* obstacles);
 int write_values(const t_param params, t_cells* cells, int* obstacles, float* av_vels);
 
@@ -163,9 +163,10 @@ int main(int argc, char* argv[])
   init_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
   comp_tic=init_toc;
 
+  accelerate_flow(params, &cells, obstacles);
   for (int tt = 0; tt < params.maxIters; tt++)
   {
-    timestep(params, &cells, &tmp_cells, obstacles);
+    timestep(params, &cells, &tmp_cells, obstacles, (params.maxIters - tt - 1));
 
     /* need to swap the grid pointers */
     tmp_tmp_cells = cells;
@@ -205,9 +206,11 @@ int main(int argc, char* argv[])
   return EXIT_SUCCESS;
 }
 
-int timestep(const t_param params, t_cells* restrict cells, t_cells* restrict tmp_cells, int* restrict obstacles)
+int timestep(const t_param params, t_cells* restrict cells, t_cells* restrict tmp_cells, int* restrict obstacles, int last)
 {
-  accelerate_flow(params, cells, obstacles);
+  /* compute weighting factors */
+  const float w_1 = params.density * params.accel / 9.f;
+  const float w_2 = params.density * params.accel / 36.f;
 
   /* constants for the collision step */
   const float c_sq_inv = 3.f; /* inverse of the square of speed of sound */
@@ -215,7 +218,6 @@ int timestep(const t_param params, t_cells* restrict cells, t_cells* restrict tm
   const float w1 = 1.f / 9.f;  /* weighting factor */
   const float w2 = 1.f / 36.f; /* weighting factor */
 
-  /* PROPAGATE STEP*/
   /* inform the compiler about alignment optimisations */
   __assume_aligned(cells->speeds0, 64);
   __assume_aligned(cells->speeds1, 64);
@@ -246,10 +248,12 @@ int timestep(const t_param params, t_cells* restrict cells, t_cells* restrict tm
     #pragma omp simd
     for (int ii = 0; ii < params.nx; ii++)
     {
+      /* PROPAGATE STEP*/
+
       /* determine indices of axis-direction neighbours
       ** respecting periodic boundary conditions (wrap around) */
-      const int y_n = (jj + 1) % params.ny;
-      const int x_e = (ii + 1) % params.nx;
+      const int y_n = (jj + 1 < params.ny) ? (jj + 1) : 0;
+      const int x_e = (ii + 1 < params.nx) ? (ii + 1) : 0;
       const int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
       const int x_w = (ii == 0) ? (ii + params.nx - 1) : (ii - 1);
 
@@ -344,6 +348,26 @@ int timestep(const t_param params, t_cells* restrict cells, t_cells* restrict tm
         tmp_cells->speeds7[ii + jj*params.nx] = densities7 + params.omega * (d_equ7 - densities7);
         tmp_cells->speeds8[ii + jj*params.nx] = densities8 + params.omega * (d_equ8 - densities8);
       }
+
+      /* ACCELERATE FLOW STEP */
+
+        /* if the cell is not occupied and
+        ** we don't send a negative density */
+        if (__builtin_expect((last
+            && !obstacles[ii + jj*params.nx]
+            && (cells->speeds3[ii + jj*params.nx] - w_1) > 0.f
+            && (cells->speeds6[ii + jj*params.nx] - w_2) > 0.f
+            && (cells->speeds7[ii + jj*params.nx] - w_2) > 0.f), 0))
+        {
+          /* increase 'east-side' densities */
+          tmp_cells->speeds1[ii + jj*params.nx] += w_1;
+          tmp_cells->speeds5[ii + jj*params.nx] += w_2;
+          tmp_cells->speeds8[ii + jj*params.nx] += w_2;
+          /* decrease 'west-side' densities */
+          tmp_cells->speeds3[ii + jj*params.nx] -= w_1;
+          tmp_cells->speeds6[ii + jj*params.nx] -= w_2;
+          tmp_cells->speeds7[ii + jj*params.nx] -= w_2;
+        }
     }
   }
 
