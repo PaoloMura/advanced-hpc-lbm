@@ -1,0 +1,71 @@
+Intel(R) Advisor can now assist with vectorization and show optimization
+  report messages with your source code.
+See "https://software.intel.com/en-us/intel-advisor-xe" for details.
+
+Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1.3.304 Build 20200925_000000
+
+Compiler options: -std=c99 -Wall -fast -xAVX -qopt-report=5 -qopt-report-phase=vec -qopt-report-filter=d2q9-bgk.c,207-404 -lm -o d2q9-bgk
+
+Begin optimization report for: timestep(const t_param, t_cells *, t_cells *, int *)
+
+    Report from: Vector optimizations [vec]
+
+
+LOOP BEGIN at d2q9-bgk.c(401,5)
+<Peeled loop for vectorization>
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(401,5)
+   remark #15381: vectorization support: unaligned access used inside loop body
+   remark #15305: vectorization support: vector length 8
+   remark #15309: vectorization support: normalized vectorization overhead 0.164
+   remark #15301: SIMD LOOP WAS VECTORIZED
+   remark #15448: unmasked aligned unit stride loads: 17 
+   remark #15449: unmasked aligned unit stride stores: 16 
+   remark #15450: unmasked unaligned unit stride loads: 6 
+   remark #15455: masked aligned unit stride stores: 1 
+   remark #15462: unmasked indexed (or gather) loads: 3 
+   remark #15475: --- begin vector cost summary ---
+   remark #15476: scalar cost: 360 
+   remark #15477: vector cost: 145.120 
+   remark #15478: estimated potential speedup: 2.330 
+   remark #15482: vectorized math library calls: 1 
+   remark #15486: divides: 1 
+   remark #15488: --- end vector cost summary ---
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(401,5)
+<Remainder loop for vectorization>
+LOOP END
+
+LOOP BEGIN at d2q9-bgk.c(398,3)
+   remark #15542: loop was not vectorized: inner loop was already vectorized
+
+   LOOP BEGIN at d2q9-bgk.c(401,5)
+   <Peeled loop for vectorization>
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(401,5)
+      remark #15381: vectorization support: unaligned access used inside loop body
+      remark #15305: vectorization support: vector length 8
+      remark #15309: vectorization support: normalized vectorization overhead 0.202
+      remark #15301: SIMD LOOP WAS VECTORIZED
+      remark #15448: unmasked aligned unit stride loads: 17 
+      remark #15449: unmasked aligned unit stride stores: 16 
+      remark #15450: unmasked unaligned unit stride loads: 6 
+      remark #15455: masked aligned unit stride stores: 1 
+      remark #15462: unmasked indexed (or gather) loads: 3 
+      remark #15475: --- begin vector cost summary ---
+      remark #15476: scalar cost: 360 
+      remark #15477: vector cost: 123.870 
+      remark #15478: estimated potential speedup: 2.680 
+      remark #15482: vectorized math library calls: 1 
+      remark #15486: divides: 1 
+      remark #15488: --- end vector cost summary ---
+   LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(401,5)
+   <Remainder loop for vectorization>
+   LOOP END
+LOOP END
+===========================================================================

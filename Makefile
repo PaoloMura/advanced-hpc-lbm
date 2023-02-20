@@ -4,7 +4,7 @@ EXE=d2q9-bgk
 
 CC=icc
 # CC=gcc
-CFLAGS= -pg -std=c99 -Wall -Ofast -xAVX -qopt-report=5 -qopt-report-phase=vec
+CFLAGS= -pg -std=c99 -Wall -Ofast -xAVX -qopt-report=5 -qopt-report-phase=vec -qopt-report-filter="d2q9-bgk.c,207-404"
 LIBS = -lm
 
 FINAL_STATE_FILE=./final_state.dat
