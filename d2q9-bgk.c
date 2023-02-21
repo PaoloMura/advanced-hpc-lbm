@@ -323,28 +323,27 @@ float timestep(const t_param params,
         tot_u += sqrtf((u_x * u_x) + (u_y * u_y));
         /* increase counter of inspected cells */
         ++tot_cells;
-      }
 
-      /* ACCELERATE FLOW STEP */
+        /* ACCELERATE FLOW STEP */
 
-      /* if this is the second row, we're not in the final round, 
-      ** the cell is not occupied and
-      ** we don't send a negative density */
-      if (jj == params.ny - 2 
-          && !finalRound
-          && !obstacles[ii + jj*params.nx]
-          && (tmp_cells[ii + jj*params.nx].speeds[3] - w_1) > 0.f
-          && (tmp_cells[ii + jj*params.nx].speeds[6] - w_2) > 0.f
-          && (tmp_cells[ii + jj*params.nx].speeds[7] - w_2) > 0.f)
-      {
-        /* increase 'east-side' densities */
-        tmp_cells[ii + jj*params.nx].speeds[1] += w_1;
-        tmp_cells[ii + jj*params.nx].speeds[5] += w_2;
-        tmp_cells[ii + jj*params.nx].speeds[8] += w_2;
-        /* decrease 'west-side' densities */
-        tmp_cells[ii + jj*params.nx].speeds[3] -= w_1;
-        tmp_cells[ii + jj*params.nx].speeds[6] -= w_2;
-        tmp_cells[ii + jj*params.nx].speeds[7] -= w_2;
+        /* if this is the second row, we're not in the final round, 
+        ** the cell is not occupied and
+        ** we don't send a negative density */
+        if (jj == params.ny - 2 
+            && !finalRound
+            && (tmp_cells[ii + jj*params.nx].speeds[3] - w_1) > 0.f
+            && (tmp_cells[ii + jj*params.nx].speeds[6] - w_2) > 0.f
+            && (tmp_cells[ii + jj*params.nx].speeds[7] - w_2) > 0.f)
+        {
+          /* increase 'east-side' densities */
+          tmp_cells[ii + jj*params.nx].speeds[1] += w_1;
+          tmp_cells[ii + jj*params.nx].speeds[5] += w_2;
+          tmp_cells[ii + jj*params.nx].speeds[8] += w_2;
+          /* decrease 'west-side' densities */
+          tmp_cells[ii + jj*params.nx].speeds[3] -= w_1;
+          tmp_cells[ii + jj*params.nx].speeds[6] -= w_2;
+          tmp_cells[ii + jj*params.nx].speeds[7] -= w_2;
+        }
       }
     }
   }
