@@ -296,31 +296,20 @@ float timestep(const t_param params,
         /* velocity squared */
         float u_sq = u_x * u_x + u_y * u_y;
 
-        /* directional velocity components */
-        float u[NSPEEDS];
-        u[1] =   u_x;        /* east */
-        u[2] =         u_y;  /* north */
-        u[3] = - u_x;        /* west */
-        u[4] =       - u_y;  /* south */
-        u[5] =   u_x + u_y;  /* north-east */
-        u[6] = - u_x + u_y;  /* north-west */
-        u[7] = - u_x - u_y;  /* south-west */
-        u[8] =   u_x - u_y;  /* south-east */
-
         /* equilibrium densities */
         float d_equ[NSPEEDS];
         /* zero velocity density: weight w0 */
         d_equ[0] = w0 * local_density * (1.f - u_sq * 1.5f);
         /* axis speeds: weight w1 */
-        d_equ[1] = w1 * local_density * (1.f + u[1] * 3.f + u[1] * u[1] * 4.5f - u_sq * 1.5f);
-        d_equ[2] = w1 * local_density * (1.f + u[2] * 3.f + u[2] * u[2] * 4.5f - u_sq * 1.5f);
-        d_equ[3] = w1 * local_density * (1.f + u[3] * 3.f + u[3] * u[3] * 4.5f - u_sq * 1.5f);
-        d_equ[4] = w1 * local_density * (1.f + u[4] * 3.f + u[4] * u[4] * 4.5f - u_sq * 1.5f);
+        d_equ[1] = w1 * local_density * (1.f + u_x * 3.f + u_x * u_x * 4.5f - u_sq * 1.5f);
+        d_equ[2] = w1 * local_density * (1.f + u_y * 3.f + u_y * u_y * 4.5f - u_sq * 1.5f);
+        d_equ[3] = w1 * local_density * (1.f - u_x * 3.f + u_x * u_x * 4.5f - u_sq * 1.5f);
+        d_equ[4] = w1 * local_density * (1.f - u_y * 3.f + u_y * u_y * 4.5f - u_sq * 1.5f);
         /* diagonal speeds: weight w2 */
-        d_equ[5] = w2 * local_density * (1.f + u[5] * 3.f + u[5] * u[5] * 4.5f - u_sq * 1.5f);
-        d_equ[6] = w2 * local_density * (1.f + u[6] * 3.f + u[6] * u[6] * 4.5f - u_sq * 1.5f);
-        d_equ[7] = w2 * local_density * (1.f + u[7] * 3.f + u[7] * u[7] * 4.5f - u_sq * 1.5f);
-        d_equ[8] = w2 * local_density * (1.f + u[8] * 3.f + u[8] * u[8] * 4.5f - u_sq * 1.5f);
+        d_equ[5] = w2 * local_density * (1.f + (u_x + u_y) * 3.f + (u_x + u_y) * (u_x + u_y) * 4.5f - u_sq * 1.5f);
+        d_equ[6] = w2 * local_density * (1.f + (- u_x + u_y) * 3.f + (- u_x + u_y) * (- u_x + u_y) * 4.5f - u_sq * 1.5f);
+        d_equ[7] = w2 * local_density * (1.f + (- u_x - u_y) * 3.f + (u_x + u_y) * (u_x + u_y) * 4.5f - u_sq * 1.5f);
+        d_equ[8] = w2 * local_density * (1.f + (u_x - u_y) * 3.f + (u_x - u_y) * (u_x - u_y) * 4.5f - u_sq * 1.5f);
 
         /* relaxation step */
         for (int kk = 0; kk < NSPEEDS; kk++)
