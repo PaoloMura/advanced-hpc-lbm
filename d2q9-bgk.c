@@ -55,6 +55,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/resource.h>
+#include <omp.h>
 
 #define NSPEEDS         9
 #define FINALSTATEFILE  "final_state.dat"
@@ -185,7 +186,6 @@ int main(int argc, char* argv[])
     cells = tmp_cells;
     tmp_cells = tmp_tmp_cells;
 
-    // av_vels[tt] = av_velocity(params, cells, obstacles);
 #ifdef DEBUG
     printf("==timestep: %d==\n", tt);
     printf("av velocity: %.12E\n", av_vels[tt]);
@@ -260,9 +260,9 @@ float timestep(const t_param params,
   __assume((params.ny)%2==0);
   
   /* loop over _all_ cells */
+  #pragma omp parallel for simd collapse(2) reduction(+:tot_cells) reduction(+:tot_u)
   for (int jj = 0; jj < params.ny; jj++)
   {
-    #pragma omp simd
     for (int ii = 0; ii < params.nx; ii++)
     {
       /* PROPAGATE STEP*/
@@ -404,7 +404,7 @@ int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict
 
   __assume((params.nx)%2==0);
 
-  #pragma omp simd
+  #pragma omp parallel for simd
   for (int ii = 0; ii < params.nx; ii++)
   {
     /* if the cell is not occupied and
@@ -449,9 +449,9 @@ float av_velocity(const t_param params, t_speed* restrict cells, int* restrict o
   __assume((params.nx)%2==0);
 
   /* loop over all non-blocked cells */
+  #pragma omp parallel for simd collapse(2) reduction(+:tot_cells) reduction(+:tot_u)
   for (int jj = 0; jj < params.ny; jj++)
   {
-    #pragma omp simd
     for (int ii = 0; ii < params.nx; ii++)
     {
       /* ignore occupied cells */
@@ -621,6 +621,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   float w1 = params->density      / 9.f;
   float w2 = params->density      / 36.f;
 
+  #pragma omp parallel for collapse(2)
   for (int jj = 0; jj < params->ny; jj++)
   {
     for (int ii = 0; ii < params->nx; ii++)
@@ -641,6 +642,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   }
 
   /* first set all cells in obstacle array to zero */
+  #pragma omp parallel for collapse(2)
   for (int jj = 0; jj < params->ny; jj++)
   {
     for (int ii = 0; ii < params->nx; ii++)
