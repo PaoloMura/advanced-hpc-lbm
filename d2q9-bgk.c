@@ -353,7 +353,7 @@ float timestep(const t_param params,
         /* AVERAGE VELOCITIES */
 
         /* accumulate the norm of x- and y- velocity components */
-        tot_u += sqrtf((u_x * u_x) + (u_y * u_y));
+        tot_u += sqrtf(u_sq);
         /* increase counter of inspected cells */
         ++tot_cells;
 
@@ -381,7 +381,7 @@ float timestep(const t_param params,
     }
   }
 
-  return tot_u / (float)tot_cells;
+  return tot_u;
 }
 
 int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2)
