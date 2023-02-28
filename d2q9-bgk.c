@@ -260,9 +260,10 @@ float timestep(const t_param params,
   __assume((params.ny)%2==0);
   
   /* loop over _all_ cells */
-  #pragma omp parallel for simd collapse(2) reduction(+:tot_cells) reduction(+:tot_u)
+  #pragma omp parallel for reduction(+:tot_cells) reduction(+:tot_u)
   for (int jj = 0; jj < params.ny; jj++)
   {
+    #pragma omp simd reduction(+:tot_cells) reduction(+:tot_u)
     for (int ii = 0; ii < params.nx; ii++)
     {
       /* PROPAGATE STEP*/
@@ -449,9 +450,10 @@ float av_velocity(const t_param params, t_speed* restrict cells, int* restrict o
   __assume((params.nx)%2==0);
 
   /* loop over all non-blocked cells */
-  #pragma omp parallel for simd collapse(2) reduction(+:tot_cells) reduction(+:tot_u)
+  #pragma omp parallel for reduction(+:tot_cells) reduction(+:tot_u)
   for (int jj = 0; jj < params.ny; jj++)
   {
+    #pragma omp simd reduction(+:tot_cells) reduction(+:tot_u)
     for (int ii = 0; ii < params.nx; ii++)
     {
       /* ignore occupied cells */
@@ -621,9 +623,11 @@ int initialise(const char* paramfile, const char* obstaclefile,
   float w1 = params->density      / 9.f;
   float w2 = params->density      / 36.f;
 
-  #pragma omp parallel for simd collapse(2)
+  // #pragma omp parallel for simd collapse(2)
+  #pragma omp parallel for
   for (int jj = 0; jj < params->ny; jj++)
   {
+    #pragma omp simd
     for (int ii = 0; ii < params->nx; ii++)
     {
       /* centre */
@@ -642,9 +646,11 @@ int initialise(const char* paramfile, const char* obstaclefile,
   }
 
   /* first set all cells in obstacle array to zero */
-  #pragma omp parallel for simd collapse(2)
+  // #pragma omp parallel for simd collapse(2)
+  #pragma omp parallel for
   for (int jj = 0; jj < params->ny; jj++)
   {
+    #pragma omp simd
     for (int ii = 0; ii < params->nx; ii++)
     {
       (*obstacles_ptr)[ii + jj*params->nx] = 0;
