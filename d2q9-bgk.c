@@ -381,7 +381,7 @@ float timestep(const t_param params,
     }
   }
 
-  return tot_u;
+  return tot_u / (float) tot_cells;
 }
 
 int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2)
