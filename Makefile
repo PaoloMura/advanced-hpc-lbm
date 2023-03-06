@@ -23,3 +23,11 @@ check:
 
 clean:
 	rm -f $(EXE)
+
+# Generate roofline project with Intel Advisor
+gen_roofline:
+	advixe-cl --collect=roofline --project-dir=./advi_results -- $(EXE)
+
+# Export roofline to HTML
+exp_roofline:
+	advixe-cl --report=roofline --project-dir=./advi_results --report-output=./roofline.html
