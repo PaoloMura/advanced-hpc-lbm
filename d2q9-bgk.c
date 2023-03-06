@@ -237,8 +237,8 @@ float timestep(const t_param params,
 
       /* determine indices of axis-direction neighbours
       ** respecting periodic boundary conditions (wrap around) */
-      int y_n = (jj < params.ny) ? (jj + 1) : 0;
-      int x_e = (ii < params.nx) ? (ii + 1) : 0;
+      int y_n = (jj < params.ny - 1) ? (jj + 1) : 0;
+      int x_e = (ii < params.nx - 1) ? (ii + 1) : 0;
       int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
       int x_w = (ii == 0) ? (ii + params.nx - 1) : (ii - 1);
 
@@ -320,7 +320,7 @@ float timestep(const t_param params,
         /* AVERAGE VELOCITIES */
 
         /* accumulate the norm of x- and y- velocity components */
-        tot_u += sqrtf((u_x * u_x) + (u_y * u_y));
+        tot_u += sqrtf(u_sq);
         /* increase counter of inspected cells */
         ++tot_cells;
 
@@ -403,6 +403,8 @@ float av_velocity(const t_param params, t_speed* cells, int* obstacles)
           local_density += cells[ii + jj*params.nx].speeds[kk];
         }
 
+        float local_density_inv = 1 / local_density;
+
         /* x-component of velocity */
         float u_x = (cells[ii + jj*params.nx].speeds[1]
                       + cells[ii + jj*params.nx].speeds[5]
@@ -410,7 +412,7 @@ float av_velocity(const t_param params, t_speed* cells, int* obstacles)
                       - (cells[ii + jj*params.nx].speeds[3]
                          + cells[ii + jj*params.nx].speeds[6]
                          + cells[ii + jj*params.nx].speeds[7]))
-                     / local_density;
+                     * local_density_inv;
         /* compute y velocity component */
         float u_y = (cells[ii + jj*params.nx].speeds[2]
                       + cells[ii + jj*params.nx].speeds[5]
@@ -418,7 +420,7 @@ float av_velocity(const t_param params, t_speed* cells, int* obstacles)
                       - (cells[ii + jj*params.nx].speeds[4]
                          + cells[ii + jj*params.nx].speeds[7]
                          + cells[ii + jj*params.nx].speeds[8]))
-                     / local_density;
+                     * local_density_inv;
         /* accumulate the norm of x- and y- velocity components */
         tot_u += sqrtf((u_x * u_x) + (u_y * u_y));
         /* increase counter of inspected cells */
