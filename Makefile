@@ -4,14 +4,14 @@ EXE=d2q9-bgk
 
 CC=icc
 # CC=gcc
-# CFLAGS= -std=c99 -Wall -g -O3 -xAVX2 -qopenmp
-CFLAGS= -std=c99 -Wall -g -O3 -xAVX2 -qopenmp -qopt-report=5 -qopt-report-phase=vec
+CFLAGS= -std=c99 -Wall -g -O3 -xAVX2 -qopenmp
+# CFLAGS= -std=c99 -Wall -g -O3 -xAVX2 -qopenmp -qopt-report=5 -qopt-report-phase=vec
 LIBS = -lm
 
 FINAL_STATE_FILE=./final_state.dat
 AV_VELS_FILE=./av_vels.dat
-REF_FINAL_STATE_FILE=check/128x256.final_state.dat
-REF_AV_VELS_FILE=check/128x256.av_vels.dat
+REF_FINAL_STATE_FILE=check/1024x1024.final_state.dat
+REF_AV_VELS_FILE=check/1024x1024.av_vels.dat
 
 all: $(EXE)
 
