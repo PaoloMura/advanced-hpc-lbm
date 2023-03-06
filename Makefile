@@ -4,8 +4,9 @@ EXE=d2q9-bgk
 
 CC=icc
 # CC=gcc
-CFLAGS= -std=c99 -Wall -g -O3 -xAVX2 -qopenmp
+# CFLAGS= -std=c99 -Wall -O3 -xAVX2 -qopenmp
 # CFLAGS= -std=c99 -Wall -g -O3 -xAVX2 -qopenmp -qopt-report=5 -qopt-report-phase=vec
+CFLAGS= -std=c99 -Wall -O3 -xAVX2 -qopenmp -g -qopt-report=5 -simd
 LIBS = -lm
 
 FINAL_STATE_FILE=./final_state.dat
@@ -25,3 +26,11 @@ check:
 
 clean:
 	rm -f $(EXE)
+
+# Generate roofline project with Intel Advisor
+gen_roofline:
+	advixe-cl --collect=roofline --project-dir=./advi_results -- ./$(EXE) input_128x128.params obstacles_128x128.dat
+
+# Export roofline to HTML
+exp_roofline:
+	advixe-cl --report=roofline --project-dir=./advi_results --report-output=./roofline.html
