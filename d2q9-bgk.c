@@ -353,7 +353,7 @@ float timestep(const t_param params,
         /* AVERAGE VELOCITIES */
 
         /* accumulate the norm of x- and y- velocity components */
-        tot_u += sqrtf((u_x * u_x) + (u_y * u_y));
+        tot_u += sqrtf(u_sq);
         /* increase counter of inspected cells */
         ++tot_cells;
 
