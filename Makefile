@@ -5,7 +5,7 @@ EXE=d2q9-bgk
 CC=icc
 # CC=gcc
 # CFLAGS= -std=c99 -Wall -O3 -xAVX2
-CFLAGS= -std=c99 -Wall -O3 -xAVX2 -g -qopt-report=5 -vec -simd
+CFLAGS= -std=c99 -Wall -O3 -xAVX2 -g -qopt-report=5 -simd
 LIBS = -lm
 
 FINAL_STATE_FILE=./final_state.dat

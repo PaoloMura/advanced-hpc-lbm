@@ -3,7 +3,7 @@
 
 <msg id="1" tool="runtool">
   <type>log-start</type>
-  <arg>2023/03/07 10:51:57</arg>
+  <arg>2023/03/07 12:25:33</arg>
 </msg>
 <msg id="2" tool="runtool">
   <type>bandwidth-measurement-starts</type>
@@ -21,188 +21,143 @@
 <msg id="6" tool="trc">
   <type>PROCESS_START</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
-  <arg>10668</arg>
+  <arg>5284</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:13 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="7" tool="trc">
   <type>PROCESS_ANALYSIS_MODE</type>
   <arg>full</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:13 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="8" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
   <arg>0x400000</arg>
-  <arg>0x6102bf</arg>
+  <arg>0x61a47f</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:13 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="9" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/lib64/ld-linux-x86-64.so.2</arg>
-  <arg>0x2aef45c28000</arg>
-  <arg>0x2aef45e4b14f</arg>
+  <arg>0x2b4675235000</arg>
+  <arg>0x2b467545814f</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:13 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="10" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>[vdso]</arg>
-  <arg>0x7ffe48be8000</arg>
-  <arg>0x7ffe48be8e6c</arg>
+  <arg>0x7ffc42f2d000</arg>
+  <arg>0x7ffc42f2de6c</arg>
   <arg>no</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:13 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="11" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/lib64/libm.so.6</arg>
-  <arg>0x2aef5b8e5000</arg>
-  <arg>0x2aef5bbe6137</arg>
+  <arg>0x2b468ad35000</arg>
+  <arg>0x2b468b036137</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:14 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="12" tool="trc">
   <type>LOAD_MODULE</type>
-  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/compiler/lib/intel64_lin/libiomp5.so</arg>
-  <arg>0x2aef5bc09000</arg>
-  <arg>0x2aef5c00e1ff</arg>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
+  <arg>0x2b468b059000</arg>
+  <arg>0x2b468b270447</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:14 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="13" tool="trc">
   <type>LOAD_MODULE</type>
-  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
-  <arg>0x2aef5c00f000</arg>
-  <arg>0x2aef5c226447</arg>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2b468b275000</arg>
+  <arg>0x2b468b6421ff</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:14 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="14" tool="trc">
   <type>LOAD_MODULE</type>
-  <arg>/lib64/libpthread.so.0</arg>
-  <arg>0x2aef5c22b000</arg>
-  <arg>0x2aef5c446487</arg>
+  <arg>/lib64/libdl.so.2</arg>
+  <arg>0x2b468b643000</arg>
+  <arg>0x2b468b84612f</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:14 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:52 2023</timestamp>
 </msg>
 <msg id="15" tool="trc">
-  <type>LOAD_MODULE</type>
-  <arg>/lib64/libc.so.6</arg>
-  <arg>0x2aef5c447000</arg>
-  <arg>0x2aef5c8141ff</arg>
-  <arg>yes</arg>
-  <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:14 2023</timestamp>
-</msg>
-<msg id="16" tool="trc">
-  <type>LOAD_MODULE</type>
-  <arg>/lib64/libdl.so.2</arg>
-  <arg>0x2aef5c815000</arg>
-  <arg>0x2aef5ca1812f</arg>
-  <arg>yes</arg>
-  <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:14 2023</timestamp>
-</msg>
-<msg id="17" tool="trc">
-  <type>LOAD_MODULE</type>
-  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/runtime/libittnotify.so</arg>
-  <arg>0x2aef5d9e2000</arg>
-  <arg>0x2aef5dbee65f</arg>
-  <arg>no</arg>
-  <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:14 2023</timestamp>
-</msg>
-<msg id="18" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="19" tool="trc">
+<msg id="16" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/ld-linux-x86-64.so.2</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="20" tool="trc">
+<msg id="17" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>[vdso]</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="21" tool="trc">
+<msg id="18" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/libm.so.6</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="22" tool="trc">
-  <type>UNLOAD_MODULE</type>
-  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/compiler/lib/intel64_lin/libiomp5.so</arg>
-  <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
-</msg>
-<msg id="23" tool="trc">
+<msg id="19" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="24" tool="trc">
-  <type>UNLOAD_MODULE</type>
-  <arg>/lib64/libpthread.so.0</arg>
-  <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
-</msg>
-<msg id="25" tool="trc">
+<msg id="20" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/libc.so.6</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="26" tool="trc">
+<msg id="21" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/libdl.so.2</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="27" tool="trc">
-  <type>UNLOAD_MODULE</type>
-  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/runtime/libittnotify.so</arg>
-  <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
-</msg>
-<msg id="28" tool="trc">
+<msg id="22" tool="trc">
   <type>PROCESS_FINISH</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
-  <arg>10668</arg>
+  <arg>5284</arg>
   <arg>0x0</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 10:52:18 2023</timestamp>
+  <timestamp>Tue Mar  7 12:25:59 2023</timestamp>
 </msg>
-<msg id="29" tool="runtool">
+<msg id="23" tool="runtool">
   <type>app-exit-code</type>
   <arg>0</arg>
 </msg>
-<msg id="30" tool="runtool">
+<msg id="24" tool="runtool">
   <type>marker-file</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/advi_results1/e000/trc000/trc000.advixe</arg>
 </msg>
-<msg id="31" tool="runtool">
+<msg id="25" tool="runtool">
   <type>collector-done</type>
 </msg>
-<msg id="32" tool="runtool">
+<msg id="26" tool="runtool">
   <type>log-end</type>
-  <arg>2023/03/07 10:52:22</arg>
+  <arg>2023/03/07 12:26:03</arg>
 </msg>
 
 </log>
