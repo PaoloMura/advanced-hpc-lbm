@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="267"
+           routine="timestep$omp$parallel@263"
+           is_vectorized="1"
+           self_time="3.468145E+02"
+           total_time="3.468145E+02"
+           trip_counts=""
+           func_instance="261"
+           confidence="0"
+           efficiency="3.912500E+01"
+           referenceEfficiency="1.250000E+01"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="267"
+           routine="timestep$omp$parallel@263"
+           is_vectorized="0"
+           self_time="1.036401E+01"
+           total_time="3.571785E+02"
+           trip_counts=""
+           func_instance="53"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="782"
+           routine="write_values"
+           is_vectorized="0"
+           self_time="3.000185E-02"
+           total_time="1.830000E+00"
+           trip_counts=""
+           func_instance="62"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="631"
+           routine="initialise$omp$parallel@627"
+           is_vectorized="1"
+           self_time="1.214453E-02"
+           total_time="1.214453E-02"
+           trip_counts=""
+           func_instance="264"
+           confidence="0"
+           efficiency="6.075000E+01"
+           referenceEfficiency="1.250000E+01"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="654"
+           routine="initialise$omp$parallel@650"
+           is_vectorized="1"
+           self_time="1.128177E-02"
+           total_time="1.128177E-02"
+           trip_counts=""
+           func_instance="265"
+           confidence="0"
+           efficiency="7.312500E+01"
+           referenceEfficiency="1.250000E+01"
+           priority="0"/>
+</IntelParallelAdvisorSummary >
