@@ -1,5 +1,5 @@
 
-=== Start: [2023/03/06 14:32:10] === 
+=== Start: [2023/03/07 10:39:42] === 
 Peak bandwidth measurement started...
 Peak bandwidth measurement finished.
 Analysis started...
@@ -7,4 +7,4 @@ Result file: /user/home/rk19763/advanced-hpc-lbm/advi_results/e002/trc000/trc000
 Application exit code: 0 
 Result file: /user/home/rk19763/advanced-hpc-lbm/advi_results/e002/trc000/trc000.advixe 
 Analysis completed
-=== End: [2023/03/06 14:33:18] === 
+=== End: [2023/03/07 10:40:07] === 

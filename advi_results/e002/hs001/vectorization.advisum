@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="267"
+           routine="timestep$omp$parallel@263"
+           is_vectorized="1"
+           self_time="6.738375E+00"
+           total_time="6.738375E+00"
+           trip_counts=""
+           func_instance="221"
+           confidence="0"
+           efficiency="3.912500E+01"
+           referenceEfficiency="1.250000E+01"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="267"
+           routine="timestep$omp$parallel@263"
+           is_vectorized="0"
+           self_time="7.299735E-01"
+           total_time="7.468349E+00"
+           trip_counts=""
+           func_instance="32"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="631"
+           routine="initialise$omp$parallel@627"
+           is_vectorized="1"
+           self_time="4.023890E-02"
+           total_time="4.023890E-02"
+           trip_counts=""
+           func_instance="224"
+           confidence="0"
+           efficiency="6.075000E+01"
+           referenceEfficiency="1.250000E+01"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="179"
+           routine="main"
+           is_vectorized="0"
+           self_time="9.999027E-03"
+           total_time="1.850016E+01"
+           trip_counts=""
+           func_instance="25"
+           priority="0"/>
+  <hotspot filename="/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk.c"
+           line_no="841"
+           routine="write_values"
+           is_vectorized="0"
+           self_time="9.994400E-03"
+           total_time="2.000000E-02"
+           trip_counts=""
+           func_instance="45"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

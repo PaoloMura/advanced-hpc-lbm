@@ -27,10 +27,6 @@ check:
 clean:
 	rm -f $(EXE)
 
-# Generate roofline project with Intel Advisor
-gen_roofline:
-	advixe-cl --collect=roofline --project-dir=./advi_results2 -- ./$(EXE) input_128x128.params obstacles_128x128.dat
-
 # Export roofline to HTML
-exp_roofline:
-	advixe-cl --report=roofline --project-dir=./advi_results2 --report-output=./roofline2.html
+roofline:
+	advixe-cl --report=roofline --project-dir=./advi_results --report-output=./roofline.html
