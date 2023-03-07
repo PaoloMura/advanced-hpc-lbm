@@ -29,5 +29,5 @@ clean:
 # Export roofline to HTML
 roofline:
 	advixe-cl --report=roofline --project-dir=./advi_results1 --report-output=./roofline1.html
-	advixe-cl --report=roofline --project-dir=./advi_results2 --report-output=./roofline2.html
-	advixe-cl --report=roofline --project-dir=./advi_results3 --report-output=./roofline3.html
+	# advixe-cl --report=roofline --project-dir=./advi_results2 --report-output=./roofline2.html
+	# advixe-cl --report=roofline --project-dir=./advi_results3 --report-output=./roofline3.html

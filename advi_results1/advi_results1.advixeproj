@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
  <rdmgr>
-  <timestamp type="u64_t">1678187488</timestamp>
-  <hostname type="string">compute243.bc4.acrc.priv</hostname>
+  <timestamp type="u64_t">1678215751</timestamp>
+  <hostname type="string">compute245.bc4.acrc.priv</hostname>
   <os type="string">linux</os>
   <product type="string">Intel® Advisor 2020 Update 3</product>
   <buildNumber type="s32_t">607294</buildNumber>
