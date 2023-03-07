@@ -1,0 +1,651 @@
+# callstacks file version: 7
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi
+         1	        -1	      3776	    0	      0	                                  _start	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	3776	48	0	1	0	0	0	0	0	0	0
+         2	        -1	      3816	    0	      0	                                  _start	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	3776	48	0	1	0	0	0	0	0	0	0
+         3	       168	    140628	    1	      1	     [Loop@0x22499 in __libc_start_main]	/lib64/libc.so.6	140441	391	0	2	0	0	0	0	0	0	0
+         4	       187	      6831	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+         5	       187	      6442	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+         6	       187	      6467	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+         7	       187	      7060	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+         8	       187	      7118	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+         9	       187	      7217	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        10	       187	      6477	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        11	       187	      6917	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        12	       187	      6942	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        13	       187	      6870	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        14	       187	      6930	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        15	       187	      6687	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        16	       187	      6934	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        17	       187	      7025	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        18	       187	      6605	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        19	       187	      7100	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        20	       187	      7231	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        21	       187	      7254	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        22	       187	      7008	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        23	       187	      6844	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        24	       187	      6875	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        25	       187	      7158	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        26	       187	      6408	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        27	       187	      7044	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        28	       187	      6865	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        29	       187	      6835	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        30	       187	      6885	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        31	       187	      6902	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        32	       187	      7198	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        33	       187	      6821	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        34	       187	      7276	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        35	       187	      6907	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        36	       187	      6526	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        37	       187	      6654	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        38	       187	      7287	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        39	       187	      6548	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        40	       187	      6425	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        41	       187	      6826	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        42	       187	      6396	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        43	       187	      6460	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        44	       187	      6627	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        45	       187	      6370	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        46	       187	      6779	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        47	       187	      7176	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        48	       187	      6986	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        49	       187	      6756	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        50	       187	      7269	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        51	       187	      7076	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        52	       187	      6798	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        53	       187	      7245	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        54	       187	      7139	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        55	       187	      6898	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        56	       187	      6922	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        57	       187	      6565	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        58	       187	      7481	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        59	       187	      6817	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        60	       187	      7281	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        61	       187	      6497	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        62	       187	      6731	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        63	       187	      6966	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        64	       187	      6580	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        65	       187	      7365	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        66	       187	      6724	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        67	       187	      6645	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        68	       187	      7226	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        69	       450	      6334	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+        70	       187	      6703	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        71	       187	      6555	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        72	       187	      7477	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        73	       187	      6362	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        74	       187	      6531	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        75	       450	      7518	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+        76	       187	      7261	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        77	       187	      7467	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        78	       187	      6572	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        79	       187	      6789	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        80	       187	      6436	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        81	       187	      6717	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        82	       187	      6535	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        83	       187	      6392	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        84	       187	      6419	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        85	       187	      6812	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        86	       187	      6880	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        87	       187	      6415	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        88	       187	      6889	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        89	       187	      6422	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        90	       187	      6515	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        91	       450	      6248	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+        92	       187	      6689	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        93	       187	      6672	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        94	       187	      6486	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        95	       187	      6559	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        96	       187	      6856	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        97	       187	      6490	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        98	       187	      6519	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+        99	       187	      6593	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       100	       187	      6453	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       101	       187	      6402	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       102	       187	      7360	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       103	       187	      6482	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       104	       187	      6784	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       105	       544	      6200	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       106	       187	      6682	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       107	       187	      6456	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       108	       450	      7530	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       109	       187	      6840	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       110	       187	      6428	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       111	       187	      6793	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       112	       187	      6616	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       113	       187	      7363	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       114	       187	      6745	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       115	       187	      6754	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       116	       187	      6445	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       117	       187	      6544	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       118	       187	      6576	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       119	       187	      6807	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       120	       187	      6631	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       121	       187	      6367	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       122	       187	      6439	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       123	       187	      7405	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       124	       187	      6400	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       125	       187	      7338	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       126	       187	      6365	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       127	       450	      6327	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       128	       187	      6663	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       129	       187	      6638	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       130	       450	      6267	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       131	       187	      6750	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       132	       187	      6710	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       133	       187	      6926	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       134	       187	      6860	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       135	       187	      6764	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       136	       187	      6774	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       137	       187	      6405	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       138	       187	      7341	    1	      0	          [Loop at line 234 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6362	1133	7495	8	0	0	0	0	0	0	0
+       139	       642	      8759	    1	      0	      [Loop at line 656 in write_values]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	8477	305	8782	25	0	0	0	0	0	0	0
+       140	       139	    341062	    0	      1	                             _IO_fprintf	/lib64/libc.so.6	340928	143	0	5	0	0	0	0	0	0	0
+       141	       140	    316630	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       142	       170	    323930	    1	      1	    [Loop@0x4f120 in __GI___printf_fp_l]	/lib64/libc.so.6	323872	125	0	15	0	0	0	0	0	0	0
+       143	       142	    319900	    0	      1	                        hack_digit.13666	/lib64/libc.so.6	319632	340	0	17	0	0	0	0	0	0	0
+       144	       172	    325150	    1	      1	    [Loop@0x4f600 in __GI___printf_fp_l]	/lib64/libc.so.6	325120	86	0	18	0	0	0	0	0	0	0
+       145	       140	    316440	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       146	       170	    323893	    1	      1	    [Loop@0x4f120 in __GI___printf_fp_l]	/lib64/libc.so.6	323872	125	0	15	0	0	0	0	0	0	0
+       147	       140	    306015	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       148	       147	    615619	    0	      1	                               strchrnul	/lib64/libc.so.6	615600	111	0	19	0	0	0	0	0	0	0
+       149	       170	    323911	    1	      1	    [Loop@0x4f120 in __GI___printf_fp_l]	/lib64/libc.so.6	323872	125	0	15	0	0	0	0	0	0	0
+       150	       176	    327673	    1	      1	    [Loop@0x4ffd8 in __GI___printf_fp_l]	/lib64/libc.so.6	327640	80	0	20	0	0	0	0	0	0	0
+       151	       170	    323931	    1	      1	    [Loop@0x4f120 in __GI___printf_fp_l]	/lib64/libc.so.6	323872	125	0	15	0	0	0	0	0	0	0
+       152	       179	    327559	    1	      1	    [Loop@0x4fdb0 in __GI___printf_fp_l]	/lib64/libc.so.6	327088	710	0	21	0	0	0	0	0	0	0
+       153	       152	    289449	    0	      1	                               __mpn_mul	/lib64/libc.so.6	289440	1060	0	22	0	0	0	0	0	0	0
+       154	       140	    312663	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       155	       140	    312245	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       156	       142	    319904	    0	      1	                        hack_digit.13666	/lib64/libc.so.6	319632	340	0	17	0	0	0	0	0	0	0
+       157	       156	    290540	    0	      1	                             __mpn_mul_1	/lib64/libc.so.6	290512	281	0	23	0	0	0	0	0	0	0
+       158	       156	    290516	    0	      1	                             __mpn_mul_1	/lib64/libc.so.6	290512	281	0	23	0	0	0	0	0	0	0
+       159	       646	      8944	    1	      0	      [Loop at line 710 in write_values]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	8914	42	8956	28	0	0	0	0	0	0	0
+       160	       159	    341062	    0	      1	                             _IO_fprintf	/lib64/libc.so.6	340928	143	0	5	0	0	0	0	0	0	0
+       161	       160	    316630	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       162	       181	    323930	    1	      1	    [Loop@0x4f120 in __GI___printf_fp_l]	/lib64/libc.so.6	323872	125	0	15	0	0	0	0	0	0	0
+       163	       162	    319908	    0	      1	                        hack_digit.13666	/lib64/libc.so.6	319632	340	0	17	0	0	0	0	0	0	0
+       164	       161	    322073	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       165	       160	    306004	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       166	       160	    306098	    0	      1	                            _IO_vfprintf	/lib64/libc.so.6	296448	22447	0	14	0	0	0	0	0	0	0
+       167	       166	    502209	    0	      1	                         _IO_file_xsputn	/lib64/libc.so.6	502176	808	0	24	0	0	0	0	0	0	0
+       168	         2	    140441	    0	      1	                       __libc_start_main	/lib64/libc.so.6	140384	448	0	3	0	0	0	0	0	0	0
+       169	         2	    140628	    0	      1	                       __libc_start_main	/lib64/libc.so.6	140384	448	0	3	0	0	0	0	0	0	0
+       170	       141	    323872	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       171	       141	    323930	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       172	       141	    325120	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       173	       141	    325150	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       174	       141	    323893	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       175	       141	    323911	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       176	       141	    327640	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       177	       141	    327673	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       178	       141	    323931	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       179	       141	    327088	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       180	       141	    327559	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       181	       161	    323872	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       182	       161	    323930	    0	      1	                      __GI___printf_fp_l	/lib64/libc.so.6	320080	9955	0	16	0	0	0	0	0	0	0
+       183	         3	      4084	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       184	       183	      6200	    1	      0	              [Loop at line 140 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4084	5560	8875	13	0	0	0	0	0	0	0
+       185	       184	      6241	    1	      0	              [Loop at line 170 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6200	1428	7619	12	0	0	0	0	0	0	0
+       186	       185	      6057	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       187	       186	      6362	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       188	       186	      6831	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       189	         3	      6831	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       190	         4	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       191	         4	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       192	         4	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       193	       186	      6442	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       194	         3	      6442	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       195	       186	      6467	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       196	         3	      6467	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       197	       186	      7060	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       198	         3	      7060	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       199	         7	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       200	         7	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       201	         7	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       202	       186	      7118	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       203	         3	      7118	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       204	         8	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       205	         8	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       206	         8	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       207	       186	      7217	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       208	         3	      7217	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       209	         9	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       210	         9	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       211	         9	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       212	       186	      6477	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       213	         3	      6477	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       214	       186	      6917	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       215	         3	      6917	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       216	        11	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       217	        11	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       218	        11	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       219	       186	      6942	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       220	         3	      6942	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       221	        12	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       222	        12	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       223	        12	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       224	       186	      6870	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       225	         3	      6870	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       226	        13	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       227	        13	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       228	        13	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       229	       186	      6930	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       230	         3	      6930	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       231	        14	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       232	        14	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       233	        14	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       234	       186	      6687	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       235	         3	      6687	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       236	       186	      6934	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       237	         3	      6934	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       238	        16	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       239	        16	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       240	        16	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       241	       186	      7025	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       242	         3	      7025	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       243	        17	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       244	        17	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       245	        17	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       246	       186	      6605	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       247	         3	      6605	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       248	       186	      7100	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       249	         3	      7100	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       250	        19	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       251	        19	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       252	        19	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       253	       186	      7231	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       254	         3	      7231	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       255	        20	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       256	        20	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       257	        20	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       258	       186	      7254	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       259	         3	      7254	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       260	        21	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       261	        21	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       262	        21	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       263	       186	      7008	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       264	         3	      7008	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       265	        22	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       266	        22	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       267	        22	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       268	       186	      6844	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       269	         3	      6844	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       270	        23	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       271	        23	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       272	        23	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       273	       186	      6875	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       274	         3	      6875	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       275	        24	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       276	        24	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       277	        24	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       278	       186	      7158	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       279	         3	      7158	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       280	        25	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       281	        25	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       282	        25	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       283	       186	      6408	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       284	         3	      6408	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       285	       186	      7044	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       286	         3	      7044	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       287	        27	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       288	        27	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       289	        27	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       290	       186	      6865	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       291	         3	      6865	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       292	        28	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       293	        28	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       294	        28	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       295	       186	      6835	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       296	         3	      6835	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       297	        29	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       298	        29	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       299	        29	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       300	       186	      6885	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       301	         3	      6885	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       302	        30	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       303	        30	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       304	        30	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       305	       186	      6902	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       306	         3	      6902	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       307	        31	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       308	        31	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       309	        31	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       310	       186	      7198	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       311	         3	      7198	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       312	        32	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       313	        32	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       314	        32	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       315	       186	      6821	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       316	         3	      6821	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       317	        33	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       318	        33	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       319	        33	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       320	       186	      7276	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       321	         3	      7276	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       322	        34	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       323	        34	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       324	        34	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       325	       186	      6907	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       326	         3	      6907	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       327	        35	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       328	        35	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       329	        35	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       330	       186	      6526	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       331	         3	      6526	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       332	       186	      6654	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       333	         3	      6654	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       334	       186	      7287	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       335	         3	      7287	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       336	        38	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       337	        38	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       338	        38	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       339	       186	      6548	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       340	         3	      6548	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       341	       186	      6425	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       342	         3	      6425	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       343	       186	      6826	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       344	         3	      6826	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       345	        41	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       346	        41	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       347	        41	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       348	       186	      6396	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       349	         3	      6396	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       350	       186	      6460	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       351	         3	      6460	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       352	       186	      6627	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       353	         3	      6627	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       354	       186	      6370	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       355	         3	      6370	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       356	       186	      6779	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       357	         3	      6779	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       358	        46	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       359	        46	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       360	        46	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       361	       186	      7176	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       362	         3	      7176	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       363	        47	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       364	        47	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       365	        47	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       366	       186	      6986	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       367	         3	      6986	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       368	        48	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       369	        48	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       370	        48	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       371	       186	      6756	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       372	         3	      6756	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       373	        49	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       374	        49	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       375	        49	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       376	       186	      7269	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       377	         3	      7269	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       378	        50	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       379	        50	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       380	        50	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       381	       186	      7076	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       382	         3	      7076	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       383	        51	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       384	        51	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       385	        51	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       386	       186	      6798	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       387	         3	      6798	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       388	        52	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       389	        52	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       390	        52	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       391	       186	      7245	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       392	         3	      7245	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       393	        53	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       394	        53	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       395	        53	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       396	       186	      7139	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       397	         3	      7139	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       398	        54	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       399	        54	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       400	        54	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       401	       186	      6898	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       402	         3	      6898	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       403	        55	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       404	        55	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       405	        55	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       406	       186	      6922	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       407	         3	      6922	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       408	        56	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       409	        56	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       410	        56	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       411	       186	      6565	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       412	         3	      6565	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       413	       186	      7481	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       414	         3	      7481	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       415	       186	      6817	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       416	         3	      6817	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       417	        59	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       418	        59	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       419	        59	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       420	       186	      7281	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       421	         3	      7281	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       422	        60	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       423	        60	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       424	        60	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       425	       186	      6497	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       426	         3	      6497	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       427	       186	      6731	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       428	         3	      6731	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       429	       186	      6966	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       430	         3	      6966	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       431	        63	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       432	        63	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       433	        63	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       434	       186	      6580	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       435	         3	      6580	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       436	       186	      7365	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       437	         3	      7365	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       438	       186	      6724	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       439	         3	      6724	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       440	       186	      6645	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       441	         3	      6645	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       442	       186	      7226	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       443	         3	      7226	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       444	        68	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       445	        68	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       446	        68	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       447	         3	      4084	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       448	       447	      6200	    1	      0	              [Loop at line 140 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4084	5560	8875	13	0	0	0	0	0	0	0
+       449	       448	      6241	    1	      0	              [Loop at line 170 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6200	1428	7619	12	0	0	0	0	0	0	0
+       450	       449	      6057	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       451	       449	      6334	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       452	         3	      6334	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       453	       186	      6703	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       454	         3	      6703	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       455	       186	      6555	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       456	         3	      6555	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       457	       186	      7477	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       458	         3	      7477	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       459	       186	      6362	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       460	         3	      6362	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       461	       186	      6531	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       462	         3	      6531	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       463	       449	      7518	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       464	         3	      7518	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       465	       186	      7261	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       466	         3	      7261	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       467	        76	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       468	        76	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       469	        76	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       470	       186	      7467	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       471	         3	      7467	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       472	       186	      6572	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       473	         3	      6572	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       474	       186	      6789	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       475	         3	      6789	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       476	        79	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       477	        79	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       478	        79	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       479	       186	      6436	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       480	         3	      6436	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       481	       186	      6717	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       482	         3	      6717	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       483	       186	      6535	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       484	         3	      6535	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       485	       186	      6392	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       486	         3	      6392	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       487	       186	      6419	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       488	         3	      6419	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       489	       186	      6812	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       490	         3	      6812	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       491	        85	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       492	        85	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       493	        85	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       494	       186	      6880	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       495	         3	      6880	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       496	        86	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       497	        86	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       498	        86	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       499	       186	      6415	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       500	         3	      6415	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       501	       186	      6889	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       502	         3	      6889	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       503	        88	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       504	        88	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       505	        88	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       506	       186	      6422	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       507	         3	      6422	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       508	       186	      6515	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       509	         3	      6515	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       510	       449	      6248	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       511	         3	      6248	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       512	       186	      6689	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       513	         3	      6689	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       514	       186	      6672	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       515	         3	      6672	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       516	       186	      6486	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       517	         3	      6486	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       518	       186	      6559	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       519	         3	      6559	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       520	       186	      6856	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       521	         3	      6856	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       522	        96	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       523	        96	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       524	        96	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       525	       186	      6490	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       526	         3	      6490	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       527	       186	      6519	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       528	         3	      6519	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       529	       186	      6593	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       530	         3	      6593	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       531	       186	      6453	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       532	         3	      6453	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       533	       186	      6402	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       534	         3	      6402	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       535	       186	      7360	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       536	         3	      7360	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       537	       186	      6482	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       538	         3	      6482	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       539	       186	      6784	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       540	         3	      6784	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       541	       104	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       542	       104	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       543	       104	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       544	       448	      6057	    1	      0	              [Loop at line 170 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6200	1428	7619	12	0	0	0	0	0	0	0
+       545	       448	      6200	    1	      0	              [Loop at line 170 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6200	1428	7619	12	0	0	0	0	0	0	0
+       546	         3	      6200	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       547	       186	      6682	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       548	         3	      6682	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       549	       186	      6456	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       550	         3	      6456	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       551	       449	      7530	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       552	         3	      7530	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       553	       186	      6840	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       554	         3	      6840	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       555	       109	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       556	       109	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       557	       109	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       558	       186	      6428	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       559	         3	      6428	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       560	       186	      6793	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       561	         3	      6793	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       562	       111	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       563	       111	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       564	       111	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       565	       186	      6616	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       566	         3	      6616	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       567	       186	      7363	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       568	         3	      7363	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       569	       186	      6745	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       570	         3	      6745	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       571	       186	      6754	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       572	         3	      6754	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       573	       115	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       574	       115	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       575	       115	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       576	       186	      6445	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       577	         3	      6445	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       578	       186	      6544	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       579	         3	      6544	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       580	       186	      6576	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       581	         3	      6576	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       582	       186	      6807	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       583	         3	      6807	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       584	       119	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       585	       119	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       586	       119	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       587	       186	      6631	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       588	         3	      6631	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       589	       186	      6367	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       590	         3	      6367	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       591	       186	      6439	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       592	         3	      6439	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       593	       186	      7405	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       594	         3	      7405	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       595	       186	      6400	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       596	         3	      6400	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       597	       186	      7338	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       598	         3	      7338	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       599	       186	      6365	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       600	         3	      6365	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       601	       449	      6327	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       602	         3	      6327	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       603	       186	      6663	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       604	         3	      6663	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       605	       186	      6638	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       606	         3	      6638	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       607	       449	      6267	    1	      0	              [Loop at line 232 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6241	1313	7545	11	0	0	0	0	0	0	0
+       608	         3	      6267	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       609	       186	      6750	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       610	         3	      6750	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       611	       131	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       612	       131	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       613	       131	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       614	       186	      6710	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       615	         3	      6710	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       616	       186	      6926	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       617	         3	      6926	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       618	       133	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       619	       133	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       620	       133	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       621	       186	      6860	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       622	         3	      6860	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       623	       134	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       624	       134	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       625	       134	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       626	       186	      6764	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       627	         3	      6764	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       628	       135	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       629	       135	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       630	       135	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       631	       186	      6774	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       632	         3	      6774	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       633	       136	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	7	0	0	0	0	0	0	0
+       634	       136	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	6	0	0	0	0	0	0	0
+       635	       136	      6750	    1	      0	          [Loop at line 288 in timestep]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6750	1	0	4	0	0	0	0	0	0	0
+       636	       186	      6405	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       637	         3	      6405	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       638	       186	      7341	    0	      0	                                timestep	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	6057	1511	0	9	0	1	0	0	0	0	0
+       639	         3	      7341	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       640	       183	      8284	    1	      0	              [Loop at line 140 in main]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4084	5560	8875	13	0	0	0	0	0	0	0
+       641	       640	      8405	    0	      0	                            write_values	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	8284	796	0	26	0	1	0	0	0	0	0
+       642	       641	      8477	    1	      0	      [Loop at line 654 in write_values]	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	8405	427	8832	27	0	0	0	0	0	0	0
+       643	       640	      8759	    0	      0	                            write_values	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	8284	796	0	26	0	1	0	0	0	0	0
+       644	         3	      8759	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       645	         3	      8284	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       646	       645	      8914	    0	      0	                            write_values	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	8284	796	0	26	0	1	0	0	0	0	0
+       647	       645	      8944	    0	      0	                            write_values	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	8284	796	0	26	0	1	0	0	0	0	0
+       648	         3	      8944	    0	      0	                                    main	/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk	4000	5808	0	10	0	0	0	0	0	0	0
+       649	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	1	0	45	0	0	0	0	0	0	0

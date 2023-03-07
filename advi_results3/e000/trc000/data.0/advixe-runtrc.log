@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log version="1.0" tool="runtool">
+
+<msg id="1" tool="runtool">
+  <type>log-start</type>
+  <arg>2023/03/07 11:55:24</arg>
+</msg>
+<msg id="2" tool="runtool">
+  <type>bandwidth-measurement-starts</type>
+</msg>
+<msg id="3" tool="runtool">
+  <type>bandwidth-measurement-done</type>
+</msg>
+<msg id="4" tool="runtool">
+  <type>collector-starts</type>
+</msg>
+<msg id="5" tool="runtool">
+  <type>marker-file</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/advi_results3/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="6" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
+  <arg>4120</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="7" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="8" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
+  <arg>0x400000</arg>
+  <arg>0x60f47f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="9" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2b2d977dd000</arg>
+  <arg>0x2b2d97a0014f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="10" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffe6dff4000</arg>
+  <arg>0x7ffe6dff4e6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="11" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <arg>0x2b2dad2d8000</arg>
+  <arg>0x2b2dad5d9137</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="12" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
+  <arg>0x2b2dad5fc000</arg>
+  <arg>0x2b2dad813447</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="13" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2b2dad818000</arg>
+  <arg>0x2b2dadbe51ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
+<msg id="14" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libdl.so.2</arg>
+  <arg>0x2b2dadbe6000</arg>
+  <arg>0x2b2dadde912f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue Mar  7 11:55:40 2023</timestamp>
+</msg>
