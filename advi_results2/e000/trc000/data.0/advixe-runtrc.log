@@ -3,7 +3,7 @@
 
 <msg id="1" tool="runtool">
   <type>log-start</type>
-  <arg>2023/03/07 12:36:15</arg>
+  <arg>2023/03/07 20:00:37</arg>
 </msg>
 <msg id="2" tool="runtool">
   <type>bandwidth-measurement-starts</type>
@@ -21,15 +21,15 @@
 <msg id="6" tool="trc">
   <type>PROCESS_START</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
-  <arg>8909</arg>
+  <arg>28593</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:31 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:53 2023</timestamp>
 </msg>
 <msg id="7" tool="trc">
   <type>PROCESS_ANALYSIS_MODE</type>
   <arg>full</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:31 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:53 2023</timestamp>
 </msg>
 <msg id="8" tool="trc">
   <type>LOAD_MODULE</type>
@@ -38,111 +38,111 @@
   <arg>0x61a47f</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:31 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:53 2023</timestamp>
 </msg>
 <msg id="9" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/lib64/ld-linux-x86-64.so.2</arg>
-  <arg>0x2b2bd8fd5000</arg>
-  <arg>0x2b2bd91f814f</arg>
+  <arg>0x2b8c99ef4000</arg>
+  <arg>0x2b8c9a11714f</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:32 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:53 2023</timestamp>
 </msg>
 <msg id="10" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>[vdso]</arg>
-  <arg>0x7ffef0cc1000</arg>
-  <arg>0x7ffef0cc1e6c</arg>
+  <arg>0x7ffc8a991000</arg>
+  <arg>0x7ffc8a991e6c</arg>
   <arg>no</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:32 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:53 2023</timestamp>
 </msg>
 <msg id="11" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/lib64/libm.so.6</arg>
-  <arg>0x2b2beec5b000</arg>
-  <arg>0x2b2beef5c137</arg>
+  <arg>0x2b8cafb54000</arg>
+  <arg>0x2b8cafe55137</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:32 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:54 2023</timestamp>
 </msg>
 <msg id="12" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
-  <arg>0x2b2beef74000</arg>
-  <arg>0x2b2bef18b447</arg>
+  <arg>0x2b8cafe70000</arg>
+  <arg>0x2b8cb0087447</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:32 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:54 2023</timestamp>
 </msg>
 <msg id="13" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/lib64/libc.so.6</arg>
-  <arg>0x2b2bef196000</arg>
-  <arg>0x2b2bef5631ff</arg>
+  <arg>0x2b8cb0092000</arg>
+  <arg>0x2b8cb045f1ff</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:32 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:54 2023</timestamp>
 </msg>
 <msg id="14" tool="trc">
   <type>LOAD_MODULE</type>
   <arg>/lib64/libdl.so.2</arg>
-  <arg>0x2b2bef564000</arg>
-  <arg>0x2b2bef76712f</arg>
+  <arg>0x2b8cb0460000</arg>
+  <arg>0x2b8cb066312f</arg>
   <arg>yes</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:36:32 2023</timestamp>
+  <timestamp>Tue Mar  7 20:00:54 2023</timestamp>
 </msg>
 <msg id="15" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="16" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/ld-linux-x86-64.so.2</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="17" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>[vdso]</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="18" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/libm.so.6</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="19" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="20" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/libc.so.6</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="21" tool="trc">
   <type>UNLOAD_MODULE</type>
   <arg>/lib64/libdl.so.2</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="22" tool="trc">
   <type>PROCESS_FINISH</type>
   <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
-  <arg>8909</arg>
+  <arg>28593</arg>
   <arg>0x0</arg>
   <severity>INFO</severity>
-  <timestamp>Tue Mar  7 12:37:39 2023</timestamp>
+  <timestamp>Tue Mar  7 20:02:01 2023</timestamp>
 </msg>
 <msg id="23" tool="runtool">
   <type>app-exit-code</type>
@@ -157,7 +157,7 @@
 </msg>
 <msg id="26" tool="runtool">
   <type>log-end</type>
-  <arg>2023/03/07 12:37:43</arg>
+  <arg>2023/03/07 20:02:05</arg>
 </msg>
 
 </log>
