@@ -68,9 +68,9 @@ typedef struct
   int    ny;            /* no. of cells in y-direction */
   int    maxIters;      /* no. of iterations */
   int    reynolds_dim;  /* dimension for Reynolds number */
-  float density;       /* density per link */
-  float accel;         /* density redistribution */
-  float omega;         /* relaxation parameter */
+  float  density;       /* density per link */
+  float  accel;         /* density redistribution */
+  float  omega;         /* relaxation parameter */
 } t_param;
 
 /* struct to hold the 'speed' values */
@@ -123,16 +123,16 @@ void usage(const char* exe);
 */
 int main(int argc, char* argv[])
 {
-  char*    paramfile = NULL;    /* name of the input parameter file */
-  char*    obstaclefile = NULL; /* name of a the input obstacle file */
-  t_param  params;              /* struct to hold parameter values */
-  t_speed* cells     = NULL;    /* grid containing fluid densities */
-  t_speed* tmp_cells = NULL;    /* scratch space */
+  char*    paramfile     = NULL; /* name of the input parameter file */
+  char*    obstaclefile  = NULL; /* name of a the input obstacle file */
+  t_param  params;               /* struct to hold parameter values */
+  t_speed* cells         = NULL; /* grid containing fluid densities */
+  t_speed* tmp_cells     = NULL; /* scratch space */
   t_speed* tmp_tmp_cells = NULL; /* temporary value used for swapping pointers */
-  int*     obstacles = NULL;    /* grid indicating which cells are blocked */
-  float* av_vels   = NULL;     /* a record of the av. velocity computed for each timestep */
-  struct timeval timstr;                                                             /* structure to hold elapsed time */
-  double tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic, col_toc; /* floating point numbers to calculate elapsed wallclock time */
+  int*     obstacles     = NULL; /* grid indicating which cells are blocked */
+  float*   av_vels       = NULL; /* a record of the av. velocity computed for each timestep */
+  struct   timeval timstr;       /* structure to hold elapsed time */
+  double   tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic, col_toc; /* floating point numbers to calculate elapsed wallclock time */
 
   /* parse the command line */
   if (argc != 3)
