@@ -1,9 +1,11 @@
 # Makefile
 
-EXE=d2q9-bgk
+# EXE=d2q9-bgk
+EXE=test
 
-CC=icc
+# CC=icc
 # CC=gcc
+CC=mpiicc
 CFLAGS= -std=c99 -Wall -O3
 # CFLAGS= -std=c99 -Wall -O3 -g -qopt-report=5
 LIBS = -lm

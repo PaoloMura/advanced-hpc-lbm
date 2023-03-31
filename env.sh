@@ -3,3 +3,5 @@
 module load slurm-22.05.6
 module load languages/gcc/10.4.0
 module load languages/intel/2020-u4
+
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
