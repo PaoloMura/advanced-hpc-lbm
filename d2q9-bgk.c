@@ -95,6 +95,7 @@ typedef struct
   int nprocs;     /* the total number of processes */
   int local_rows; /* the number of rows allocated to this process */
   int start_row;  /* the start row of this process (excluding halo region) */
+  int end_row;    /* the end row of this process (excluding halo region) */
 } t_mpi;
 
 /*
@@ -114,7 +115,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
 float timestep(const t_param params, t_speed* restrict cells, t_speed* restrict tmp_cells, int* restrict obstacles, 
                const int finalRound, const float w_1, const float w_2,
                const float w0, const float w1, const float w2);
-int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2);
+int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2, const t_mpi mpi_params);
 int write_values(const t_param params, t_speed* cells, int* obstacles, float* av_vels);
 
 /* finalise, including freeing up allocated memory */
@@ -181,14 +182,6 @@ int main(int argc, char* argv[])
   init_tic=tot_tic;
   initialise(paramfile, obstaclefile, &params, &cells, &tmp_cells, &obstacles, &av_vels, &mpi_params);
 
-  printf("Initialised\n");
-
-  // TODO: remove this
-  finalise(&params, &cells, &tmp_cells, &obstacles, &av_vels);
-  MPI_Finalize();
-  printf("Finalised\n");
-  return EXIT_SUCCESS;
-
   /* compute weighting factors */
   const float w_1 = params.density * params.accel / 9.f;
   const float w_2 = params.density * params.accel / 36.f;
@@ -204,7 +197,7 @@ int main(int argc, char* argv[])
   comp_tic=init_toc;
 
   /* perform a single accelerate flow step before iterating */
-  accelerate_flow(params, &cells, obstacles, w_1, w_2);
+  accelerate_flow(params, &cells, obstacles, w_1, w_2, mpi_params);
   for (int tt = 0; tt < params.maxIters; tt++)
   {
     int finalRound = (tt == params.maxIters - 1);
@@ -416,10 +409,15 @@ float timestep(const t_param params,
   return tot_u / (float)tot_cells;
 }
 
-int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2)
+int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2, const t_mpi mpi_params)
 {
   /* modify the 2nd row of the grid */
   const int jj = params.ny - 2;
+
+  /* only accelerate flow if the 2nd row of the grid is within your jurisdiction */
+  if (jj < mpi_params.start_row || jj > mpi_params.end_row) return EXIT_SUCCESS;
+
+  const int jjj = mpi_params.local_rows - 1;
 
   /* tell the compiler alignment information */
   __assume_aligned(cells->speeds0, 64);
@@ -441,19 +439,19 @@ int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict
   {
     /* if the cell is not occupied and
     ** we don't send a negative density */
-    if (!obstacles[ii + jj*params.nx]
-        && (cells->speeds3[ii + jj*params.nx] - w1) > 0.f
-        && (cells->speeds6[ii + jj*params.nx] - w2) > 0.f
-        && (cells->speeds7[ii + jj*params.nx] - w2) > 0.f)
+    if (!obstacles[ii + jjj*params.nx]
+        && (cells->speeds3[ii + jjj*params.nx] - w1) > 0.f
+        && (cells->speeds6[ii + jjj*params.nx] - w2) > 0.f
+        && (cells->speeds7[ii + jjj*params.nx] - w2) > 0.f)
     {
       /* increase 'east-side' densities */
-      cells->speeds1[ii + jj*params.nx] += w1;
-      cells->speeds5[ii + jj*params.nx] += w2;
-      cells->speeds8[ii + jj*params.nx] += w2;
+      cells->speeds1[ii + jjj*params.nx] += w1;
+      cells->speeds5[ii + jjj*params.nx] += w2;
+      cells->speeds8[ii + jjj*params.nx] += w2;
       /* decrease 'west-side' densities */
-      cells->speeds3[ii + jj*params.nx] -= w1;
-      cells->speeds6[ii + jj*params.nx] -= w2;
-      cells->speeds7[ii + jj*params.nx] -= w2;
+      cells->speeds3[ii + jjj*params.nx] -= w1;
+      cells->speeds6[ii + jjj*params.nx] -= w2;
+      cells->speeds7[ii + jjj*params.nx] -= w2;
     }
   }
 
@@ -711,8 +709,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   }
 
   mpi_params->start_row = get_start_row(mpi_params->rank, mpi_params->nprocs, params->ny);
-  printf("Start row: %d\n", mpi_params->start_row);
-  printf("Local rows: %d\n", mpi_params->local_rows);
+  mpi_params->end_row = mpi_params->start_row + mpi_params->local_rows - 1;
 
   /* read-in the blocked cells list */
   while ((retval = fscanf(fp, "%d %d %d\n", &xx, &yy, &blocked)) != EOF)
@@ -727,7 +724,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
     if (blocked != 1) die("obstacle blocked value should be 1", __LINE__, __FILE__);
 
     /* assign to array */
-    if (mpi_params->start_row <= yy && yy < mpi_params->start_row + mpi_params->local_rows) {
+    if (mpi_params->start_row <= yy && yy <= mpi_params->end_row) {
       yy = yy - mpi_params->start_row + 1;
       (*obstacles_ptr)[xx + yy*params->nx] = blocked;
     }
