@@ -88,6 +88,15 @@ typedef struct
   float *speeds8;
 } t_speed;
 
+/* struct to hold the MPI values */
+typedef struct
+{
+  int rank;       /* the rank of this process */
+  int nprocs;     /* the total number of processes */
+  int local_rows; /* the number of rows allocated to this process */
+  int start_row;  /* the start row of this process (excluding halo region) */
+} t_mpi;
+
 /*
 ** function prototypes
 */
@@ -95,8 +104,7 @@ typedef struct
 /* load params, allocate memory, load obstacles & initialise fluid particle densities */
 int initialise(const char* paramfile, const char* obstaclefile,
                t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr,
-               int** obstacles_ptr, float** av_vels_ptr,
-               int rank, int nprocs);
+               int** obstacles_ptr, float** av_vels_ptr, t_mpi* mpi_params);
 
 /*
 ** The main calculation methods.
@@ -149,9 +157,7 @@ int main(int argc, char* argv[])
   float*   av_vels   = NULL;     /* a record of the av. velocity computed for each timestep */
   struct   timeval timstr;                                                             /* structure to hold elapsed time */
   double   tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic, col_toc; /* floating point numbers to calculate elapsed wallclock time */
-  int nprocs;       /* the total number of MPI processes */
-  int rank;         /* the rank of this MPI process */
-  int local_rows;   /* the number of rows allocated to this process */           
+  t_mpi    mpi_params;           /* struct to hold MPI values */      
 
   /* parse the command line */
   if (argc != 3)
@@ -166,14 +172,14 @@ int main(int argc, char* argv[])
 
   /* Setup MPI */
   MPI_Init(&argc, &argv);
-  MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
-  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+  MPI_Comm_size(MPI_COMM_WORLD, &(mpi_params.nprocs));
+  MPI_Comm_rank(MPI_COMM_WORLD, &(mpi_params.rank));
 
   /* Total/init time starts here: initialise our data structures and load values from file */
   gettimeofday(&timstr, NULL);
   tot_tic = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
   init_tic=tot_tic;
-  initialise(paramfile, obstaclefile, &params, &cells, &tmp_cells, &obstacles, &av_vels, rank, nprocs);
+  initialise(paramfile, obstaclefile, &params, &cells, &tmp_cells, &obstacles, &av_vels, &mpi_params);
 
   printf("Initialised\n");
 
@@ -543,8 +549,7 @@ int get_start_row(int rank, int nprocs, int total_rows)
 
 int initialise(const char* paramfile, const char* obstaclefile,
                t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr,
-               int** obstacles_ptr, float** av_vels_ptr,
-               int rank, int nprocs)
+               int** obstacles_ptr, float** av_vels_ptr, t_mpi* mpi_params)
 {
   char   message[1024];  /* message buffer */
   FILE*   fp;            /* file pointer */
@@ -594,7 +599,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   fclose(fp);
 
   /* Determine the number of rows to allocate to this process */
-  int local_rows = get_rows_for_rank(rank, nprocs, params->ny);
+  mpi_params->local_rows = get_rows_for_rank(mpi_params->rank, mpi_params->nprocs, params->ny);
 
   /*
   ** Allocate memory.
@@ -617,15 +622,15 @@ int initialise(const char* paramfile, const char* obstaclefile,
 
   /* main grid */
 
-  cells_ptr->speeds0 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds1 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds3 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds2 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds4 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds5 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds6 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds7 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  cells_ptr->speeds8 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds0 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds1 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds3 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds2 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds4 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds5 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds6 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds7 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  cells_ptr->speeds8 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
 
   if (cells_ptr->speeds0 == NULL) die("cannot allocate memory for cells0", __LINE__, __FILE__);
   if (cells_ptr->speeds1 == NULL) die("cannot allocate memory for cells1", __LINE__, __FILE__);
@@ -638,15 +643,15 @@ int initialise(const char* paramfile, const char* obstaclefile,
   if (cells_ptr->speeds8 == NULL) die("cannot allocate memory for cells8", __LINE__, __FILE__);
 
   /* 'helper' grid, used as scratch space */
-  tmp_cells_ptr->speeds0 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds1 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds2 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds3 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds4 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds5 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds6 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds7 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
-  tmp_cells_ptr->speeds8 = (float*)_mm_malloc(sizeof(float) * ((local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds0 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds1 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds2 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds3 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds4 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds5 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds6 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds7 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
+  tmp_cells_ptr->speeds8 = (float*)_mm_malloc(sizeof(float) * ((mpi_params->local_rows + 2) * params->nx), 64);
 
   if (tmp_cells_ptr->speeds0 == NULL) die("cannot allocate memory for tmp_cells0", __LINE__, __FILE__);
   if (tmp_cells_ptr->speeds1 == NULL) die("cannot allocate memory for tmp_cells1", __LINE__, __FILE__);
@@ -659,7 +664,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   if (tmp_cells_ptr->speeds8 == NULL) die("cannot allocate memory for tmp_cells8", __LINE__, __FILE__);
 
   /* the map of obstacles */
-  *obstacles_ptr = _mm_malloc(sizeof(int) * ((local_rows + 2) * params->nx), 64);
+  *obstacles_ptr = _mm_malloc(sizeof(int) * ((mpi_params->local_rows + 2) * params->nx), 64);
 
   if (*obstacles_ptr == NULL) die("cannot allocate column memory for obstacles", __LINE__, __FILE__);
 
@@ -668,7 +673,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   float w1 = params->density      / 9.f;
   float w2 = params->density      / 36.f;
 
-  for (int jj = 0; jj < (local_rows + 2); jj++)
+  for (int jj = 0; jj < (mpi_params->local_rows + 2); jj++)
   {
     for (int ii = 0; ii < params->nx; ii++)
     {
@@ -688,7 +693,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   }
 
   /* first set all cells in obstacle array to zero */
-  for (int jj = 0; jj < (local_rows + 2); jj++)
+  for (int jj = 0; jj < (mpi_params->local_rows + 2); jj++)
   {
     for (int ii = 0; ii < params->nx; ii++)
     {
@@ -705,9 +710,9 @@ int initialise(const char* paramfile, const char* obstaclefile,
     die(message, __LINE__, __FILE__);
   }
 
-  int start_row = get_start_row(rank, nprocs, params->ny);
-  printf("Start row: %d\n", start_row);
-  printf("Local rows: %d\n", local_rows);
+  mpi_params->start_row = get_start_row(mpi_params->rank, mpi_params->nprocs, params->ny);
+  printf("Start row: %d\n", mpi_params->start_row);
+  printf("Local rows: %d\n", mpi_params->local_rows);
 
   /* read-in the blocked cells list */
   while ((retval = fscanf(fp, "%d %d %d\n", &xx, &yy, &blocked)) != EOF)
@@ -722,8 +727,8 @@ int initialise(const char* paramfile, const char* obstaclefile,
     if (blocked != 1) die("obstacle blocked value should be 1", __LINE__, __FILE__);
 
     /* assign to array */
-    if (start_row <= yy && yy < start_row + local_rows) {
-      yy = yy - start_row + 1;
+    if (mpi_params->start_row <= yy && yy < mpi_params->start_row + mpi_params->local_rows) {
+      yy = yy - mpi_params->start_row + 1;
       (*obstacles_ptr)[xx + yy*params->nx] = blocked;
     }
   }
