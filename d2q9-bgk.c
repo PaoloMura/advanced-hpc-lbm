@@ -55,6 +55,7 @@
 #include <time.h>
 #include <sys/time.h>
 #include <sys/resource.h>
+#include <mpi.h>
 
 #define NSPEEDS         9
 #define FINALSTATEFILE  "final_state.dat"
@@ -68,9 +69,9 @@ typedef struct
   int    ny;            /* no. of cells in y-direction */
   int    maxIters;      /* no. of iterations */
   int    reynolds_dim;  /* dimension for Reynolds number */
-  float density;       /* density per link */
-  float accel;         /* density redistribution */
-  float omega;         /* relaxation parameter */
+  float density;        /* density per link */
+  float accel;          /* density redistribution */
+  float omega;          /* relaxation parameter */
 } t_param;
 
 /* struct to hold the 'speed' values */
@@ -94,7 +95,8 @@ typedef struct
 /* load params, allocate memory, load obstacles & initialise fluid particle densities */
 int initialise(const char* paramfile, const char* obstaclefile,
                t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr,
-               int** obstacles_ptr, float** av_vels_ptr);
+               int** obstacles_ptr, float** av_vels_ptr,
+               int rank, int nprocs);
 
 /*
 ** The main calculation methods.
@@ -125,6 +127,9 @@ float calc_reynolds(const t_param params, t_speed* restrict cells, int* restrict
 void die(const char* message, const int line, const char* file);
 void usage(const char* exe);
 
+/* Return the number of rows allocated to the given rank */
+int get_rows_for_rank(int rank, int nprocs, int total_rows);
+
 /*
 ** main program:
 ** initialise, timestep loop, finalise
@@ -138,9 +143,12 @@ int main(int argc, char* argv[])
   t_speed  tmp_cells;            /* scratch space */
   t_speed  tmp_tmp_cells;        /* temporary value used for swapping pointers */
   int*     obstacles = NULL;     /* grid indicating which cells are blocked */
-  float* av_vels   = NULL;       /* a record of the av. velocity computed for each timestep */
-  struct timeval timstr;                                                             /* structure to hold elapsed time */
-  double tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic, col_toc; /* floating point numbers to calculate elapsed wallclock time */
+  float*   av_vels   = NULL;     /* a record of the av. velocity computed for each timestep */
+  struct   timeval timstr;                                                             /* structure to hold elapsed time */
+  double   tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic, col_toc; /* floating point numbers to calculate elapsed wallclock time */
+  int nprocs;       /* the total number of MPI processes */
+  int rank;         /* the rank of this MPI process */
+  int local_rows;   /* the number of rows allocated to this process */           
 
   /* parse the command line */
   if (argc != 3)
@@ -153,11 +161,19 @@ int main(int argc, char* argv[])
     obstaclefile = argv[2];
   }
 
+  /* Setup MPI */
+  MPI_Init(&argc, &argv);
+  MPI_Comm_size(MPI_COMM_WORLD, &nprocs);
+  MPI_Comm_rank(MPI_COMM_WORLD, &rank);
+
   /* Total/init time starts here: initialise our data structures and load values from file */
   gettimeofday(&timstr, NULL);
   tot_tic = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
   init_tic=tot_tic;
-  initialise(paramfile, obstaclefile, &params, &cells, &tmp_cells, &obstacles, &av_vels);
+  initialise(paramfile, obstaclefile, &params, &cells, &tmp_cells, &obstacles, &av_vels, rank, nprocs);
+
+  MPI_Finalize();
+  return EXIT_SUCCESS;
 
   /* compute weighting factors */
   const float w_1 = params.density * params.accel / 9.f;
@@ -214,6 +230,8 @@ int main(int argc, char* argv[])
   printf("Elapsed Total time:\t\t\t%.6lf (s)\n",   tot_toc  - tot_tic);
   write_values(params, &cells, obstacles, av_vels);
   finalise(&params, &cells, &tmp_cells, &obstacles, &av_vels);
+
+  MPI_Finalize();
 
   return EXIT_SUCCESS;
 }
@@ -498,9 +516,18 @@ float av_velocity(const t_param params, t_speed* restrict cells, int* restrict o
   return tot_u / (float)tot_cells;
 }
 
+int get_rows_for_rank(int rank, int nprocs, int total_rows)
+{
+  int rows = total_rows / nprocs;
+  int remainder = total_rows % nprocs;
+  if (rank < remainder) rows++;
+  return rows;
+}
+
 int initialise(const char* paramfile, const char* obstaclefile,
                t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr,
-               int** obstacles_ptr, float** av_vels_ptr)
+               int** obstacles_ptr, float** av_vels_ptr,
+               int rank, int nprocs)
 {
   char   message[1024];  /* message buffer */
   FILE*   fp;            /* file pointer */
@@ -548,6 +575,11 @@ int initialise(const char* paramfile, const char* obstaclefile,
 
   /* and close up the file */
   fclose(fp);
+
+  /* Determine the number of rows to allocate to this process */
+  int local_rows = get_rows_for_rank(rank, nprocs, params->ny);
+  printf("%d\n", local_rows);
+  return EXIT_SUCCESS;
 
   /*
   ** Allocate memory.
