@@ -145,6 +145,9 @@ int get_rows_for_rank(int rank, int nprocs, int total_rows);
 /* Return the start row of the given rank (not including halo region) */
 int get_start_row(int rank, int nprocs, int total_rows);
 
+/* Return the total number of unocupied cells in this process's grid section */
+int get_tot_cells(const t_param params, const t_mpi mpi_params, const int* restrict obstacles)
+
 /*
 ** main program:
 ** initialise, timestep loop, finalise
@@ -161,7 +164,10 @@ int main(int argc, char* argv[])
   float*   av_vels   = NULL;     /* a record of the av. velocity computed for each timestep */
   struct   timeval timstr;                                                             /* structure to hold elapsed time */
   double   tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic, col_toc; /* floating point numbers to calculate elapsed wallclock time */
-  t_mpi    mpi_params;           /* struct to hold MPI values */      
+  t_mpi    mpi_params;           /* struct to hold MPI values */
+  int tot_cells;                 /* sum of unoccupied cells across all ranks */
+  float tot_cells_inv            /* inverse of tot_cells */
+  float tot_vels;                /* sum of velocities across all ranks */
 
   /* parse the command line */
   if (argc != 3)
@@ -200,6 +206,13 @@ int main(int argc, char* argv[])
   const float w1 = 1.f / 9.f;  /* weighting factor */
   const float w2 = 1.f / 36.f; /* weighting factor */
 
+  /* find the total number of unoccupied cells in this process's allocated region */
+  const int local_tot_cells = get_tot_cells(params, mpi_params, obstacles);
+
+  /* find the total number of cells across the whole grid */
+  MPI_Reduce(&local_tot_cells, &tot_cells, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
+  if (mpi_params.rank == 0) tot_cells_inv = 1.f / (float) tot_cells;
+
   /* Init time stops here, compute time starts*/
   gettimeofday(&timstr, NULL);
   init_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
@@ -210,7 +223,11 @@ int main(int argc, char* argv[])
   for (int tt = 0; tt < params.maxIters; tt++)
   {
     int finalRound = (tt == params.maxIters - 1);
-    av_vels[tt] = timestep(params, &cells, &tmp_cells, obstacles, finalRound, w_1, w_2, w0, w1, w2, mpi_params);
+    float tot_vel = timestep(params, &cells, &tmp_cells, obstacles, finalRound, w_1, w_2, w0, w1, w2, mpi_params);
+    
+    /* calculate the average velocities, aggregating results in rank 0 */
+    MPI_Reduce(&tot_vel, &tot_vels, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+    if (mpi_params.rank == 0) av_vels[tt] = tot_vel * tot_cells_inv;
 
     /* need to swap the grid pointers */
     tmp_tmp_cells = cells;
@@ -236,6 +253,8 @@ int main(int argc, char* argv[])
   tot_toc = col_toc;
   
   /* write final values and free memory */
+  /* TODO: refactor this section s.t. you aggregate results across the ranks
+  **       then only print output from rank 0 */
   printf("==done==\n");
   printf("Reynolds number:\t\t%.12E\n", calc_reynolds(params, &cells, obstacles));
   printf("Elapsed Init time:\t\t\t%.6lf (s)\n",    init_toc - init_tic);
@@ -263,7 +282,6 @@ float timestep(const t_param params,
                const t_mpi mpi_params) {
 
   /* variables for accelerating velocity */
-  int    tot_cells = 0;  /* no. of cells used in calculation */
   float  tot_u = 0.f;    /* accumulated magnitudes of velocity for each cell */
 
   /* tell the compiler alignment information */
@@ -292,7 +310,7 @@ float timestep(const t_param params,
   __assume((params.nx)%2==0);
   __assume((params.ny)%2==0);
   
-  /* loop over _all_ cells */
+  /* loop over all cells in this process's jurisdiction */
   for (int jj = 1; jj <= mpi_params.local_rows; jj++)
   {
     #pragma omp simd
@@ -387,8 +405,6 @@ float timestep(const t_param params,
 
         /* accumulate the norm of x- and y- velocity components */
         tot_u += sqrtf(u_sq);
-        /* increase counter of inspected cells */
-        ++tot_cells;
 
         /* ACCELERATE FLOW STEP */
 
@@ -435,7 +451,7 @@ float timestep(const t_param params,
   MPI_Sendrecv(&(tmp_cells->speeds8[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
                  &(tmp_cells->speeds8[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, mpi_params.status);
 
-  return tot_u / (float)tot_cells;
+  return tot_u;
 }
 
 int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2, const t_mpi mpi_params)
@@ -572,6 +588,16 @@ int get_start_row(int rank, int nprocs, int total_rows)
   int add_on = (rank < remainder) ? rank : remainder;
   int start_row = rank * rows_per_rank + add_on;
   return start_row;
+}
+
+int get_tot_cells(const t_param params, const t_mpi mpi_params, const int* restrict obstacles) {
+  int tot_cells = 0;
+  for (int jj=1; jj <= mpi_params.local_rows; jj++) {
+    for (int ii=0; ii < params.nx; ii++) {
+      if (!(obstacles[jj * params.nx + ii])) tot_cells++;
+    }
+  }
+  return tot_cells;
 }
 
 int initialise(const char* paramfile, const char* obstaclefile,
