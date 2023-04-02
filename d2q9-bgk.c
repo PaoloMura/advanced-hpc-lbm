@@ -114,7 +114,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
 */
 float timestep(const t_param params, t_speed* restrict cells, t_speed* restrict tmp_cells, int* restrict obstacles, 
                const int finalRound, const float w_1, const float w_2,
-               const float w0, const float w1, const float w2);
+               const float w0, const float w1, const float w2, const t_mpi mpi_params);
 int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict obstacles, const float w1, const float w2, const t_mpi mpi_params);
 int write_values(const t_param params, t_speed* cells, int* obstacles, float* av_vels);
 
@@ -201,7 +201,7 @@ int main(int argc, char* argv[])
   for (int tt = 0; tt < params.maxIters; tt++)
   {
     int finalRound = (tt == params.maxIters - 1);
-    av_vels[tt] = timestep(params, &cells, &tmp_cells, obstacles, finalRound, w_1, w_2, w0, w1, w2);
+    av_vels[tt] = timestep(params, &cells, &tmp_cells, obstacles, finalRound, w_1, w_2, w0, w1, w2, mpi_params);
 
     /* need to swap the grid pointers */
     tmp_tmp_cells = cells;
@@ -252,7 +252,8 @@ float timestep(const t_param params,
                const float w_2,
                const float w0,
                const float w1,
-               const float w2) {
+               const float w2,
+               const t_mpi mpi_params) {
 
   /* variables for accelerating velocity */
   int    tot_cells = 0;  /* no. of cells used in calculation */
@@ -285,7 +286,7 @@ float timestep(const t_param params,
   __assume((params.ny)%2==0);
   
   /* loop over _all_ cells */
-  for (int jj = 0; jj < params.ny; jj++)
+  for (int jj = 1; jj <= mpi_params.local_rows; jj++)
   {
     #pragma omp simd
     for (int ii = 0; ii < params.nx; ii++)
@@ -294,9 +295,9 @@ float timestep(const t_param params,
 
       /* determine indices of axis-direction neighbours
       ** respecting periodic boundary conditions (wrap around) */
-      const int y_n = (jj < params.ny - 1) ? (jj + 1) : 0;
+      const int y_n = jj + 1;
       const int x_e = (ii < params.nx - 1) ? (ii + 1) : 0;
-      const int y_s = (jj == 0) ? (jj + params.ny - 1) : (jj - 1);
+      const int y_s = jj - 1;
       const int x_w = (ii == 0) ? (ii + params.nx - 1) : (ii - 1);
 
       /* propagate densities from neighbouring cells, following
@@ -384,10 +385,11 @@ float timestep(const t_param params,
 
         /* ACCELERATE FLOW STEP */
 
-        /* if this is the second row, we're not in the final round, 
-        ** the cell is not occupied and
+        /* if this is the second row of the top rank, 
+        ** we're not in the final round, the cell is not occupied and
         ** we don't send a negative density */
-        if (jj == params.ny - 2 
+        if (jj == mpi_params.local_rows - 1
+            && mpi_params.rank == mpi_params.nprocs - 1
             && !finalRound
             && (tmp_cells->speeds3[ii + jj*params.nx] - w_1) > 0.f
             && (tmp_cells->speeds6[ii + jj*params.nx] - w_2) > 0.f
@@ -547,8 +549,7 @@ int get_start_row(int rank, int nprocs, int total_rows)
 
 int initialise(const char* paramfile, const char* obstaclefile,
                t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr,
-               int** obstacles_ptr, float** av_vels_ptr, t_mpi* mpi_params)
-{
+               int** obstacles_ptr, float** av_vels_ptr, t_mpi* mpi_params) {
   char   message[1024];  /* message buffer */
   FILE*   fp;            /* file pointer */
   int    xx, yy;         /* generic array indices */
@@ -742,9 +743,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   return EXIT_SUCCESS;
 }
 
-int finalise(const t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr,
-             int** obstacles_ptr, float** av_vels_ptr)
-{
+int finalise(const t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr, int** obstacles_ptr, float** av_vels_ptr) {
   /*
   ** free up allocated memory
   */
