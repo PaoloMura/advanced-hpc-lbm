@@ -60,7 +60,7 @@
 #define NSPEEDS         9
 #define FINALSTATEFILE  "final_state.dat"
 #define AVVELSFILE      "av_vels.dat"
-#define DEBUG           true
+// #define DEBUG           true
 
 /* struct to hold the parameter values */
 typedef struct
@@ -230,7 +230,7 @@ int main(int argc, char* argv[])
     
     /* calculate the average velocities, aggregating results in rank 0 */
     MPI_Reduce(&tot_vel, &tot_vels, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
-    if (mpi_params.rank == 0) av_vels[tt] = tot_vel * tot_cells_inv;
+    if (mpi_params.rank == 0) av_vels[tt] = tot_vels * tot_cells_inv;
 
     /* need to swap the grid pointers */
     tmp_tmp_cells = cells;
@@ -259,7 +259,7 @@ int main(int argc, char* argv[])
   int displs[mpi_params.nprocs];
   for (int rank=0; rank < mpi_params.nprocs; rank++) {
     recvcounts[rank] = get_rows_for_rank(rank, mpi_params.nprocs, params.ny) * params.nx;
-    displs[rank] = get_start_row(rank, mpi_params.nprocs, params.ny);
+    displs[rank] = get_start_row(rank, mpi_params.nprocs, params.ny) * params.nx;
   }
 
   MPI_Gatherv(&(cells.speeds0[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds0, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);

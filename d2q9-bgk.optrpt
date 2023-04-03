@@ -54,11 +54,6 @@ INLINE REPORT: (main(int, char **)) [1/14=7.1%] d2q9-bgk.c(156,1)
     -> EXTERN: (475,3) MPI_Sendrecv(const void *, int, MPI_Datatype, int, int, void *, int, MPI_Datatype, int, int, MPI_Comm, MPI_Status *)
     -> EXTERN: (477,3) MPI_Sendrecv(const void *, int, MPI_Datatype, int, int, void *, int, MPI_Datatype, int, int, MPI_Comm, MPI_Status *)
   -> EXTERN: (232,5) MPI_Reduce(const void *, void *, int, MPI_Datatype, MPI_Op, int, MPI_Comm)
-  -> INLINE: (240,31) total_density(const t_param, const t_mpi, t_speed *) (isz = 95) (sz = 106)
-  -> EXTERN: (242,5) MPI_Reduce(const void *, void *, int, MPI_Datatype, MPI_Op, int, MPI_Comm)
-  -> EXTERN: (245,7) printf(const char *__restrict__, ...)
-  -> EXTERN: (246,7) printf(const char *__restrict__, ...)
-  -> EXTERN: (247,7) printf(const char *__restrict__, ...)
   -> EXTERN: (253,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
   -> EXTERN: (258,7) _vla_alloc(long)
   -> EXTERN: (259,7) _vla_alloc(long)
@@ -307,69 +302,6 @@ LOOP BEGIN at d2q9-bgk.c(226,3)
       <Remainder loop for vectorization>
       LOOP END
    LOOP END
-
-   LOOP BEGIN at d2q9-bgk.c(930,3) inlined into d2q9-bgk.c(240,31)
-      remark #15542: loop was not vectorized: inner loop was already vectorized
-
-      LOOP BEGIN at d2q9-bgk.c(932,5) inlined into d2q9-bgk.c(240,31)
-      <Peeled loop for vectorization>
-         remark #25015: Estimate of max trip count of loop=7
-      LOOP END
-
-      LOOP BEGIN at d2q9-bgk.c(932,5) inlined into d2q9-bgk.c(240,31)
-         remark #15389: vectorization support: reference cells.speeds0[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(934,16) ]
-         remark #15389: vectorization support: reference cells.speeds1[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(935,16) ]
-         remark #15389: vectorization support: reference cells.speeds2[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(936,16) ]
-         remark #15389: vectorization support: reference cells.speeds3[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(937,16) ]
-         remark #15389: vectorization support: reference cells.speeds4[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(938,16) ]
-         remark #15389: vectorization support: reference cells.speeds5[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(939,16) ]
-         remark #15389: vectorization support: reference cells.speeds6[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(940,16) ]
-         remark #15389: vectorization support: reference cells.speeds7[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(941,16) ]
-         remark #15389: vectorization support: reference cells.speeds8[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(942,16) ]
-         remark #15381: vectorization support: unaligned access used inside loop body
-         remark #15305: vectorization support: vector length 8
-         remark #15399: vectorization support: unroll factor set to 2
-         remark #15309: vectorization support: normalized vectorization overhead 0.586
-         remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(928,15) ]
-         remark #15300: LOOP WAS VECTORIZED
-         remark #15442: entire loop may be executed in remainder
-         remark #15450: unmasked unaligned unit stride loads: 9 
-         remark #15475: --- begin vector cost summary ---
-         remark #15476: scalar cost: 29 
-         remark #15477: vector cost: 3.620 
-         remark #15478: estimated potential speedup: 6.100 
-         remark #15488: --- end vector cost summary ---
-      LOOP END
-
-      LOOP BEGIN at d2q9-bgk.c(932,5) inlined into d2q9-bgk.c(240,31)
-      <Remainder loop for vectorization>
-         remark #15389: vectorization support: reference cells.speeds0[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(934,16) ]
-         remark #15389: vectorization support: reference cells.speeds1[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(935,16) ]
-         remark #15389: vectorization support: reference cells.speeds2[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(936,16) ]
-         remark #15389: vectorization support: reference cells.speeds3[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(937,16) ]
-         remark #15389: vectorization support: reference cells.speeds4[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(938,16) ]
-         remark #15389: vectorization support: reference cells.speeds5[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(939,16) ]
-         remark #15389: vectorization support: reference cells.speeds6[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(940,16) ]
-         remark #15389: vectorization support: reference cells.speeds7[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(941,16) ]
-         remark #15389: vectorization support: reference cells.speeds8[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(942,16) ]
-         remark #15381: vectorization support: unaligned access used inside loop body
-         remark #15305: vectorization support: vector length 8
-         remark #15309: vectorization support: normalized vectorization overhead 2.067
-         remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(928,15) ]
-         remark #15301: REMAINDER LOOP WAS VECTORIZED
-         remark #15442: entire loop may be executed in remainder
-         remark #15450: unmasked unaligned unit stride loads: 9 
-         remark #15475: --- begin vector cost summary ---
-         remark #15476: scalar cost: 29 
-         remark #15477: vector cost: 3.620 
-         remark #15478: estimated potential speedup: 6.100 
-         remark #15488: --- end vector cost summary ---
-      LOOP END
-
-      LOOP BEGIN at d2q9-bgk.c(932,5) inlined into d2q9-bgk.c(240,31)
-      <Remainder loop for vectorization>
-      LOOP END
-   LOOP END
 LOOP END
 
 LOOP BEGIN at d2q9-bgk.c(260,3)
@@ -377,13 +309,13 @@ LOOP BEGIN at d2q9-bgk.c(260,3)
    remark #15388: vectorization support: reference displs[rank] has aligned access   [ d2q9-bgk.c(262,5) ]
    remark #15388: vectorization support: reference recvcounts[rank] has aligned access   [ d2q9-bgk.c(261,5) ]
    remark #15305: vectorization support: vector length 8
-   remark #15309: vectorization support: normalized vectorization overhead 0.179
+   remark #15309: vectorization support: normalized vectorization overhead 0.200
    remark #15300: LOOP WAS VECTORIZED
    remark #15449: unmasked aligned unit stride stores: 2 
    remark #15475: --- begin vector cost summary ---
-   remark #15476: scalar cost: 105 
-   remark #15477: vector cost: 3.500 
-   remark #15478: estimated potential speedup: 21.560 
+   remark #15476: scalar cost: 106 
+   remark #15477: vector cost: 3.750 
+   remark #15478: estimated potential speedup: 20.640 
    remark #15488: --- end vector cost summary ---
 LOOP END
 
@@ -463,8 +395,6 @@ d2q9-bgk.c(225,3):remark #34000: call to memcpy implemented inline with loads an
 d2q9-bgk.c(225,3):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(229,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(229,21):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-d2q9-bgk.c(240,31):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
-d2q9-bgk.c(240,31):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(283,43):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(288,5):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(156,1):remark #34051: REGISTER ALLOCATION : [main] d2q9-bgk.c:156
@@ -476,19 +406,19 @@ d2q9-bgk.c(156,1):remark #34051: REGISTER ALLOCATION : [main] d2q9-bgk.c:156
         Assigned     :   29[ rax rdx rcx rsi rdi r8-r15 zmm0-zmm15]
         
     Routine temporaries
-        Total         :    1979
-            Global    :     519
-            Local     :    1460
-        Regenerable   :     189
-        Spilled       :     248
+        Total         :    1739
+            Global    :     437
+            Local     :    1302
+        Regenerable   :     171
+        Spilled       :     224
         
     Routine stack
-        Variables     :     484 bytes*
-            Reads     :     220 [1.04e+00 ~ 1.0%]
-            Writes    :      47 [2.91e-01 ~ 0.3%]
-        Spills        :    2152 bytes*
-            Reads     :     547 [1.49e+01 ~ 14.9%]
-            Writes    :     366 [4.79e+00 ~ 4.8%]
+        Variables     :     476 bytes*
+            Reads     :     215 [1.22e+00 ~ 1.2%]
+            Writes    :      46 [3.99e-01 ~ 0.4%]
+        Spills        :    1944 bytes*
+            Reads     :     466 [1.80e+01 ~ 18.0%]
+            Writes    :     304 [5.34e+00 ~ 5.3%]
     
     Notes
     
