@@ -42,6 +42,10 @@ INLINE REPORT: (main(int, char **)) [1/11=9.1%] d2q9-bgk.c(133,1)
   -> EXTERN: (172,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
   -> INLINE: (177,3) accelerate_flow(const t_param, t_speed *__restrict__, int *__restrict__, const float, const float) (isz = 194) (sz = 209)
   -> INLINE: (181,19) timestep(const t_param, t_speed *__restrict__, t_speed *__restrict__, int *__restrict__, const int, const float, const float, const float, const float, const float) (isz = 632) (sz = 657)
+  -> EXTERN: (190,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (191,5) printf(const char *__restrict__, ...)
+  -> EXTERN: (192,5) printf(const char *__restrict__, ...)
+  -> INLINE: (192,36) total_density(const t_param, t_speed *) (isz = 96) (sz = 105)
   -> EXTERN: (197,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
   -> EXTERN: (204,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
   -> EXTERN: (209,3) printf(const char *__restrict__, ...)
@@ -131,17 +135,6 @@ LOOP BEGIN at d2q9-bgk.c(408,3) inlined into d2q9-bgk.c(177,3)
 LOOP END
 
 LOOP BEGIN at d2q9-bgk.c(178,3)
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25084: Preprocess Loopnests: Moving Out Store    [ d2q9-bgk.c(186,17) ]
-   remark #25096: Loop Interchange not done due to: Imperfect Loop Nest (Either at Source or due to other Compiler Transformations)
-   remark #25451: Advice: Loop Interchange, if possible, might help loopnest. Suggested Permutation : ( 1 2 ) --> ( 2 1 ) 
    remark #25261: Invariant Condition eliminated(Proven True) at line 275
    remark #25261: Invariant Condition eliminated(Proven True) at line 274
    remark #15542: loop was not vectorized: inner loop was already vectorized
@@ -481,6 +474,65 @@ LOOP BEGIN at d2q9-bgk.c(178,3)
       <Remainder loop for vectorization, Predicate Optimized v2>
       LOOP END
    LOOP END
+
+   LOOP BEGIN at d2q9-bgk.c(736,3) inlined into d2q9-bgk.c(192,36)
+      remark #15542: loop was not vectorized: inner loop was already vectorized
+
+      LOOP BEGIN at d2q9-bgk.c(738,5) inlined into d2q9-bgk.c(192,36)
+      <Peeled loop for vectorization>
+         remark #25015: Estimate of max trip count of loop=7
+      LOOP END
+
+      LOOP BEGIN at d2q9-bgk.c(738,5) inlined into d2q9-bgk.c(192,36)
+         remark #15388: vectorization support: reference cells.speeds0[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(740,16) ]
+         remark #15388: vectorization support: reference cells.speeds1[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(741,16) ]
+         remark #15388: vectorization support: reference cells.speeds2[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(742,16) ]
+         remark #15388: vectorization support: reference cells.speeds3[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(743,16) ]
+         remark #15388: vectorization support: reference cells.speeds4[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(744,16) ]
+         remark #15388: vectorization support: reference cells.speeds5[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(745,16) ]
+         remark #15388: vectorization support: reference cells.speeds6[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(746,16) ]
+         remark #15388: vectorization support: reference cells.speeds7[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(747,16) ]
+         remark #15388: vectorization support: reference cells.speeds8[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(748,16) ]
+         remark #15305: vectorization support: vector length 8
+         remark #15399: vectorization support: unroll factor set to 2
+         remark #15309: vectorization support: normalized vectorization overhead 0.238
+         remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(734,15) ]
+         remark #15300: LOOP WAS VECTORIZED
+         remark #15448: unmasked aligned unit stride loads: 9 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 29 
+         remark #15477: vector cost: 2.620 
+         remark #15478: estimated potential speedup: 7.800 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at d2q9-bgk.c(738,5) inlined into d2q9-bgk.c(192,36)
+      <Remainder loop for vectorization>
+         remark #15388: vectorization support: reference cells.speeds0[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(740,16) ]
+         remark #15388: vectorization support: reference cells.speeds1[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(741,16) ]
+         remark #15388: vectorization support: reference cells.speeds2[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(742,16) ]
+         remark #15388: vectorization support: reference cells.speeds3[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(743,16) ]
+         remark #15388: vectorization support: reference cells.speeds4[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(744,16) ]
+         remark #15388: vectorization support: reference cells.speeds5[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(745,16) ]
+         remark #15388: vectorization support: reference cells.speeds6[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(746,16) ]
+         remark #15388: vectorization support: reference cells.speeds7[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(747,16) ]
+         remark #15388: vectorization support: reference cells.speeds8[ii+jj*params.nx] has aligned access   [ d2q9-bgk.c(748,16) ]
+         remark #15305: vectorization support: vector length 8
+         remark #15309: vectorization support: normalized vectorization overhead 1.667
+         remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(734,15) ]
+         remark #15301: REMAINDER LOOP WAS VECTORIZED
+         remark #15448: unmasked aligned unit stride loads: 9 
+         remark #15475: --- begin vector cost summary ---
+         remark #15476: scalar cost: 29 
+         remark #15477: vector cost: 2.620 
+         remark #15478: estimated potential speedup: 7.800 
+         remark #15488: --- end vector cost summary ---
+      LOOP END
+
+      LOOP BEGIN at d2q9-bgk.c(738,5) inlined into d2q9-bgk.c(192,36)
+      <Remainder loop for vectorization>
+      LOOP END
+   LOOP END
 LOOP END
 
 LOOP BEGIN at d2q9-bgk.c(452,3) inlined into d2q9-bgk.c(210,41)
@@ -551,6 +603,7 @@ LOOP END
 
 d2q9-bgk.c(177,3):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(181,19):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
+d2q9-bgk.c(192,36):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(210,41):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(215,3):remark #34000: call to memcpy implemented inline with loads and stores with proven source (alignment, offset): (16, 0), and destination (alignment, offset): (16, 0)
 d2q9-bgk.c(133,1):remark #34051: REGISTER ALLOCATION : [main] d2q9-bgk.c:133
@@ -562,19 +615,19 @@ d2q9-bgk.c(133,1):remark #34051: REGISTER ALLOCATION : [main] d2q9-bgk.c:133
         Assigned     :   30[ rax rdx rcx rbx rsi rdi r8-r15 zmm0-zmm15]
         
     Routine temporaries
-        Total         :    2878
-            Global    :     661
-            Local     :    2217
-        Regenerable   :     131
-        Spilled       :     376
+        Total         :    3089
+            Global    :     724
+            Local     :    2365
+        Regenerable   :     141
+        Spilled       :     413
         
     Routine stack
         Variables     :     264 bytes*
-            Reads     :      94 [2.25e-01 ~ 0.2%]
-            Writes    :      30 [5.93e-02 ~ 0.1%]
-        Spills        :    3752 bytes*
-            Reads     :    1046 [1.92e+01 ~ 19.2%]
-            Writes    :     560 [6.26e+00 ~ 6.3%]
+            Reads     :      96 [2.05e-01 ~ 0.2%]
+            Writes    :      30 [8.13e-02 ~ 0.1%]
+        Spills        :    4032 bytes*
+            Reads     :    1132 [1.81e+01 ~ 18.1%]
+            Writes    :     606 [6.20e+00 ~ 6.2%]
     
     Notes
     
