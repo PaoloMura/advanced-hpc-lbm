@@ -91,14 +91,14 @@ typedef struct
 /* struct to hold the MPI values */
 typedef struct
 {
-  int rank;          /* the rank of this process */
-  int above;         /* the rank above this process */
-  int below;         /* the rank below this process */
-  int nprocs;        /* the total number of processes */
-  int local_rows;    /* the number of rows allocated to this process */
-  int start_row;     /* the start row of this process (excluding halo region) */
-  int end_row;       /* the end row of this process (excluding halo region) */
-  MPI_Status* status /* status flag used in MPI_Sendrecv calls */
+  int rank;           /* the rank of this process */
+  int above;          /* the rank above this process */
+  int below;          /* the rank below this process */
+  int nprocs;         /* the total number of processes */
+  int local_rows;     /* the number of rows allocated to this process */
+  int start_row;      /* the start row of this process (excluding halo region) */
+  int end_row;        /* the end row of this process (excluding halo region) */
+  MPI_Status* status; /* status flag used in MPI_Sendrecv calls */
 } t_mpi;
 
 /*
@@ -106,9 +106,9 @@ typedef struct
 */
 
 /* load params, allocate memory, load obstacles & initialise fluid particle densities */
-int initialise(const char* paramfile, const char* obstaclefile,
-               t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr, t_speed* all_cells_ptr,
-               int** obstacles_ptr, int** all_obstacles_ptr, float** av_vels_ptr, t_mpi* mpi_params)
+int initialise(const char* paramfile, const char* obstaclefile, t_param* params, t_mpi* mpi_params,
+               t_speed* cells_ptr, t_speed* tmp_cells_ptr, t_speed* all_cells_ptr,
+               int** obstacles_ptr, int** all_obstacles_ptr, float** av_vels_ptr);
 
 /*
 ** The main calculation methods.
@@ -122,13 +122,13 @@ int accelerate_flow(const t_param params, t_speed* restrict cells, int* restrict
 int write_values(const t_param params, t_speed* cells, int* obstacles, float* av_vels);
 
 /* finalise, including freeing up allocated memory */
-int finalise(const t_param* params, const t_mpi mpi_params, 
+int finalise(const t_param* params, const t_mpi* mpi_params, 
              t_speed* cells_ptr, t_speed* tmp_cells_ptr, t_speed* all_cells_ptr, 
              int** obstacles_ptr, int** all_obstacles_ptr, float** av_vels_ptr);
 
 /* Sum all the densities in the grid.
 ** The total should remain constant from one timestep to the next. */
-float total_density(const t_param params, const t_mpi, mpi_params, t_speed* cells);
+float total_density(const t_param params, const t_mpi mpi_params, t_speed* cells);
 
 /* compute average velocity */
 float av_velocity(const t_param params, t_speed* restrict cells, int* restrict obstacles);
@@ -147,7 +147,7 @@ int get_rows_for_rank(int rank, int nprocs, int total_rows);
 int get_start_row(int rank, int nprocs, int total_rows);
 
 /* Return the total number of unocupied cells in this process's grid section */
-int get_tot_cells(const t_param params, const t_mpi mpi_params, const int* restrict obstacles)
+int get_tot_cells(const t_param params, const t_mpi mpi_params, const int* restrict obstacles);
 
 /*
 ** main program:
@@ -169,7 +169,7 @@ int main(int argc, char* argv[])
   double   tot_tic, tot_toc, init_tic, init_toc, comp_tic, comp_toc, col_tic, col_toc; /* floating point numbers to calculate elapsed wallclock time */
   t_mpi    mpi_params;           /* struct to hold MPI values */
   int tot_cells;                 /* sum of unoccupied cells across all ranks */
-  float tot_cells_inv            /* inverse of tot_cells */
+  float tot_cells_inv;           /* inverse of tot_cells */
   float tot_vels;                /* sum of velocities across all ranks */
 
   /* parse the command line */
@@ -198,7 +198,8 @@ int main(int argc, char* argv[])
   gettimeofday(&timstr, NULL);
   tot_tic = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
   init_tic=tot_tic;
-  initialise(paramfile, obstaclefile, &params, &mpi_params, &cells, &tmp_cells, &all_cells, &obstacles, &all_obstacles, &av_vels, &mpi_params);
+
+  initialise(paramfile, obstaclefile, &params, &mpi_params, &cells, &tmp_cells, &all_cells, &obstacles, &all_obstacles, &av_vels);
 
   /* compute weighting factors */
   const float w_1 = params.density * params.accel / 9.f;
@@ -262,15 +263,15 @@ int main(int argc, char* argv[])
     displs[rank] = get_start_row(rank, mpi_params.nprocs, params.ny);
   }
 
-  MPI_Gatherv(&(cells.speeds0[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds0, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds1[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds1, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds2[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds2, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds3[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds3, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds4[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds4, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds5[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds5, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds6[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds6, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds7[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds7, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
-  MPI_Gatherv(&(cells.speeds8[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds8, recvcounts, displs, MPI_FLOAT, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds0[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds0, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds1[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds1, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds2[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds2, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds3[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds3, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds4[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds4, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds5[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds5, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds6[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds6, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds7[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds7, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
+  MPI_Gatherv(&(cells.speeds8[params.nx]), params.nx * mpi_params.local_rows, MPI_FLOAT, all_cells.speeds8, recvcounts, displs, MPI_FLOAT, 0, MPI_COMM_WORLD);
 
   /* Total/collate time stops here.*/
   gettimeofday(&timstr, NULL);
@@ -625,9 +626,9 @@ int get_tot_cells(const t_param params, const t_mpi mpi_params, const int* restr
   return tot_cells;
 }
 
-int initialise(const char* paramfile, const char* obstaclefile,
-               t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr, t_speed* all_cells_ptr,
-               int** obstacles_ptr, int** all_obstacles_ptr, float** av_vels_ptr, t_mpi* mpi_params) {
+int initialise(const char* paramfile, const char* obstaclefile, t_param* params, t_mpi* mpi_params,
+               t_speed* cells_ptr, t_speed* tmp_cells_ptr, t_speed* all_cells_ptr,
+               int** obstacles_ptr, int** all_obstacles_ptr, float** av_vels_ptr) {
   char   message[1024];  /* message buffer */
   FILE*   fp;            /* file pointer */
   int    xx, yy, yyy;    /* generic array indices */
@@ -862,7 +863,7 @@ int initialise(const char* paramfile, const char* obstaclefile,
   return EXIT_SUCCESS;
 }
 
-int finalise(const t_param* params, const t_mpi mpi_params, 
+int finalise(const t_param* params, const t_mpi* mpi_params, 
              t_speed* cells_ptr, t_speed* tmp_cells_ptr, t_speed* all_cells_ptr, 
              int** obstacles_ptr, int** all_obstacles_ptr, float** av_vels_ptr) {
   /*
