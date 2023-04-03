@@ -60,7 +60,7 @@
 #define NSPEEDS         9
 #define FINALSTATEFILE  "final_state.dat"
 #define AVVELSFILE      "av_vels.dat"
-// #define DEBUG           true
+#define DEBUG           true
 
 /* struct to hold the parameter values */
 typedef struct
@@ -98,7 +98,6 @@ typedef struct
   int local_rows;     /* the number of rows allocated to this process */
   int start_row;      /* the start row of this process (excluding halo region) */
   int end_row;        /* the end row of this process (excluding halo region) */
-  MPI_Status* status; /* status flag used in MPI_Sendrecv calls */
 } t_mpi;
 
 /*
@@ -458,24 +457,25 @@ float timestep(const t_param params,
   }
 
   /* Halo exchange */
+  MPI_Status status;
 
   /* Send up, receive from below */
   const int sendup = params.nx * mpi_params.local_rows;
   MPI_Sendrecv(&(tmp_cells->speeds2[sendup]), params.nx, MPI_FLOAT, mpi_params.above, 0, 
-                 &(tmp_cells->speeds2[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, mpi_params.status);
+                 &(tmp_cells->speeds2[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, &status);
   MPI_Sendrecv(&(tmp_cells->speeds5[sendup]), params.nx, MPI_FLOAT, mpi_params.above, 0, 
-                 &(tmp_cells->speeds5[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, mpi_params.status);
+                 &(tmp_cells->speeds5[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, &status);
   MPI_Sendrecv(&(tmp_cells->speeds6[sendup]), params.nx, MPI_FLOAT, mpi_params.above, 0, 
-                 &(tmp_cells->speeds6[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, mpi_params.status);
+                 &(tmp_cells->speeds6[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, &status);
 
   /* Send down, receive from above */
   const int recabv = params.nx * (mpi_params.local_rows + 1);
   MPI_Sendrecv(&(tmp_cells->speeds4[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
-                 &(tmp_cells->speeds4[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, mpi_params.status);
+                 &(tmp_cells->speeds4[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
   MPI_Sendrecv(&(tmp_cells->speeds7[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
-                 &(tmp_cells->speeds7[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, mpi_params.status);
+                 &(tmp_cells->speeds7[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
   MPI_Sendrecv(&(tmp_cells->speeds8[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
-                 &(tmp_cells->speeds8[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, mpi_params.status);
+                 &(tmp_cells->speeds8[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
 
   return tot_u;
 }
