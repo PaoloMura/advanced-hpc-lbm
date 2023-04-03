@@ -127,7 +127,7 @@ int finalise(const t_param* params, t_speed* cells_ptr, t_speed* tmp_cells_ptr,
 
 /* Sum all the densities in the grid.
 ** The total should remain constant from one timestep to the next. */
-float total_density(const t_param params, t_speed* cells);
+float total_density(const t_param params, const t_mpi, mpi_params, t_speed* cells);
 
 /* compute average velocity */
 float av_velocity(const t_param params, t_speed* restrict cells, int* restrict obstacles);
@@ -234,9 +234,15 @@ int main(int argc, char* argv[])
     cells = tmp_cells;
     tmp_cells = tmp_tmp_cells;
 #ifdef DEBUG
-    printf("==timestep: %d==\n", tt);
-    printf("av velocity: %.12E\n", av_vels[tt]);
-    printf("tot density: %.12E\n", total_density(params, &cells));
+    float local_tot_density = total_density(params, mpi_params, &cells);
+    float tot_density;
+    MPI_Reduce(&local_tot_density, &tot_density, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+
+    if (mpi_params.rank == 0) {
+      printf("==timestep: %d==\n", tt);
+      printf("av velocity: %.12E\n", av_vels[tt]);
+      printf("tot density: %.12E\n", tot_density);
+    }
 #endif
   }
   
@@ -837,11 +843,11 @@ float calc_reynolds(const t_param params, t_speed* restrict cells, int* restrict
   return av_velocity(params, cells, obstacles) * params.reynolds_dim / viscosity;
 }
 
-float total_density(const t_param params, t_speed* cells)
+float total_density(const t_param params, const t_mpi mpi_params, t_speed* cells)
 {
   float total = 0.f;  /* accumulator */
 
-  for (int jj = 0; jj < params.ny; jj++)
+  for (int jj = 1; jj <= mpi_params.local_rows; jj++)
   {
     for (int ii = 0; ii < params.nx; ii++)
     {
