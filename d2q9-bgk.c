@@ -148,6 +148,174 @@ int get_start_row(int rank, int nprocs, int total_rows);
 /* Return the total number of unocupied cells in this process's grid section */
 int get_tot_cells(const t_param params, const t_mpi mpi_params, const int* restrict obstacles);
 
+void print_cell(int i, int speed, const t_speed* cells) {
+  switch (speed) {
+    case 0:
+      printf("%2.6f ", cells->speeds0[i]);
+      break;
+    case 1:
+      printf("%2.6f ", cells->speeds1[i]);
+      break;
+    case 2:
+      printf("%2.6f ", cells->speeds2[i]);
+      break;
+    case 3:
+      printf("%2.6f ", cells->speeds3[i]);
+      break;
+    case 4:
+      printf("%2.6f ", cells->speeds4[i]);
+      break;
+    case 5:
+      printf("%2.6f ", cells->speeds5[i]);
+      break;
+    case 6:
+      printf("%2.6f ", cells->speeds6[i]);
+      break;
+    case 7:
+      printf("%2.6f ", cells->speeds7[i]);
+      break;
+    case 8:
+      printf("%2.6f ", cells->speeds8[i]);
+      break;
+    default:
+      printf("\nError - invalid speed\n");
+  }
+}
+
+void print_cells(const t_param params, const t_mpi mpi_params, const t_speed* cells, const char* name, int speed) {
+  printf("%s:\n", name);
+
+  for (int j=mpi_params.local_rows + 1; j >= 0; j--) {
+    printf("%d: ", j);
+    (j == mpi_params.local_rows + 1 || j == 0) ? printf("[") : printf(" ");
+    for (int i=0; i < 3; i++) {
+      print_cell(i + j*params.ny, speed, cells);
+    }
+    printf(". . . ");
+    for (int i=params.ny - 3; i < params.ny; i++) {
+      print_cell(i + j*params.ny, speed, cells);
+    }
+    (j == mpi_params.local_rows + 1 || j == 0) ? printf("]\n") : printf(" \n");
+  }
+}
+
+float get_speed(const int speed, const t_speed* restrict cells, const int i) {
+  switch (speed) {
+    case 0:
+      return cells->speeds0[i];
+    case 1:
+      return cells->speeds1[i];
+    case 2:
+      return cells->speeds2[i];
+    case 3:
+      return cells->speeds3[i];
+    case 4:
+      return cells->speeds4[i];
+    case 5:
+      return cells->speeds5[i];
+    case 6:
+      return cells->speeds6[i];
+    case 7:
+      return cells->speeds7[i];
+    case 8:
+      return cells->speeds8[i];
+    default:
+      printf("\nError - invalid speed\n");
+      return .0f;
+  }
+}
+
+void print_grid(const t_param params, const t_mpi mpi_params, const t_speed* restrict cells, const char* name, int speed) {
+  printf("%s:\n", name);
+
+  int row, col, index;
+  char *output, *current;
+
+  output = malloc((mpi_params.local_rows + 2) * (params.nx * 9 + 4) + 1);
+  current = output;
+
+  for (row = mpi_params.local_rows + 1; row >= 0; row--) {
+    current += sprintf(current, "%d: ", row);
+    for (col = 0; col < params.nx; col++) {
+      index = row * params.nx + col;
+      current += sprintf(current, "%2.6f ", get_speed(speed, cells, index));
+    }
+    current += sprintf(current, "\n");
+  }
+
+  printf("%s", output);
+
+  free(output);
+}
+
+void print_obstacles(const t_param params, const t_mpi mpi_params, const int* restrict obstacles) {
+  int row, col, index;
+  char *output, *current;
+
+  output = malloc((mpi_params.local_rows + 2) * (params.nx * 2 + 4) + 1);
+  current = output;
+
+  for (row = mpi_params.local_rows + 1; row >= 0; row--) {
+    current += sprintf(current, "%d: ", row);
+    for (col = 0; col < params.nx; col++) {
+      index = row * params.nx + col;
+      current += sprintf(current, "%d ", obstacles[index]);
+    }
+    current += sprintf(current, "\n");
+  }
+
+  printf("%s", output);
+
+  free(output);
+}
+
+void print_speeds(const t_param params, const t_mpi mpi_params, const t_speed* cells, const t_speed* tmp_cells) {
+  print_cells(params, mpi_params, cells, "cells0", 0);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells0", 0);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells1", 1);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells1", 1);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells2", 2);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells2", 2);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells3", 3);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells3", 3);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells4", 4);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells4", 4);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells5", 5);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells5", 5);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells6", 6);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells6", 6);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells7", 7);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells7", 7);
+  printf("\n");
+
+  print_cells(params, mpi_params, cells, "cells8", 8);
+  printf("\n");
+  print_cells(params, mpi_params, tmp_cells, "tmp_cells8", 8);
+  printf("\n");
+}
+
 /*
 ** main program:
 ** initialise, timestep loop, finalise
@@ -223,6 +391,28 @@ int main(int argc, char* argv[])
 
   /* perform a single accelerate flow step before iterating */
   accelerate_flow(params, &cells, obstacles, w_1, w_2, mpi_params);
+
+  /* Halo exchange */
+  MPI_Status status;
+
+  /* Send up, receive from below */
+  const int sendup = params.nx * mpi_params.local_rows;
+  MPI_Sendrecv(&(cells.speeds2[sendup]), params.nx, MPI_FLOAT, mpi_params.above, 0, 
+                 &(cells.speeds2[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, &status);
+  MPI_Sendrecv(&(cells.speeds5[sendup]), params.nx, MPI_FLOAT, mpi_params.above, 0, 
+                 &(cells.speeds5[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, &status);
+  MPI_Sendrecv(&(cells.speeds6[sendup]), params.nx, MPI_FLOAT, mpi_params.above, 0, 
+                 &(cells.speeds6[0]), params.nx, MPI_FLOAT, mpi_params.below, 0, MPI_COMM_WORLD, &status);
+
+  /* Send down, receive from above */
+  const int recabv = params.nx * (mpi_params.local_rows + 1);
+  MPI_Sendrecv(&(cells.speeds4[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
+                 &(cells.speeds4[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
+  MPI_Sendrecv(&(cells.speeds7[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
+                 &(cells.speeds7[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
+  MPI_Sendrecv(&(cells.speeds8[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
+                 &(cells.speeds8[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
+
   for (int tt = 0; tt < params.maxIters; tt++)
   {
     int finalRound = (tt == params.maxIters - 1);
@@ -236,17 +426,17 @@ int main(int argc, char* argv[])
     tmp_tmp_cells = cells;
     cells = tmp_cells;
     tmp_cells = tmp_tmp_cells;
-#ifdef DEBUG
-    float local_tot_density = total_density(params, mpi_params, &cells);
-    float tot_density;
-    MPI_Reduce(&local_tot_density, &tot_density, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
+    #ifdef DEBUG
+      float local_tot_density = total_density(params, mpi_params, &cells);
+      float tot_density;
+      MPI_Reduce(&local_tot_density, &tot_density, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
 
-    if (mpi_params.rank == 0) {
-      printf("==timestep: %d==\n", tt);
-      printf("av velocity: %.12E\n", av_vels[tt]);
-      printf("tot density: %.12E\n", tot_density);
-    }
-#endif
+      if (mpi_params.rank == 0) {
+        printf("==timestep: %d==\n", tt);
+        printf("av velocity: %.12E\n", av_vels[tt]);
+        printf("tot density: %.12E\n", tot_density);
+      }
+    #endif
   }
   
   /* Compute time stops here, collate time starts*/
@@ -334,6 +524,9 @@ float timestep(const t_param params,
 
   __assume((params.nx)%2==0);
   __assume((params.ny)%2==0);
+
+  int DEBUG_ROW = 3;
+  int DEBUG_RANK = 1;
   
   /* loop over all cells in this process's jurisdiction */
   for (int jj = 1; jj <= mpi_params.local_rows; jj++)
