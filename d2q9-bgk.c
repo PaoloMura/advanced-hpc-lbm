@@ -98,6 +98,7 @@ typedef struct
   int local_rows;     /* the number of rows allocated to this process */
   int start_row;      /* the start row of this process (excluding halo region) */
   int end_row;        /* the end row of this process (excluding halo region) */
+  int second_row;     /* the local index of the second row in the grid (-1 for all but the process to which the row belongs)*/
 } t_mpi;
 
 /*
@@ -369,10 +370,10 @@ int main(int argc, char* argv[])
   initialise(paramfile, obstaclefile, &params, &mpi_params, &cells, &tmp_cells, &all_cells, &obstacles, &all_obstacles, &av_vels);
 
   // TODO: remove this
-  int DEBUG_SPEED = 7;
-  if (mpi_params.rank == 0) printf("Initialise:\n");
-  print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-  print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
+  // int DEBUG_SPEED = 7;
+  // if (mpi_params.rank == 0) printf("Initialise:\n");
+  // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
+  // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
 
   /* compute weighting factors */
   const float w_1 = params.density * params.accel / 9.f;
@@ -391,7 +392,7 @@ int main(int argc, char* argv[])
   if (mpi_params.rank == 0) tot_cells_inv = 1.f / (float) tot_cells;
 
   // TODO: remove this
-  if (mpi_params.rank == 0) printf("tot_cells_inv = %f\n", tot_cells_inv);
+  // if (mpi_params.rank == 0) printf("tot_cells_inv = %f\n", tot_cells_inv);
 
   /* Init time stops here, compute time starts*/
   gettimeofday(&timstr, NULL);
@@ -402,9 +403,9 @@ int main(int argc, char* argv[])
   accelerate_flow(params, &cells, obstacles, w_1, w_2, mpi_params);
 
   // TODO: remove this
-  if (mpi_params.rank == 0) printf("Accelerate flow:\n");
-  print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-  print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
+  // if (mpi_params.rank == 0) printf("Accelerate flow:\n");
+  // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
+  // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
 
   /* Halo exchange */
   MPI_Status status;
@@ -428,9 +429,9 @@ int main(int argc, char* argv[])
                  &(cells.speeds8[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
 
   // TODO: remove this
-  if (mpi_params.rank == 0) printf("Halo exchange:\n");
-  print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-  print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
+  // if (mpi_params.rank == 0) printf("Halo exchange:\n");
+  // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
+  // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
 
   for (int tt = 0; tt < params.maxIters; tt++)
   {
@@ -438,16 +439,16 @@ int main(int argc, char* argv[])
     float tot_vel = timestep(params, &cells, &tmp_cells, obstacles, finalRound, w_1, w_2, w0, w1, w2, mpi_params);
 
     // TODO: remove this
-    if (mpi_params.rank == 0) printf("Halo exchange:\n");
-    print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-    print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
+    // if (mpi_params.rank == 0) printf("Halo exchange:\n");
+    // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
+    // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
     
     /* calculate the average velocities, aggregating results in rank 0 */
     MPI_Reduce(&tot_vel, &tot_vels, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
     if (mpi_params.rank == 0) av_vels[tt] = tot_vels * tot_cells_inv;
 
     // TODO: remove this
-    if (mpi_params.rank == 0) printf("av_vels[tt] = %f\n", av_vels[tt]);
+    // if (mpi_params.rank == 0) printf("av_vels[tt] = %f\n", av_vels[tt]);
 
     /* need to swap the grid pointers */
     tmp_tmp_cells = cells;
@@ -553,8 +554,8 @@ float timestep(const t_param params,
   __assume((params.ny)%2==0);
 
   // TODO: remove this
-  int DEBUG_ROW = 3;
-  int DEBUG_RANK = 1;
+  // int DEBUG_ROW = 3;
+  // int DEBUG_RANK = 1;
   
   /* loop over all cells in this process's jurisdiction */
   for (int jj = 1; jj <= mpi_params.local_rows; jj++)
@@ -654,11 +655,12 @@ float timestep(const t_param params,
 
         /* ACCELERATE FLOW STEP */
 
-        /* if this is the second row of the top rank, 
+        /* if this is the second row of the whole gtod, 
         ** we're not in the final round, the cell is not occupied and
         ** we don't send a negative density */
-        if (jj == mpi_params.local_rows - 1
-            && mpi_params.rank == mpi_params.nprocs - 1
+        /* modify the 2nd row of the grid */
+
+        if (jj == mpi_params.second_row
             && !finalRound
             && (tmp_cells->speeds3[ii + jj*params.nx] - w_1) > 0.f
             && (tmp_cells->speeds6[ii + jj*params.nx] - w_2) > 0.f
@@ -678,10 +680,10 @@ float timestep(const t_param params,
   }
 
   // TODO: remove this
-  int DEBUG_SPEED = 7;
-  if (mpi_params.rank == 0) printf("Timestep:\n");
-  print_grid(params, mpi_params, cells, "cells7", DEBUG_SPEED);
-  print_grid(params, mpi_params, tmp_cells, "temp_cells7", DEBUG_SPEED);
+  // int DEBUG_SPEED = 7;
+  // if (mpi_params.rank == 0) printf("Timestep:\n");
+  // print_grid(params, mpi_params, cells, "cells7", DEBUG_SPEED);
+  // print_grid(params, mpi_params, tmp_cells, "temp_cells7", DEBUG_SPEED);
 
   /* Halo exchange */
   MPI_Status status;
@@ -1054,6 +1056,12 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
 
   mpi_params->start_row = get_start_row(mpi_params->rank, mpi_params->nprocs, params->ny);
   mpi_params->end_row = mpi_params->start_row + mpi_params->local_rows - 1;
+  
+  int second_row = params->ny - 2;
+  if (second_row >= mpi_params->start_row && second_row <= mpi_params->end_row) {
+    mpi_params->second_row = (mpi_params->local_rows == 1) ? 1 : mpi_params->local_rows - 1;
+  } else mpi_params->second_row = -1;
+
 
   /* read-in the blocked cells list */
   while ((retval = fscanf(fp, "%d %d %d\n", &xx, &yy, &blocked)) != EOF)
