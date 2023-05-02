@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/localdisk/jenkins/workspace/workspace/ch4-build-linux-2019/impi-ch4-build-linux_build/CONF/impi-ch4-build-linux-release/label/impi-ch4-build-linux-intel64/_buildspace/release/src/pm/i_hydra/../../../../../src/pm/i_hydra/mpiexec/mpiexec.c"
+           line_no="2015"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.000000E-02"
+           trip_counts=""
+           func_instance="65"
+           priority="0"/>
+  <hotspot filename="/localdisk/jenkins/workspace/workspace/ch4-build-linux-2019/impi-ch4-build-linux_build/CONF/impi-ch4-build-linux-release/label/impi-ch4-build-linux-intel64/_buildspace/release/src/pm/i_hydra/../../../../../src/pm/i_hydra/mpiexec/mpiexec.c"
+           line_no="2014"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.000000E-02"
+           trip_counts=""
+           func_instance="66"
+           priority="0"/>
+  <hotspot filename="/localdisk/jenkins/workspace/workspace/ch4-build-linux-2019/impi-ch4-build-linux_build/CONF/impi-ch4-build-linux-release/label/impi-ch4-build-linux-intel64/_buildspace/release/src/pm/i_hydra/../../../../../src/pm/i_hydra/mpiexec/mpiexec.c"
+           line_no="2017"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.000000E-02"
+           trip_counts=""
+           func_instance="55"
+           priority="0"/>
+  <hotspot filename="/mnt/storage/apps/bc4/slurm/slurm-22.05.6/src/srun/libsrun/srun_job.c"
+           line_no="701"
+           routine="init_srun"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="3.000000E-02"
+           trip_counts=""
+           func_instance="33"
+           priority="0"/>
+  <hotspot filename="/localdisk/jenkins/workspace/workspace/ch4-build-linux-2019/impi-ch4-build-linux_build/CONF/impi-ch4-build-linux-release/label/impi-ch4-build-linux-intel64/_buildspace/release/src/pm/i_hydra/../../../../../src/pm/i_hydra/mpiexec/mpiexec.c"
+           line_no="2016"
+           routine="main"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="1.000000E-02"
+           trip_counts=""
+           func_instance="63"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

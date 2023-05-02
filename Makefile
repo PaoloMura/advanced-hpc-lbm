@@ -6,7 +6,7 @@ CC=mpiicc
 # CC=icc
 # CC=gcc
 # CFLAGS= -std=c99 -Wall -O3 -xAVX2
-CFLAGS= -std=c99 -Wall -O3 -xAVX2 -g -qopt-report=5 -simd
+CFLAGS= -std=c99 -Wall -O3 -xAVX2 -g -qopt-report=5 -simd -vec -qopenmp
 LIBS = -lm
 
 FINAL_STATE_FILE=./final_state.dat
