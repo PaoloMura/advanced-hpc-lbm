@@ -8,6 +8,7 @@
 #SBATCH --account=COSC028844
 #SBATCH --output d2q9-bgk.out
 #SBATCH --exclusive 
+#SBATCH --exclude=compute521,compute522,compute523,compute524
 
 echo Running on host `hostname`
 echo Time is `date`
@@ -16,11 +17,22 @@ echo Slurm job ID is $SLURM_JOB_ID
 echo This job runs on the following machines:
 echo `echo $SLURM_JOB_NODELIST | uniq`
 
+
+# mpirun -np 2 -l ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+
 #! Run the executable
+# for i in {1..112}
+# do
+#     # mpirun -np $i -l ./d2q9-bgk input_128x128.params obstacles_128x128.dat
+#     # mpirun -np $i -l ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+#     # mpirun -np $i -l ./d2q9-bgk input_256x256.params obstacles_256x256.dat
+#     mpirun -np $i -l ./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
+# done
+
 # mpirun -np 5 -l ./d2q9-bgk input_8x8.params obstacles_8x8.dat
-mpirun -np 112 -l ./d2q9-bgk input_128x128.params obstacles_128x128.dat
-# mpirun -np 14 -l ./d2q9-bgk input_128x256.params obstacles_128x256.dat
-# mpirun -np 86 -l ./d2q9-bgk input_256x256.params obstacles_256x256.dat
+# mpirun -np 112 -l ./d2q9-bgk input_128x128.params obstacles_128x128.dat
+# mpirun -np 112 -l ./d2q9-bgk input_128x256.params obstacles_128x256.dat
+# mpirun -np 112 -l ./d2q9-bgk input_256x256.params obstacles_256x256.dat
 # mpirun -np 112 -l ./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
 
 # ./d2q9-bgk input_128x128.params obstacles_128x128.dat
@@ -32,3 +44,6 @@ mpirun -np 112 -l ./d2q9-bgk input_128x128.params obstacles_128x128.dat
 # advixe-cl --collect=roofline --project-dir=./advi_results1 -- ./d2q9-bgk input_128x128.params obstacles_128x128.dat
 # advixe-cl --collect=roofline --project-dir=./advi_results2 -- ./d2q9-bgk input_256x256.params obstacles_256x256.dat
 # advixe-cl --collect=roofline --project-dir=./advi_results3 -- ./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat
+advixe-cl --collect=roofline --project-dir=./advi_results4 -- mpiexec -n 112 ./d2q9-bgk input_128x128.params obstacles_128x128.dat
+advixe-cl --collect=roofline --project-dir=./advi_results5 -- mpiexec -n 112 ./d2q9-bgk input_256x256.params obstacles_256x256.dat
+advixe-cl --collect=roofline --project-dir=./advi_results6 -- mpiexec -n 112 ./d2q9-bgk input_1024x1024.params obstacles_1024x1024.dat

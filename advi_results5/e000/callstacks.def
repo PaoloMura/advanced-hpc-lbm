@@ -1,0 +1,384 @@
+# callstacks file version: 7
+#    rowid	    parent	       rva	 loop	 system	                                function	binary	instance_start_rva	instance_size	instance_end_rva	finst_rowid	roi	is_inlined	jit_method_id	tripcounts_roi	flops_roi	cachesim_roi	data_transfer_roi
+         1	        -1	     18240	    0	      0	                                  _start	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18240	44	0	35	0	0	0	0	0	0	0
+         2	        -1	     18280	    0	      0	                                  _start	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18240	44	0	35	0	0	0	0	0	0	0
+         3	       355	    140628	    1	      1	     [Loop@0x22499 in __libc_start_main]	/lib64/libc.so.6	140441	391	0	14	0	0	0	0	0	0	0
+         4	       267	     26085	    1	      0	             [Loop at line 2017 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	26076	51	31133,31254,26127	39	0	0	0	0	0	0	0
+         5	       269	    210927	    1	      0	[Loop at line 53 in HYDI_dmx_poll_wait_for_event]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	210684	166	210760,211032,211168,211180,211168,210993	118	0	0	0	0	0	0	0
+         6	         5	     57838	    0	      0	                              control_cb	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	47456	17952	0	126	0	0	0	0	0	0	0
+         7	       272	    237285	    0	      0	                                    read	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	237268	18	0	144	0	1	0	0	0	0	0
+         8	       283	   4941791	    1	      1	  [Loop@0x4b67b9 in tpss_read_mod0_ver0]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	4941753	167	0	40	0	0	0	0	0	0	0
+         9	         8	   4957926	    0	      1	                     tpss_read_mod2_ver0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	4957648	2815	0	64	0	0	0	0	0	0	0
+        10	         9	     59200	    0	      1	                                  __read	/lib64/libpthread.so.0	59184	90	0	2	0	0	0	0	0	0	0
+        11	        -1	     18240	    0	      0	                                  _start	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18240	44	0	35	0	0	0	0	0	0	0
+        12	        -1	     29312	    0	      0	                                  _start	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	29312	48	0	15	0	0	0	0	0	0	0
+        13	        -1	     29352	    0	      0	                                  _start	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	29312	48	0	15	0	0	0	0	0	0	0
+        14	       357	    140628	    1	      1	     [Loop@0x22499 in __libc_start_main]	/lib64/libc.so.6	140441	391	0	14	0	0	0	0	0	0	0
+        15	        14	     38684	    0	      0	                                    main	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	38676	11	0	19	0	0	0	0	0	0	0
+        16	        15	     32553	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+        17	        16	    901628	    0	      0	                         slurm_conf_init	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	900720	1124	0	72	0	0	0	0	0	0	0
+        18	        17	    877711	    0	      0	                        _init_slurm_conf	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	877485	22358	0	91	0	0	0	0	0	0	0
+        19	       315	    800743	    1	      0	   [Loop at line 1260 in s_p_parse_file]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	798945	1773	800619	124	0	0	0	0	0	0	0
+        20	        19	    795728	    0	      0	                         _parse_next_key	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	795626	317	0	128	0	0	0	0	0	0	0
+        21	       317	    794903	    0	      0	                           _handle_array	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	794872	156	0	130	0	1	0	0	0	0	0
+        22	        21	    860816	    0	      0	                         _parse_nodename	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	860762	2521	0	134	0	0	0	0	0	0	0
+        23	       319	    795593	    1	      0	    [Loop at line 986 in s_p_parse_line]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	795413	110	795519,795460,795604	139	0	0	0	0	0	0	0
+        24	        23	    791124	    0	      0	                         _keyvalue_regex	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	791023	323	0	141	0	0	0	0	0	0	0
+        25	        24	    923668	    0	      1	                                 regexec	/lib64/libc.so.6	923472	283	0	25	0	0	0	0	0	0	0
+        26	       359	    897794	    1	      1	    [Loop@0xda7e8 in re_search_internal]	/lib64/libc.so.6	894952	4509	0	33	0	0	0	0	0	0	0
+        27	       362	    882447	    1	      1	  [Loop@0xd76e0 in sift_states_backward]	/lib64/libc.so.6	882400	639	0	65	0	0	0	0	0	0	0
+        28	        27	    850399	    0	      1	                       check_node_accept	/lib64/libc.so.6	850176	277	0	68	0	0	0	0	0	0	0
+        29	       361	    882591	    1	      1	  [Loop@0xd7670 in sift_states_backward]	/lib64/libc.so.6	882288	805	0	67	0	0	0	0	0	0	0
+        30	        29	    879612	    0	      1	                 update_cur_sifted_state	/lib64/libc.so.6	879248	2867	0	69	0	0	0	0	0	0	0
+        31	       366	    869688	    1	      1	      [Loop@0xd4530 in re_acquire_state]	/lib64/libc.so.6	869680	31	0	77	0	0	0	0	0	0	0
+        32	       362	    882448	    1	      1	  [Loop@0xd76e0 in sift_states_backward]	/lib64/libc.so.6	882400	639	0	65	0	0	0	0	0	0	0
+        33	        21	    860799	    0	      0	                         _parse_nodename	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	860762	2521	0	134	0	0	0	0	0	0	0
+        34	        33	    792348	    0	      0	                      s_p_hashtbl_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	791971	417	0	142	0	0	0	0	0	0	0
+        35	        34	    922895	    0	      1	                                 regcomp	/lib64/libc.so.6	922704	287	0	83	0	0	0	0	0	0	0
+        36	       372	    917600	    1	      1	   [Loop@0xe002a in re_compile_internal]	/lib64/libc.so.6	917546	140	0	85	0	0	0	0	0	0	0
+        37	        19	    795675	    0	      0	                         _parse_next_key	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	795626	317	0	128	0	0	0	0	0	0	0
+        38	        37	    791124	    0	      0	                         _keyvalue_regex	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	791023	323	0	141	0	0	0	0	0	0	0
+        39	        38	    923668	    0	      1	                                 regexec	/lib64/libc.so.6	923472	283	0	25	0	0	0	0	0	0	0
+        40	        39	    898062	    0	      1	                      re_search_internal	/lib64/libc.so.6	893696	7850	0	34	0	0	0	0	0	0	0
+        41	       376	    884198	    1	      1	              [Loop@0xd7dd8 in set_regs]	/lib64/libc.so.6	884184	50	0	100	0	0	0	0	0	0	0
+        42	        29	    879557	    0	      1	                 update_cur_sifted_state	/lib64/libc.so.6	879248	2867	0	69	0	0	0	0	0	0	0
+        43	        42	    852012	    0	      1	               re_node_set_add_intersect	/lib64/libc.so.6	852000	500	0	112	0	0	0	0	0	0	0
+        44	        15	     32708	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+        45	        44	    912760	    0	      0	                           select_g_init	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	912383	806	0	147	0	0	0	0	0	0	0
+        46	        45	    737078	    0	      0	                           list_for_each	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	737034	47	0	148	0	0	0	0	0	0	0
+        47	       321	    736851	    1	      0	 [Loop at line 611 in list_for_each_max]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	736839	50	736982,736894,736889	149	0	0	0	0	0	0	0
+        48	        47	    911702	    0	      0	                           _load_plugins	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	911616	164	0	151	0	0	0	0	0	0	0
+        49	        48	    814737	    0	      0	                   plugin_context_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	814433	551	0	154	0	0	0	0	0	0	0
+        50	       323	    814128	    1	      0	[Loop at line 253 in plugin_load_and_link]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813890	350	814171,814286	157	0	0	0	0	0	0	0
+        51	        50	    813117	    0	      0	                   plugin_load_from_file	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813079	191	0	160	0	0	0	0	0	0	0
+        52	        51	      4160	    0	      1	                                  dlopen	/lib64/libdl.so.2	4112	79	0	1	0	0	0	0	0	0	0
+        53	        52	      5548	    0	      1	                            _dlerror_run	/lib64/libdl.so.2	5440	291	0	4	0	0	0	0	0	0	0
+        54	        53	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+        55	        54	      4010	    0	      1	                             dlopen_doit	/lib64/libdl.so.2	3920	189	0	11	0	0	0	0	0	0	0
+        56	        55	     80778	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	80608	1366	0	8	0	0	0	0	0	0	0
+        57	        56	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+        58	        57	     82776	    0	      1	                          dl_open_worker	/lib64/ld-linux-x86-64.so.2	82272	2519	0	31	0	0	0	0	0	0	0
+        59	        58	   8491700	    0	      1	                           func@0x819270	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491632	128	0	70	0	0	0	0	0	0	0
+        60	        59	   8491492	    0	      1	                           func@0x819180	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491392	240	0	73	0	0	0	0	0	0	0
+        61	       285	   8486564	    1	      1	        [Loop@0x817e7e in func@0x817cb6]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486526	57	0	80	0	0	0	0	0	0	0
+        62	        61	   8218700	    0	      1	       LEVEL_PINCLIENT::ProcessImageLoad	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8218624	226	0	98	0	0	0	0	0	0	0
+        63	        62	   8209533	    0	      1	                           func@0x7d3e80	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8208000	7676	0	107	0	0	0	0	0	0	0
+        64	        63	   8204300	    0	      1	                           func@0x7d2b00	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8203008	3200	0	123	0	0	0	0	0	0	0
+        65	       288	   8187863	    1	      1	        [Loop@0x7cdfe8 in func@0x7cdef0]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183784	4710	0	129	0	0	0	0	0	0	0
+        66	        65	    573659	    0	      1	           std::__malloc_alloc::allocate	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libstlport-dynamic.so	573648	108	0	7	0	0	0	0	0	0	0
+        67	        66	   2193763	    0	      1	          LEVEL_BASE::SWMALLOC::Allocate	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/bin64/pinbin	2190160	7473	0	30	0	0	0	0	0	0	0
+        68	        67	   2188375	    0	      1	          LEVEL_BASE::SWMALLOC::GetPages	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/bin64/pinbin	2188304	105	0	45	0	0	0	0	0	0	0
+        69	        62	   8212104	    0	      1	                           func@0x7d3e80	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8208000	7676	0	107	0	0	0	0	0	0	0
+        70	        69	   8500848	    0	      1	     LEVEL_PINCLIENT::GetSubprogramsInfo	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8500784	7675	0	138	0	0	0	0	0	0	0
+        71	        70	    233961	    0	      1	               GetSubprogramsListInImage	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	233920	796	0	51	0	0	0	0	0	0	0
+        72	       307	    230592	    1	      1	      [Loop@0x38490 in LoadDwarfForFile]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	230544	1493	0	62	0	0	0	0	0	0	0
+        73	        72	    239310	    0	      1	    llvm::DWARFUnit::extractDIEsIfNeeded	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	239200	279	0	71	0	0	0	0	0	0	0
+        74	       309	    239985	    1	      1	[Loop@0x3a960 in llvm::DWARFUnit::extractDIEsToVector]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	239968	389	0	74	0	0	0	0	0	0	0
+        75	        74	    305813	    0	      1	llvm::DWARFDebugInfoEntryMinimal::extractFast	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	305776	336	0	82	0	0	0	0	0	0	0
+        76	        15	     33264	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+        77	       245	     63769	    1	      0	         [Loop at line 701 in init_srun]	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	63749	166	65720	36	0	0	0	0	0	0	0
+        78	       247	     56405	    0	      0	                             _opt_verify	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	52818	3837	0	52	0	1	0	0	0	0	0
+        79	        78	    992341	    0	      0	                       mpi_g_client_init	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	992333	17	0	162	0	0	0	0	0	0	0
+        80	        79	    990445	    0	      0	                               _mpi_init	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	990324	194	0	164	0	0	0	0	0	0	0
+        81	        80	    988969	    0	      0	                        _mpi_init_locked	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	988510	1814	0	166	0	0	0	0	0	0	0
+        82	        81	    737078	    0	      0	                           list_for_each	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	737034	47	0	148	0	0	0	0	0	0	0
+        83	       325	    736851	    1	      0	 [Loop at line 611 in list_for_each_max]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	736839	50	736982,736894,736889	149	0	0	0	0	0	0	0
+        84	        83	    988208	    0	      0	                            _load_plugin	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	988132	145	0	169	0	0	0	0	0	0	0
+        85	        84	    814737	    0	      0	                   plugin_context_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	814433	551	0	154	0	0	0	0	0	0	0
+        86	       327	    814128	    1	      0	[Loop at line 253 in plugin_load_and_link]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813890	350	814171,814286	157	0	0	0	0	0	0	0
+        87	        86	    813117	    0	      0	                   plugin_load_from_file	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813079	191	0	160	0	0	0	0	0	0	0
+        88	        87	      4160	    0	      1	                                  dlopen	/lib64/libdl.so.2	4112	79	0	1	0	0	0	0	0	0	0
+        89	        88	      5548	    0	      1	                            _dlerror_run	/lib64/libdl.so.2	5440	291	0	4	0	0	0	0	0	0	0
+        90	        89	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+        91	        90	      4010	    0	      1	                             dlopen_doit	/lib64/libdl.so.2	3920	189	0	11	0	0	0	0	0	0	0
+        92	        91	     80778	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	80608	1366	0	8	0	0	0	0	0	0	0
+        93	        92	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+        94	        93	     82776	    0	      1	                          dl_open_worker	/lib64/ld-linux-x86-64.so.2	82272	2519	0	31	0	0	0	0	0	0	0
+        95	        94	   8491700	    0	      1	                           func@0x819270	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491632	128	0	70	0	0	0	0	0	0	0
+        96	        95	   8491492	    0	      1	                           func@0x819180	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491392	240	0	73	0	0	0	0	0	0	0
+        97	       290	   8486564	    1	      1	        [Loop@0x817e7e in func@0x817cb6]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486526	57	0	80	0	0	0	0	0	0	0
+        98	        97	   8218700	    0	      1	       LEVEL_PINCLIENT::ProcessImageLoad	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8218624	226	0	98	0	0	0	0	0	0	0
+        99	        98	   8212104	    0	      1	                           func@0x7d3e80	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8208000	7676	0	107	0	0	0	0	0	0	0
+       100	        99	   8500848	    0	      1	     LEVEL_PINCLIENT::GetSubprogramsInfo	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8500784	7675	0	138	0	0	0	0	0	0	0
+       101	       100	    233961	    0	      1	               GetSubprogramsListInImage	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	233920	796	0	51	0	0	0	0	0	0	0
+       102	       101	    229890	    0	      1	                        LoadDwarfForFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	229632	3360	0	63	0	0	0	0	0	0	0
+       103	       102	    334592	    0	      1	llvm::object::ObjectFile::createObjectFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	334512	178	0	84	0	0	0	0	0	0	0
+       104	       103	    785273	    0	      1	             llvm::MemoryBuffer::getFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	785152	290	0	87	0	0	0	0	0	0	0
+       105	       311	    293531	    1	      1	[Loop@0x47a90 in llvm::sys::fs::openFileForRead]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	293520	31	0	108	0	0	0	0	0	0	0
+       106	       105	     90179	    0	      1	                                    open	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	89824	645	0	5	0	0	0	0	0	0	0
+       107	       106	    467778	    0	      1	                               OS_OpenFD	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	467632	381	0	18	0	0	0	0	0	0	0
+       108	       107	    489890	    0	      1	                            OS_SyscallDo	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	489616	377	0	24	0	0	0	0	0	0	0
+       109	       108	    489479	    0	      1	    OS_BARESYSCALL_DoCallAsmIntel64Linux	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	489448	36	0	26	0	0	0	0	0	0	0
+       110	        98	   8209332	    0	      1	                           func@0x7d3e80	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8208000	7676	0	107	0	0	0	0	0	0	0
+       111	       110	   8693041	    0	      1	              LEVEL_IMGIO::IMG_ReadImage	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8681184	15797	0	143	0	0	0	0	0	0	0
+       112	       293	   8672164	    1	      1	        [Loop@0x845398 in func@0x845140]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8672152	2456	0	191	0	0	0	0	0	0	0
+       113	       112	   7898682	    0	      1	std::basic_ios<char, std::char_traits<char>>::init	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	7898608	278	0	194	0	0	0	0	0	0	0
+       114	       113	    232031	    0	      1	                    std::ios_base::imbue	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libstlport-dynamic.so	231888	160	0	17	0	0	0	0	0	0	0
+       115	       114	    375851	    0	      1	                     std::locale::locale	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libstlport-dynamic.so	375840	17	0	21	0	0	0	0	0	0	0
+       116	       115	    433732	    0	      1	                   std::_get_Locale_impl	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libstlport-dynamic.so	433712	49	0	23	0	0	0	0	0	0	0
+       117	       116	    477382	    0	      1	                            OS_MutexLock	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	477344	76	0	27	0	0	0	0	0	0	0
+       118	       256	    477285	    1	      1	       [Loop@0x74820 in OS_MutexLockTid]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	477216	74	0	28	0	0	0	0	0	0	0
+       119	       258	    490497	    1	      1	         [Loop@0x77bec in SPINLOCK_Lock]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	490476	27	0	50	0	0	0	0	0	0	0
+       120	        86	    813230	    0	      0	                   plugin_load_from_file	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813079	191	0	160	0	0	0	0	0	0	0
+       121	       275	     33245	    0	      0	                           _libpmix_open	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/mpi_pmix.so	33200	181	0	12	0	1	0	0	0	0	0
+       122	       121	      4160	    0	      1	                                  dlopen	/lib64/libdl.so.2	4112	79	0	1	0	0	0	0	0	0	0
+       123	       122	      5548	    0	      1	                            _dlerror_run	/lib64/libdl.so.2	5440	291	0	4	0	0	0	0	0	0	0
+       124	       123	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+       125	       124	      4010	    0	      1	                             dlopen_doit	/lib64/libdl.so.2	3920	189	0	11	0	0	0	0	0	0	0
+       126	       125	     80778	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	80608	1366	0	8	0	0	0	0	0	0	0
+       127	       126	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+       128	       127	     82776	    0	      1	                          dl_open_worker	/lib64/ld-linux-x86-64.so.2	82272	2519	0	31	0	0	0	0	0	0	0
+       129	       128	   8491700	    0	      1	                           func@0x819270	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491632	128	0	70	0	0	0	0	0	0	0
+       130	       129	   8491492	    0	      1	                           func@0x819180	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491392	240	0	73	0	0	0	0	0	0	0
+       131	       295	   8486564	    1	      1	        [Loop@0x817e7e in func@0x817cb6]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486526	57	0	80	0	0	0	0	0	0	0
+       132	       131	   8218700	    0	      1	       LEVEL_PINCLIENT::ProcessImageLoad	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8218624	226	0	98	0	0	0	0	0	0	0
+       133	       132	   8209533	    0	      1	                           func@0x7d3e80	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8208000	7676	0	107	0	0	0	0	0	0	0
+       134	       133	   8204300	    0	      1	                           func@0x7d2b00	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8203008	3200	0	123	0	0	0	0	0	0	0
+       135	       298	   8185613	    1	      1	        [Loop@0x7cdfe8 in func@0x7cdef0]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183784	4710	0	129	0	0	0	0	0	0	0
+       136	       135	   8183438	    0	      1	                           func@0x7cdd40	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183104	432	0	195	0	0	0	0	0	0	0
+       137	        15	     33382	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+       138	       137	     71728	    0	      0	                         create_srun_job	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	71423	3541	0	76	0	0	0	0	0	0	0
+       139	       138	     80591	    0	      0	                     existing_allocation	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	80396	347	0	92	0	0	0	0	0	0	0
+       140	       139	    287825	    0	      0	                    slurm_het_job_lookup	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	287705	240	0	190	0	0	0	0	0	0	0
+       141	       330	   1071494	    1	      0	[Loop at line 2448 in slurm_send_recv_controller_msg]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1071476	362	1071830,1071965,1071828,1071963	197	0	0	0	0	0	0	0
+       142	       141	   1067305	    0	      0	                      _send_and_recv_msg	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1067292	62	0	200	0	0	0	0	0	0	0
+       143	       142	   1067258	    0	      0	                     slurm_send_recv_msg	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1067196	96	0	201	0	0	0	0	0	0	0
+       144	       332	   1065736	    0	      0	                           _compute_hash	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1065582	177	0	202	0	1	0	0	0	0	0
+       145	       144	    685860	    0	      0	                          hash_g_compute	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	685824	159	0	204	0	0	0	0	0	0	0
+       146	       145	    685635	    0	      0	                             hash_g_init	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	685314	510	0	205	0	0	0	0	0	0	0
+       147	       146	    814737	    0	      0	                   plugin_context_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	814433	551	0	154	0	0	0	0	0	0	0
+       148	       334	    814128	    1	      0	[Loop at line 253 in plugin_load_and_link]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813890	350	814171,814286	157	0	0	0	0	0	0	0
+       149	       148	    813117	    0	      0	                   plugin_load_from_file	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813079	191	0	160	0	0	0	0	0	0	0
+       150	       149	      4160	    0	      1	                                  dlopen	/lib64/libdl.so.2	4112	79	0	1	0	0	0	0	0	0	0
+       151	       150	      5548	    0	      1	                            _dlerror_run	/lib64/libdl.so.2	5440	291	0	4	0	0	0	0	0	0	0
+       152	       151	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+       153	       152	      4010	    0	      1	                             dlopen_doit	/lib64/libdl.so.2	3920	189	0	11	0	0	0	0	0	0	0
+       154	       153	     80778	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	80608	1366	0	8	0	0	0	0	0	0	0
+       155	       154	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+       156	       155	     82776	    0	      1	                          dl_open_worker	/lib64/ld-linux-x86-64.so.2	82272	2519	0	31	0	0	0	0	0	0	0
+       157	       156	   8491700	    0	      1	                           func@0x819270	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491632	128	0	70	0	0	0	0	0	0	0
+       158	       157	   8491492	    0	      1	                           func@0x819180	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491392	240	0	73	0	0	0	0	0	0	0
+       159	       300	   8486564	    1	      1	        [Loop@0x817e7e in func@0x817cb6]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486526	57	0	80	0	0	0	0	0	0	0
+       160	       159	   8218700	    0	      1	       LEVEL_PINCLIENT::ProcessImageLoad	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8218624	226	0	98	0	0	0	0	0	0	0
+       161	       160	   8212104	    0	      1	                           func@0x7d3e80	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8208000	7676	0	107	0	0	0	0	0	0	0
+       162	       161	   8500848	    0	      1	     LEVEL_PINCLIENT::GetSubprogramsInfo	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8500784	7675	0	138	0	0	0	0	0	0	0
+       163	       162	    233961	    0	      1	               GetSubprogramsListInImage	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	233920	796	0	51	0	0	0	0	0	0	0
+       164	       163	    229890	    0	      1	                        LoadDwarfForFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	229632	3360	0	63	0	0	0	0	0	0	0
+       165	       164	    334592	    0	      1	llvm::object::ObjectFile::createObjectFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	334512	178	0	84	0	0	0	0	0	0	0
+       166	       165	    785323	    0	      1	             llvm::MemoryBuffer::getFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	785152	290	0	87	0	0	0	0	0	0	0
+       167	       313	    785821	    1	      1	       [Loop@0xbfd90 in getOpenFileImpl]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	785808	45	0	110	0	0	0	0	0	0	0
+       168	       167	     90961	    0	      1	                                    read	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	90928	79	0	58	0	0	0	0	0	0	0
+       169	       168	    469295	    0	      1	                               OS_ReadFD	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	469264	136	0	61	0	0	0	0	0	0	0
+       170	       169	    489890	    0	      1	                            OS_SyscallDo	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	489616	377	0	24	0	0	0	0	0	0	0
+       171	       170	    489479	    0	      1	    OS_BARESYSCALL_DoCallAsmIntel64Linux	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	489448	36	0	26	0	0	0	0	0	0	0
+       172	       249	     33686	    0	      0	                          _setup_job_env	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	33404	305	0	93	0	1	0	0	0	0	0
+       173	       172	     31203	    0	      0	                      _setup_one_job_env	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	29619	1930	0	94	0	0	0	0	0	0	0
+       174	       173	   1511602	    0	      0	                           uid_to_string	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1511594	28	0	206	0	0	0	0	0	0	0
+       175	       174	   1511556	    0	      0	                   uid_to_string_or_null	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1511503	91	0	207	0	0	0	0	0	0	0
+       176	       336	   1510871	    1	      0	   [Loop at line 98 in slurm_getpwuid_r]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1510848	31	1510879	208	0	0	0	0	0	0	0
+       177	       378	    806229	    1	      1	            [Loop@0xc4cf0 in getpwuid_r]	/lib64/libc.so.6	806128	257	0	113	0	0	0	0	0	0	0
+       178	       380	   1125581	    1	      1	          [Loop@0x112cb1 in __nss_next2]	/lib64/libc.so.6	1125553	40	0	115	0	0	0	0	0	0	0
+       179	       178	   1124839	    0	      1	                   __nss_lookup_function	/lib64/libc.so.6	1124064	1114	0	117	0	0	0	0	0	0	0
+       180	       179	   1301009	    0	      1	                      __libc_dlopen_mode	/lib64/libc.so.6	1300928	146	0	120	0	0	0	0	0	0	0
+       181	       180	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+       182	       181	   1300817	    0	      1	                               do_dlopen	/lib64/libc.so.6	1300752	76	0	121	0	0	0	0	0	0	0
+       183	       182	     80778	    0	      1	                                _dl_open	/lib64/ld-linux-x86-64.so.2	80608	1366	0	8	0	0	0	0	0	0	0
+       184	       183	     63443	    0	      1	                         _dl_catch_error	/lib64/ld-linux-x86-64.so.2	63344	213	0	3	0	0	0	0	0	0	0
+       185	       184	     82776	    0	      1	                          dl_open_worker	/lib64/ld-linux-x86-64.so.2	82272	2519	0	31	0	0	0	0	0	0	0
+       186	       185	   8491700	    0	      1	                           func@0x819270	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491632	128	0	70	0	0	0	0	0	0	0
+       187	       186	   8491492	    0	      1	                           func@0x819180	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8491392	240	0	73	0	0	0	0	0	0	0
+       188	       302	   8486564	    1	      1	        [Loop@0x817e7e in func@0x817cb6]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486526	57	0	80	0	0	0	0	0	0	0
+       189	       188	   8218700	    0	      1	       LEVEL_PINCLIENT::ProcessImageLoad	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8218624	226	0	98	0	0	0	0	0	0	0
+       190	       189	   8209533	    0	      1	                           func@0x7d3e80	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8208000	7676	0	107	0	0	0	0	0	0	0
+       191	       190	   8204300	    0	      1	                           func@0x7d2b00	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8203008	3200	0	123	0	0	0	0	0	0	0
+       192	       305	   8187812	    1	      1	        [Loop@0x7cdfe8 in func@0x7cdef0]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183784	4710	0	129	0	0	0	0	0	0	0
+       193	       192	    573659	    0	      1	           std::__malloc_alloc::allocate	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libstlport-dynamic.so	573648	108	0	7	0	0	0	0	0	0	0
+       194	       281	   2191226	    1	      1	[Loop@0x216f5a in LEVEL_BASE::SWMALLOC::Allocate]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/bin64/pinbin	2191194	97	0	49	0	0	0	0	0	0	0
+       195	       251	     37376	    0	      0	                             _launch_app	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	33901	3659	0	95	0	1	0	0	0	0	0
+       196	       195	     31922	    0	      0	                         _launch_one_app	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	31624	846	0	96	0	0	0	0	0	0	0
+       197	       196	     66005	    0	      0	                     pre_launch_srun_job	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	65801	584	0	97	0	0	0	0	0	0	0
+       198	       253	     32211	    1	      0	   [Loop at line 279 in _launch_one_app]	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32170	65	32266,32235	99	0	0	0	0	0	0	0
+       199	       198	     43595	    0	      0	                    launch_g_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	43534	84	0	101	0	0	0	0	0	0	0
+       200	       199	     16913	    0	      0	                    launch_p_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/launch_slurm.so	14584	3122	0	9	0	0	0	0	0	0	0
+       201	       200	    400798	    0	      0	                       slurm_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	400146	3081	0	210	0	0	0	0	0	0	0
+       202	       201	    993146	    0	      0	                  mpi_g_client_prelaunch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	992350	921	0	211	0	0	0	0	0	0	0
+       203	       202	     34385	    0	      0	                  mpi_p_client_prelaunch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/mpi_pmix.so	34359	774	0	20	0	0	0	0	0	0	0
+       204	       203	     40534	    0	      0	                 pmixp_abort_agent_start	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/mpi_pmix.so	39913	718	0	38	0	0	0	0	0	0	0
+       205	       338	    401470	    0	      0	                         _msg_thr_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	400847	703	0	212	0	1	0	0	0	0	0
+       206	       200	    402787	    0	      0	                       slurm_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	400146	3081	0	210	0	0	0	0	0	0	0
+       207	       340	    390918	    1	      0	[Loop at line 1148 in client_io_handler_create]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	390899	26	390925	213	0	0	0	0	0	0	0
+       208	       207	    738818	    0	      0	                            list_enqueue	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	738724	167	0	215	0	0	0	0	0	0	0
+       209	       208	    732886	    0	      0	                       _list_node_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	732816	167	0	216	0	0	0	0	0	0	0
+       210	       209	   1524951	    0	      0	                           slurm_xcalloc	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1524832	217	0	217	0	0	0	0	0	0	0
+       211	       210	    549395	    0	      1	                                  calloc	/lib64/libc.so.6	549216	687	0	122	0	0	0	0	0	0	0
+       212	       211	    534981	    0	      1	                             _int_malloc	/lib64/libc.so.6	532352	3884	0	127	0	0	0	0	0	0	0
+       213	       200	    402843	    0	      0	                       slurm_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	400146	3081	0	210	0	0	0	0	0	0	0
+       214	       213	    391138	    0	      0	                 client_io_handler_start	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	390954	315	0	218	0	0	0	0	0	0	0
+       215	       200	    403106	    0	      0	                       slurm_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	400146	3081	0	210	0	0	0	0	0	0	0
+       216	       215	    398825	    0	      0	                           _launch_tasks	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	398110	1679	0	219	0	0	0	0	0	0	0
+       217	       216	   1068576	    0	      0	                    slurm_send_recv_msgs	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1068473	129	0	220	0	0	0	0	0	0	0
+       218	       217	    595103	    0	      0	                          start_msg_tree	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	594743	816	0	221	0	0	0	0	0	0	0
+       219	       342	    593250	    1	      0	[Loop at line 501 in _start_msg_tree_internal]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	592738	605	0	222	0	0	0	0	0	0	0
+       220	       253	     32229	    1	      0	   [Loop at line 279 in _launch_one_app]	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32170	65	32266,32235	99	0	0	0	0	0	0	0
+       221	       220	     43664	    0	      0	                      launch_g_step_wait	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	43618	65	0	105	0	0	0	0	0	0	0
+       222	       221	     17739	    0	      0	                      launch_p_step_wait	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/launch_slurm.so	17706	188	0	32	0	0	0	0	0	0	0
+       223	       222	    407223	    0	      0	           slurm_step_launch_wait_finish	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	406142	1254	0	224	0	0	0	0	0	0	0
+       224	       344	    391577	    0	      0	                      _delay_kill_thread	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	391307	351	0	225	0	1	0	0	0	0	0
+       225	        -1	     67326	    0	      0	                        _srun_signal_mgr	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	67326	827	0	106	0	0	0	0	0	0	0
+       226	        -1	     37518	    0	      0	                      _pmix_abort_thread	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/mpi_pmix.so	37518	199	0	42	0	0	0	0	0	0	0
+       227	        -1	    393040	    0	      0	                       _msg_thr_internal	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	393040	23	0	227	0	0	0	0	0	0	0
+       228	        -1	    389398	    0	      0	                        _io_thr_internal	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	389398	195	0	228	0	0	0	0	0	0	0
+       229	        -1	    595739	    0	      0	                        _fwd_tree_thread	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	595739	1349	0	229	0	0	0	0	0	0	0
+       230	        -1	   1043212	    0	      1	                                 __clone	/lib64/libc.so.6	1043104	134	0	135	0	0	0	0	0	0	0
+       231	       277	     32420	    1	      1	           [Loop@0x7e93 in start_thread]	/lib64/libpthread.so.0	32403	127	0	6	0	0	0	0	0	0	0
+       232	       231	   3425693	    0	      1	       tpss_thread_start_routine_wrapper	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	3424768	1869	0	196	0	0	0	0	0	0	0
+       233	       346	    595915	    1	      0	  [Loop at line 365 in _fwd_tree_thread]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	595898	1157	597057,597030	230	0	0	0	0	0	0	0
+       234	       233	    904269	    0	      0	                     slurm_conf_get_addr	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	904234	671	0	231	0	0	0	0	0	0	0
+       235	       348	    899992	    1	      0	[Loop at line 2268 in _init_slurmd_nodehash]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	899972	74	900046	232	0	0	0	0	0	0	0
+       236	       235	    760530	    0	      0	                    expand_nodeline_info	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	760369	1103	0	234	0	0	0	0	0	0	0
+       237	       236	    695046	    0	      0	                         hostlist_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	695019	35	0	235	0	0	0	0	0	0	0
+       238	       352	    694719	    1	      0	[Loop at line 1802 in _hostlist_create_bracketed]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	694485	443	694952,694928	236	0	0	0	0	0	0	0
+       239	       238	    694210	    0	      0	                 hostlist_push_host_dims	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	694156	175	0	240	0	0	0	0	0	0	0
+       240	       239	    690700	    0	      0	                    hostname_create_dims	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	690471	643	0	241	0	0	0	0	0	0	0
+       241	       240	    576393	    0	      1	                                __strdup	/lib64/libc.so.6	576368	65	0	136	0	0	0	0	0	0	0
+       242	       241	    546770	    0	      1	                           __libc_malloc	/lib64/libc.so.6	546624	214	0	137	0	0	0	0	0	0	0
+       243	        -1	    389593	    0	      0	                               _kill_thr	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	389593	54	0	242	0	0	0	0	0	0	0
+       244	        -1	     29312	    0	      0	                                  _start	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	29312	48	0	15	0	0	0	0	0	0	0
+       245	        76	     63749	    0	      0	                               init_srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	63548	2253	0	37	0	0	0	0	0	0	0
+       246	        76	     63769	    0	      0	                               init_srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	63548	2253	0	37	0	0	0	0	0	0	0
+       247	        77	     52818	    0	      0	             initialize_and_process_args	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	49411	7462	0	56	0	0	0	0	0	0	0
+       248	        77	     56405	    0	      0	             initialize_and_process_args	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	49411	7462	0	56	0	0	0	0	0	0	0
+       249	        15	     33404	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+       250	        15	     33686	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+       251	        15	     33901	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+       252	        15	     37376	    0	      0	                                    srun	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	32470	5180	0	22	0	0	0	0	0	0	0
+       253	       195	     32170	    0	      0	                         _launch_one_app	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	31624	846	0	96	0	0	0	0	0	0	0
+       254	       195	     32211	    0	      0	                         _launch_one_app	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	31624	846	0	96	0	0	0	0	0	0	0
+       255	       195	     32229	    0	      0	                         _launch_one_app	/mnt/storage/apps/bc4/slurm/22.05.6/bin/srun	31624	846	0	96	0	0	0	0	0	0	0
+       256	       117	    477216	    0	      1	                         OS_MutexLockTid	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	476912	429	0	29	0	0	0	0	0	0	0
+       257	       117	    477285	    0	      1	                         OS_MutexLockTid	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	476912	429	0	29	0	0	0	0	0	0	0
+       258	       118	    490476	    0	      1	                           SPINLOCK_Lock	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	490476	37	0	53	0	0	0	0	0	0	0
+       259	       118	    490497	    0	      1	                           SPINLOCK_Lock	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libc-dynamic.so	490476	37	0	53	0	0	0	0	0	0	0
+       260	         3	     18984	    0	      0	                                    main	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18480	15776	0	43	0	0	0	0	0	0	0
+       261	       260	     18984	    1	      0	             [Loop at line 1743 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18984	15047	29319,29290,29525,29583	60	0	0	0	0	0	0	0
+       262	       261	     18984	    1	      0	             [Loop at line 1743 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18984	14663	29319,29290,31133,30997,30873,29525,29583	59	0	0	0	0	0	0	0
+       263	       262	     18984	    1	      0	             [Loop at line 1743 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18984	7736	33913,19196,29319,29290,19588,20230,29724,20845,33678,22054,22232,22408,22620,22784,23102,23548,23775,23944,24115,29258,24634,31754,31616,31478,29123,31133,30997,30873,27104,30833,27090,29525,29583,31909,32064,32226,32381,32536,32691,33535	55	0	0	0	0	0	0	0
+       264	       263	     26027	    1	      0	             [Loop at line 1743 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18984	7705	33913,19196,29319,29290,19588,20230,29724,20845,33678,22054,22232,22408,22620,22784,23102,23548,23775,23944,24115,29258,24634,25263,31754,31616,31478,29123,31133,30997,30873,27104,30833,27090,29583,31909,32064,32226,32381,32536,32691,33535	48	0	0	0	0	0	0	0
+       265	       264	     26047	    1	      0	             [Loop at line 2014 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	26027	410	31133,31121,26213	47	0	0	0	0	0	0	0
+       266	       265	     26065	    1	      0	             [Loop at line 2015 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	26047	359	31133,26182	46	0	0	0	0	0	0	0
+       267	       266	     26076	    1	      0	             [Loop at line 2016 in main]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	26065	308	31133,26149	44	0	0	0	0	0	0	0
+       268	         3	     26085	    0	      0	                                    main	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	18480	15776	0	43	0	0	0	0	0	0	0
+       269	         4	    210684	    0	      0	            HYDI_dmx_poll_wait_for_event	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	209648	2000	0	119	0	0	0	0	0	0	0
+       270	         4	    210927	    0	      0	            HYDI_dmx_poll_wait_for_event	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	209648	2000	0	119	0	0	0	0	0	0	0
+       271	         6	    237262	    0	      0	                           HYD_sock_read	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	237040	496	0	146	0	0	0	0	0	0	0
+       272	       271	    237268	    1	      0	     [Loop at line 298 in HYD_sock_read]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	237262	81	237317,237313,237507,237361	145	0	0	0	0	0	0	0
+       273	       271	    237285	    1	      0	     [Loop at line 298 in HYD_sock_read]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	237262	81	237317,237313,237507,237361	145	0	0	0	0	0	0	0
+       274	         6	    237285	    0	      0	                           HYD_sock_read	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/bin/mpiexec.hydra	237040	496	0	146	0	0	0	0	0	0	0
+       275	       120	     33200	    0	      0	                                    init	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/mpi_pmix.so	33189	446	0	13	0	0	0	0	0	0	0
+       276	       120	     33245	    0	      0	                                    init	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/mpi_pmix.so	33189	446	0	13	0	0	0	0	0	0	0
+       277	       230	     32403	    0	      1	                            start_thread	/lib64/libpthread.so.0	32224	768	0	10	0	0	0	0	0	0	0
+       278	       230	     32420	    0	      1	                            start_thread	/lib64/libpthread.so.0	32224	768	0	10	0	0	0	0	0	0	0
+       279	       193	   2191155	    0	      1	          LEVEL_BASE::SWMALLOC::Allocate	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/bin64/pinbin	2190160	7473	0	30	0	0	0	0	0	0	0
+       280	       279	   2191164	    1	      1	[Loop@0x216f33 in LEVEL_BASE::SWMALLOC::Allocate]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/bin64/pinbin	2191155	186	0	57	0	0	0	0	0	0	0
+       281	       280	   2191194	    1	      1	[Loop@0x216f3c in LEVEL_BASE::SWMALLOC::Allocate]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/bin64/pinbin	2191164	127	0	54	0	0	0	0	0	0	0
+       282	       193	   2191226	    0	      1	          LEVEL_BASE::SWMALLOC::Allocate	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/bin64/pinbin	2190160	7473	0	30	0	0	0	0	0	0	0
+       283	         7	   4941753	    0	      1	                     tpss_read_mod0_ver0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	4940752	2815	0	41	0	0	0	0	0	0	0
+       284	         7	   4941791	    0	      1	                     tpss_read_mod0_ver0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	4940752	2815	0	41	0	0	0	0	0	0	0
+       285	        60	   8486526	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       286	        60	   8486564	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       287	        64	   8183648	    0	      1	                           func@0x7cdef0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183536	5312	0	132	0	0	0	0	0	0	0
+       288	       287	   8183784	    1	      1	        [Loop@0x7cdf60 in func@0x7cdef0]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183648	4868	0	133	0	0	0	0	0	0	0
+       289	        64	   8187863	    0	      1	                           func@0x7cdef0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183536	5312	0	132	0	0	0	0	0	0	0
+       290	        96	   8486526	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       291	        96	   8486564	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       292	       111	   8671872	    0	      1	                           func@0x845140	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8671552	7679	0	192	0	0	0	0	0	0	0
+       293	       292	   8672152	    1	      1	        [Loop@0x845280 in func@0x845140]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8671872	6680	0	193	0	0	0	0	0	0	0
+       294	       111	   8672164	    0	      1	                           func@0x845140	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8671552	7679	0	192	0	0	0	0	0	0	0
+       295	       130	   8486526	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       296	       130	   8486564	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       297	       134	   8183648	    0	      1	                           func@0x7cdef0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183536	5312	0	132	0	0	0	0	0	0	0
+       298	       297	   8183784	    1	      1	        [Loop@0x7cdf60 in func@0x7cdef0]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183648	4868	0	133	0	0	0	0	0	0	0
+       299	       134	   8185613	    0	      1	                           func@0x7cdef0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183536	5312	0	132	0	0	0	0	0	0	0
+       300	       158	   8486526	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       301	       158	   8486564	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       302	       187	   8486526	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       303	       187	   8486564	    0	      1	                           func@0x817cb6	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8486070	5028	0	81	0	0	0	0	0	0	0
+       304	       191	   8183648	    0	      1	                           func@0x7cdef0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183536	5312	0	132	0	0	0	0	0	0	0
+       305	       304	   8183784	    1	      1	        [Loop@0x7cdf60 in func@0x7cdef0]	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183648	4868	0	133	0	0	0	0	0	0	0
+       306	       191	   8187812	    0	      1	                           func@0x7cdef0	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/libtpsstool.so	8183536	5312	0	132	0	0	0	0	0	0	0
+       307	        71	    230544	    0	      1	                        LoadDwarfForFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	229632	3360	0	63	0	0	0	0	0	0	0
+       308	        71	    230592	    0	      1	                        LoadDwarfForFile	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	229632	3360	0	63	0	0	0	0	0	0	0
+       309	        73	    239968	    0	      1	    llvm::DWARFUnit::extractDIEsToVector	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	239856	989	0	75	0	0	0	0	0	0	0
+       310	        73	    239985	    0	      1	    llvm::DWARFUnit::extractDIEsToVector	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	239856	989	0	75	0	0	0	0	0	0	0
+       311	       104	    293520	    0	      1	          llvm::sys::fs::openFileForRead	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	293456	147	0	109	0	0	0	0	0	0	0
+       312	       104	    293531	    0	      1	          llvm::sys::fs::openFileForRead	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	293456	147	0	109	0	0	0	0	0	0	0
+       313	       166	    785808	    0	      1	                         getOpenFileImpl	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	785488	518	0	111	0	0	0	0	0	0	0
+       314	       166	    785821	    0	      1	                         getOpenFileImpl	/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/advisor_2020.3.0.607294/lib64/pinruntime/libpin3dwarf.so	785488	518	0	111	0	0	0	0	0	0	0
+       315	        18	    798945	    0	      0	                          s_p_parse_file	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	798472	2305	0	125	0	0	0	0	0	0	0
+       316	        18	    800743	    0	      0	                          s_p_parse_file	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	798472	2305	0	125	0	0	0	0	0	0	0
+       317	        20	    794872	    0	      0	                  _handle_keyvalue_match	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	794545	816	0	131	0	0	0	0	0	0	0
+       318	        20	    794903	    0	      0	                  _handle_keyvalue_match	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	794545	816	0	131	0	0	0	0	0	0	0
+       319	        22	    795413	    0	      0	                          s_p_parse_line	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	795361	265	0	140	0	0	0	0	0	0	0
+       320	        22	    795593	    0	      0	                          s_p_parse_line	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	795361	265	0	140	0	0	0	0	0	0	0
+       321	        46	    736839	    0	      0	                       list_for_each_max	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	736660	374	0	150	0	0	0	0	0	0	0
+       322	        46	    736851	    0	      0	                       list_for_each_max	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	736660	374	0	150	0	0	0	0	0	0	0
+       323	        49	    813890	    0	      0	                    plugin_load_and_link	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813610	737	0	158	0	0	0	0	0	0	0
+       324	        49	    814128	    0	      0	                    plugin_load_and_link	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813610	737	0	158	0	0	0	0	0	0	0
+       325	        82	    736839	    0	      0	                       list_for_each_max	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	736660	374	0	150	0	0	0	0	0	0	0
+       326	        82	    736851	    0	      0	                       list_for_each_max	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	736660	374	0	150	0	0	0	0	0	0	0
+       327	        85	    813890	    0	      0	                    plugin_load_and_link	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813610	737	0	158	0	0	0	0	0	0	0
+       328	        85	    814128	    0	      0	                    plugin_load_and_link	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813610	737	0	158	0	0	0	0	0	0	0
+       329	       140	   1071370	    0	      0	          slurm_send_recv_controller_msg	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1071256	742	0	198	0	0	0	0	0	0	0
+       330	       329	   1071476	    1	      0	[Loop at line 2428 in slurm_send_recv_controller_msg]	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1071370	548	1071932,1071830,1071828,1071908,1071963,1071975	199	0	0	0	0	0	0	0
+       331	       140	   1071494	    0	      0	          slurm_send_recv_controller_msg	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1071256	742	0	198	0	0	0	0	0	0	0
+       332	       143	   1065582	    0	      0	                     slurm_send_node_msg	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1065058	1862	0	203	0	0	0	0	0	0	0
+       333	       143	   1065736	    0	      0	                     slurm_send_node_msg	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1065058	1862	0	203	0	0	0	0	0	0	0
+       334	       147	    813890	    0	      0	                    plugin_load_and_link	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813610	737	0	158	0	0	0	0	0	0	0
+       335	       147	    814128	    0	      0	                    plugin_load_and_link	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	813610	737	0	158	0	0	0	0	0	0	0
+       336	       175	   1510848	    0	      0	                        slurm_getpwuid_r	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1510775	192	0	209	0	0	0	0	0	0	0
+       337	       175	   1510871	    0	      0	                        slurm_getpwuid_r	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	1510775	192	0	209	0	0	0	0	0	0	0
+       338	       200	    400847	    0	      0	                       slurm_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	400146	3081	0	210	0	0	0	0	0	0	0
+       339	       200	    401470	    0	      0	                       slurm_step_launch	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	400146	3081	0	210	0	0	0	0	0	0	0
+       340	       206	    390899	    0	      0	                client_io_handler_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	389647	1307	0	214	0	0	0	0	0	0	0
+       341	       206	    390918	    0	      0	                client_io_handler_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	389647	1307	0	214	0	0	0	0	0	0	0
+       342	       218	    592738	    0	      0	                _start_msg_tree_internal	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	592624	737	0	223	0	0	0	0	0	0	0
+       343	       218	    593250	    0	      0	                _start_msg_tree_internal	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	592624	737	0	223	0	0	0	0	0	0	0
+       344	       223	    391307	    0	      0	                client_io_handler_finish	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	391269	454	0	226	0	0	0	0	0	0	0
+       345	       223	    391577	    0	      0	                client_io_handler_finish	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	391269	454	0	226	0	0	0	0	0	0	0
+       346	       232	    595898	    0	      0	                        _fwd_tree_thread	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	595739	1349	0	229	0	0	0	0	0	0	0
+       347	       232	    595915	    0	      0	                        _fwd_tree_thread	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	595739	1349	0	229	0	0	0	0	0	0	0
+       348	       234	    899972	    0	      0	                   _init_slurmd_nodehash	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	899843	628	0	233	0	0	0	0	0	0	0
+       349	       234	    899992	    0	      0	                   _init_slurmd_nodehash	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	899843	628	0	233	0	0	0	0	0	0	0
+       350	       237	    694369	    0	      0	                    hostlist_create_dims	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	694331	688	0	238	0	0	0	0	0	0	0
+       351	       350	    694369	    0	      0	                        _hostlist_create	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	694369	635	0	239	0	1	0	0	0	0	0
+       352	       351	    694485	    0	      0	              _hostlist_create_bracketed	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	694369	635	0	237	0	1	0	0	0	0	0
+       353	       351	    694719	    0	      0	              _hostlist_create_bracketed	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	694369	635	0	237	0	1	0	0	0	0	0
+       354	       237	    694719	    0	      0	                    hostlist_create_dims	/mnt/storage/apps/bc4/slurm/22.05.6/lib/slurm/libslurmfull.so	694331	688	0	238	0	0	0	0	0	0	0
+       355	         2	    140441	    0	      1	                       __libc_start_main	/lib64/libc.so.6	140384	448	0	16	0	0	0	0	0	0	0
+       356	         2	    140628	    0	      1	                       __libc_start_main	/lib64/libc.so.6	140384	448	0	16	0	0	0	0	0	0	0
+       357	        13	    140441	    0	      1	                       __libc_start_main	/lib64/libc.so.6	140384	448	0	16	0	0	0	0	0	0	0
+       358	        13	    140628	    0	      1	                       __libc_start_main	/lib64/libc.so.6	140384	448	0	16	0	0	0	0	0	0	0
+       359	        25	    894952	    0	      1	                      re_search_internal	/lib64/libc.so.6	893696	7850	0	34	0	0	0	0	0	0	0
+       360	        25	    897794	    0	      1	                      re_search_internal	/lib64/libc.so.6	893696	7850	0	34	0	0	0	0	0	0	0
+       361	        26	    882288	    0	      1	                    sift_states_backward	/lib64/libc.so.6	882128	1099	0	66	0	0	0	0	0	0	0
+       362	       361	    882400	    1	      1	  [Loop@0xd7670 in sift_states_backward]	/lib64/libc.so.6	882288	805	0	67	0	0	0	0	0	0	0
+       363	        26	    882447	    0	      1	                    sift_states_backward	/lib64/libc.so.6	882128	1099	0	66	0	0	0	0	0	0	0
+       364	        26	    882591	    0	      1	                    sift_states_backward	/lib64/libc.so.6	882128	1099	0	66	0	0	0	0	0	0	0
+       365	        30	    869648	    0	      1	                        re_acquire_state	/lib64/libc.so.6	869296	1041	0	78	0	0	0	0	0	0	0
+       366	       365	    869680	    1	      1	      [Loop@0xd4510 in re_acquire_state]	/lib64/libc.so.6	869648	62	0	79	0	0	0	0	0	0	0
+       367	        30	    869688	    0	      1	                        re_acquire_state	/lib64/libc.so.6	869296	1041	0	78	0	0	0	0	0	0	0
+       368	        26	    882448	    0	      1	                    sift_states_backward	/lib64/libc.so.6	882128	1099	0	66	0	0	0	0	0	0	0
+       369	        35	    916592	    0	      1	                     re_compile_internal	/lib64/libc.so.6	915296	5637	0	86	0	0	0	0	0	0	0
+       370	       369	    916635	    1	      1	   [Loop@0xdfc70 in re_compile_internal]	/lib64/libc.so.6	916592	2343	0	90	0	0	0	0	0	0	0
+       371	       370	    917472	    1	      1	   [Loop@0xdfc9b in re_compile_internal]	/lib64/libc.so.6	916635	2241	0	89	0	0	0	0	0	0	0
+       372	       371	    917546	    1	      1	   [Loop@0xdffe0 in re_compile_internal]	/lib64/libc.so.6	917472	168	0	88	0	0	0	0	0	0	0
+       373	        35	    917600	    0	      1	                     re_compile_internal	/lib64/libc.so.6	915296	5637	0	86	0	0	0	0	0	0	0
+       374	        40	    883560	    0	      1	                                set_regs	/lib64/libc.so.6	883232	2966	0	102	0	0	0	0	0	0	0
+       375	       374	    884160	    1	      1	              [Loop@0xd7b68 in set_regs]	/lib64/libc.so.6	883560	1900	0	104	0	0	0	0	0	0	0
+       376	       375	    884184	    1	      1	              [Loop@0xd7dc0 in set_regs]	/lib64/libc.so.6	884160	104	0	103	0	0	0	0	0	0	0
+       377	        40	    884198	    0	      1	                                set_regs	/lib64/libc.so.6	883232	2966	0	102	0	0	0	0	0	0	0
+       378	       176	    806128	    0	      1	                              getpwuid_r	/lib64/libc.so.6	805920	878	0	114	0	0	0	0	0	0	0
+       379	       176	    806229	    0	      1	                              getpwuid_r	/lib64/libc.so.6	805920	878	0	114	0	0	0	0	0	0	0
+       380	       177	   1125553	    0	      1	                             __nss_next2	/lib64/libc.so.6	1125440	296	0	116	0	0	0	0	0	0	0
+       381	       177	   1125581	    0	      1	                             __nss_next2	/lib64/libc.so.6	1125440	296	0	116	0	0	0	0	0	0	0
+       382	        -1	         0	    0	      0	                [Unknown stack frame(s)]	n/a	0	1	0	244	0	0	0	0	0	0	0

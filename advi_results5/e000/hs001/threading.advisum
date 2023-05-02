@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- <!DOCTYPE IntelParallelAdvisorSummaryCollection SYSTEM  "IntelParallelAdvisorSummaryCollection.dtd"> -->
+
+<IntelParallelAdvisorSummary version="" 
+                             kind="DATAKIND_SURVEY_EX" >
+  <hotspot filename="/mnt/storage/apps/bc4/slurm/slurm-22.05.6/src/common/plugin.c"
+           line_no="253"
+           routine="plugin_load_and_link"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="6.000000E-02"
+           trip_counts=""
+           func_instance="157"
+           priority="0"/>
+  <hotspot filename="/mnt/storage/apps/bc4/slurm/slurm-22.05.6/src/common/parse_config.c"
+           line_no="1260"
+           routine="s_p_parse_file"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="6.000000E-02"
+           trip_counts=""
+           func_instance="124"
+           priority="0"/>
+  <hotspot filename="/mnt/storage/apps/bc4/slurm/slurm-22.05.6/src/common/list.c"
+           line_no="611"
+           routine="list_for_each_max"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="5.000000E-02"
+           trip_counts=""
+           func_instance="149"
+           priority="0"/>
+  <hotspot filename="/mnt/storage/apps/bc4/slurm/slurm-22.05.6/src/common/parse_config.c"
+           line_no="986"
+           routine="s_p_parse_line"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="4.000016E-02"
+           trip_counts=""
+           func_instance="139"
+           priority="0"/>
+  <hotspot filename="/mnt/storage/apps/bc4/slurm/slurm-22.05.6/src/srun/libsrun/srun_job.c"
+           line_no="701"
+           routine="init_srun"
+           is_vectorized="0"
+           self_time="0.000000E+00"
+           total_time="2.999813E-02"
+           trip_counts=""
+           func_instance="36"
+           priority="0"/>
+</IntelParallelAdvisorSummary >

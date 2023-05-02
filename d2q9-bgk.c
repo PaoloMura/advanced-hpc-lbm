@@ -369,12 +369,6 @@ int main(int argc, char* argv[])
 
   initialise(paramfile, obstaclefile, &params, &mpi_params, &cells, &tmp_cells, &all_cells, &obstacles, &all_obstacles, &av_vels);
 
-  // TODO: remove this
-  // int DEBUG_SPEED = 7;
-  // if (mpi_params.rank == 0) printf("Initialise:\n");
-  // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-  // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
-
   /* compute weighting factors */
   const float w_1 = params.density * params.accel / 9.f;
   const float w_2 = params.density * params.accel / 36.f;
@@ -391,9 +385,6 @@ int main(int argc, char* argv[])
   MPI_Reduce(&local_tot_cells, &tot_cells, 1, MPI_INT, MPI_SUM, 0, MPI_COMM_WORLD);
   if (mpi_params.rank == 0) tot_cells_inv = 1.f / (float) tot_cells;
 
-  // TODO: remove this
-  // if (mpi_params.rank == 0) printf("tot_cells_inv = %f\n", tot_cells_inv);
-
   /* Init time stops here, compute time starts*/
   gettimeofday(&timstr, NULL);
   init_toc = timstr.tv_sec + (timstr.tv_usec / 1000000.0);
@@ -401,11 +392,6 @@ int main(int argc, char* argv[])
 
   /* perform a single accelerate flow step before iterating */
   accelerate_flow(params, &cells, obstacles, w_1, w_2, mpi_params);
-
-  // TODO: remove this
-  // if (mpi_params.rank == 0) printf("Accelerate flow:\n");
-  // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-  // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
 
   /* Halo exchange */
   MPI_Status status;
@@ -428,27 +414,14 @@ int main(int argc, char* argv[])
   MPI_Sendrecv(&(cells.speeds8[params.nx]), params.nx, MPI_FLOAT, mpi_params.below, 0, 
                  &(cells.speeds8[recabv]), params.nx, MPI_FLOAT, mpi_params.above, 0, MPI_COMM_WORLD, &status);
 
-  // TODO: remove this
-  // if (mpi_params.rank == 0) printf("Halo exchange:\n");
-  // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-  // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
-
   for (int tt = 0; tt < params.maxIters; tt++)
   {
     int finalRound = (tt == params.maxIters - 1);
     float tot_vel = timestep(params, &cells, &tmp_cells, obstacles, finalRound, w_1, w_2, w0, w1, w2, mpi_params);
 
-    // TODO: remove this
-    // if (mpi_params.rank == 0) printf("Halo exchange:\n");
-    // print_grid(params, mpi_params, &cells, "cells7", DEBUG_SPEED);
-    // print_grid(params, mpi_params, &tmp_cells, "temp_cells7", DEBUG_SPEED);
-    
     /* calculate the average velocities, aggregating results in rank 0 */
     MPI_Reduce(&tot_vel, &tot_vels, 1, MPI_FLOAT, MPI_SUM, 0, MPI_COMM_WORLD);
     if (mpi_params.rank == 0) av_vels[tt] = tot_vels * tot_cells_inv;
-
-    // TODO: remove this
-    // if (mpi_params.rank == 0) printf("av_vels[tt] = %f\n", av_vels[tt]);
 
     /* need to swap the grid pointers */
     tmp_tmp_cells = cells;
@@ -553,10 +526,6 @@ float timestep(const t_param params,
   __assume((params.nx)%2==0);
   __assume((params.ny)%2==0);
 
-  // TODO: remove this
-  // int DEBUG_ROW = 3;
-  // int DEBUG_RANK = 1;
-  
   /* loop over all cells in this process's jurisdiction */
   for (int jj = 1; jj <= mpi_params.local_rows; jj++)
   {
@@ -678,12 +647,6 @@ float timestep(const t_param params,
       }
     }
   }
-
-  // TODO: remove this
-  // int DEBUG_SPEED = 7;
-  // if (mpi_params.rank == 0) printf("Timestep:\n");
-  // print_grid(params, mpi_params, cells, "cells7", DEBUG_SPEED);
-  // print_grid(params, mpi_params, tmp_cells, "temp_cells7", DEBUG_SPEED);
 
   /* Halo exchange */
   MPI_Status status;
