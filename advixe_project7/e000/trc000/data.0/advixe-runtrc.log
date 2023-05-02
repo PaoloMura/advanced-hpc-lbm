@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log version="1.0" tool="runtool">
+
+<msg id="1" tool="runtool">
+  <type>log-start</type>
+  <arg>2023/05/02 14:37:20</arg>
+</msg>
+<msg id="2" tool="runtool">
+  <type>collector-starts</type>
+</msg>
+<msg id="3" tool="runtool">
+  <type>marker-file</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/advixe_project7/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="4" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/usr/bin/bash</arg>
+  <arg>1271</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="5" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="6" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="7" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/bin/bash</arg>
+  <arg>0x400000</arg>
+  <arg>0x6ec427</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="8" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2b373b89e000</arg>
+  <arg>0x2b373bac114f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="9" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffd6a5f2000</arg>
+  <arg>0x7ffd6a5f2e6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="10" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libtinfo.so.5</arg>
+  <arg>0x2b3751315000</arg>
+  <arg>0x2b375153eeff</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="11" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libdl.so.2</arg>
+  <arg>0x2b3751560000</arg>
+  <arg>0x2b375176312f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="12" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2b3751768000</arg>
+  <arg>0x2b3751b351ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:20 2023</timestamp>
+</msg>
+<msg id="13" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/bin/bash</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="14" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="15" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="16" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libtinfo.so.5</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="17" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libdl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="18" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="19" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/usr/bin/bash</arg>
+  <arg>1360</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="20" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/bin/intel64/icc</arg>
+  <arg>1368</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="21" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="22" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="23" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/bin/intel64/icc</arg>
+  <arg>0x400000</arg>
+  <arg>0x81ed27</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="24" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2b085b3e9000</arg>
+  <arg>0x2b085b60c14f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="25" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffd0b9c9000</arg>
+  <arg>0x7ffd0b9c9e6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="26" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libdl.so.2</arg>
+  <arg>0x2b087113a000</arg>
+  <arg>0x2b087133d12f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="27" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libpthread.so.0</arg>
+  <arg>0x2b0871359000</arg>
+  <arg>0x2b0871574487</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:23 2023</timestamp>
+</msg>
+<msg id="28" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libstdc++.so.6</arg>
+  <arg>0x2b0871584000</arg>
+  <arg>0x2b08719518ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:24 2023</timestamp>
+</msg>
+<msg id="29" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <arg>0x2b0871952000</arg>
+  <arg>0x2b0871c53137</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:24 2023</timestamp>
+</msg>
+<msg id="30" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
+  <arg>0x2b0871c54000</arg>
+  <arg>0x2b0871e6b447</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:24 2023</timestamp>
+</msg>
+<msg id="31" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2b0871e6c000</arg>
+  <arg>0x2b08722391ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:24 2023</timestamp>
+</msg>
+<msg id="32" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <arg>2472</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:39 2023</timestamp>
+</msg>
+<msg id="33" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:37:39 2023</timestamp>
+</msg>
+<msg id="34" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:39 2023</timestamp>
+</msg>
+<msg id="35" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <arg>0x400000</arg>
+  <arg>0x6f52c7</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:39 2023</timestamp>
+</msg>
+<msg id="36" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2b8c5fec2000</arg>
+  <arg>0x2b8c600e514f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:39 2023</timestamp>
+</msg>
+<msg id="37" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffc8a59e000</arg>
+  <arg>0x7ffc8a59ee6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:39 2023</timestamp>
+</msg>
+<msg id="38" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libbfd-2.27-44.base.el7_9.1.so</arg>
+  <arg>0x2b8c758cf000</arg>
+  <arg>0x2b8c75c1783f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="39" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libdl.so.2</arg>
+  <arg>0x2b8c75c4c000</arg>
+  <arg>0x2b8c75e4f12f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="40" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libc.so.6</arg>
+  <arg>0x2b8c75e54000</arg>
+  <arg>0x2b8c762211ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="41" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="42" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="43" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="44" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libbfd-2.27-44.base.el7_9.1.so</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="45" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libdl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="46" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="47" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <arg>2472</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="48" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>1980</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:36 2023</timestamp>
+</msg>
+<msg id="49" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:37:36 2023</timestamp>
+</msg>
+<msg id="50" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:36 2023</timestamp>
+</msg>
+<msg id="51" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>0x400000</arg>
+  <arg>0x72dbbf</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:36 2023</timestamp>
+</msg>
+<msg id="52" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2b397def5000</arg>
+  <arg>0x2b397e11814f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:37 2023</timestamp>
+</msg>
+<msg id="53" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffeb2be7000</arg>
+  <arg>0x7ffeb2be7e6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:37 2023</timestamp>
+</msg>
+<msg id="54" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <arg>0x2b3994876000</arg>
+  <arg>0x2b3994b77137</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:37 2023</timestamp>
+</msg>
+<msg id="55" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2b3994ba5000</arg>
+  <arg>0x2b3994f721ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:37 2023</timestamp>
+</msg>
+<msg id="56" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:38 2023</timestamp>
+</msg>
+<msg id="57" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:38 2023</timestamp>
+</msg>
+<msg id="58" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:38 2023</timestamp>
+</msg>
+<msg id="59" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:38 2023</timestamp>
+</msg>
+<msg id="60" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:38 2023</timestamp>
+</msg>
+<msg id="61" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>1980</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:38 2023</timestamp>
+</msg>
+<msg id="62" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>1491</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:34 2023</timestamp>
+</msg>
+<msg id="63" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:37:34 2023</timestamp>
+</msg>
+<msg id="64" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:34 2023</timestamp>
+</msg>
+<msg id="65" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>0x400000</arg>
+  <arg>0x72dbbf</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:34 2023</timestamp>
+</msg>
+<msg id="66" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2b4c23b03000</arg>
+  <arg>0x2b4c23d2614f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:34 2023</timestamp>
+</msg>
+<msg id="67" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffea0d6b000</arg>
+  <arg>0x7ffea0d6be6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:34 2023</timestamp>
+</msg>
+<msg id="68" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <arg>0x2b4c3a484000</arg>
+  <arg>0x2b4c3a785137</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:34 2023</timestamp>
+</msg>
+<msg id="69" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2b4c3a7b3000</arg>
+  <arg>0x2b4c3ab801ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:35 2023</timestamp>
+</msg>
+<msg id="70" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:35 2023</timestamp>
+</msg>
+<msg id="71" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:35 2023</timestamp>
+</msg>
+<msg id="72" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:35 2023</timestamp>
+</msg>
+<msg id="73" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:35 2023</timestamp>
+</msg>
+<msg id="74" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:35 2023</timestamp>
+</msg>
+<msg id="75" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>1491</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:35 2023</timestamp>
+</msg>
+<msg id="76" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/bin/intel64/mcpcom</arg>
+  <arg>2815</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="77" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="78" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="79" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/bin/intel64/mcpcom</arg>
+  <arg>0x400000</arg>
+  <arg>0x3cac2af</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="80" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2ac404280000</arg>
+  <arg>0x2ac4044a314f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="81" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffe22785000</arg>
+  <arg>0x7ffe22785e6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="82" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libdl.so.2</arg>
+  <arg>0x2ac419ba6000</arg>
+  <arg>0x2ac419da912f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="83" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libpthread.so.0</arg>
+  <arg>0x2ac419dc5000</arg>
+  <arg>0x2ac419fe0487</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:40 2023</timestamp>
+</msg>
+<msg id="84" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libstdc++.so.6</arg>
+  <arg>0x2ac419fee000</arg>
+  <arg>0x2ac41a3bb8ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:41 2023</timestamp>
+</msg>
+<msg id="85" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <arg>0x2ac41a3bc000</arg>
+  <arg>0x2ac41a6bd137</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:41 2023</timestamp>
+</msg>
+<msg id="86" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
+  <arg>0x2ac41a6be000</arg>
+  <arg>0x2ac41a8d5447</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:41 2023</timestamp>
+</msg>
+<msg id="87" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2ac41a8d6000</arg>
+  <arg>0x2ac41aca31ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:41 2023</timestamp>
+</msg>
+<msg id="88" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/bin/intel64/mcpcom</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:41 2023</timestamp>
+</msg>
+<msg id="89" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:41 2023</timestamp>
+</msg>
+<msg id="90" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:41 2023</timestamp>
+</msg>
+<msg id="91" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libdl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:42 2023</timestamp>
+</msg>
+<msg id="92" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libpthread.so.0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:42 2023</timestamp>
+</msg>
+<msg id="93" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libstdc++.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:42 2023</timestamp>
+</msg>
+<msg id="94" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:42 2023</timestamp>
+</msg>
+<msg id="95" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/lib64/libgcc_s.so.1</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:42 2023</timestamp>
+</msg>
+<msg id="96" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:42 2023</timestamp>
+</msg>
+<msg id="97" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/bin/intel64/mcpcom</arg>
+  <arg>2815</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:42 2023</timestamp>
+</msg>
+<msg id="98" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>1389</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:26 2023</timestamp>
+</msg>
+<msg id="99" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:37:26 2023</timestamp>
+</msg>
+<msg id="100" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:26 2023</timestamp>
+</msg>
+<msg id="101" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>0x400000</arg>
+  <arg>0x72dbbf</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:26 2023</timestamp>
+</msg>
+<msg id="102" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2af5dbf3c000</arg>
+  <arg>0x2af5dc15f14f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:27 2023</timestamp>
+</msg>
+<msg id="103" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7fff765cf000</arg>
+  <arg>0x7fff765cfe6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:27 2023</timestamp>
+</msg>
+<msg id="104" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <arg>0x2af5f28c7000</arg>
+  <arg>0x2af5f2bc8137</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:27 2023</timestamp>
+</msg>
+<msg id="105" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <arg>0x2af5f2beb000</arg>
+  <arg>0x2af5f2fb81ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:27 2023</timestamp>
+</msg>
+<msg id="106" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:29 2023</timestamp>
+</msg>
+<msg id="107" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:29 2023</timestamp>
+</msg>
+<msg id="108" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:29 2023</timestamp>
+</msg>
+<msg id="109" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libm.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:29 2023</timestamp>
+</msg>
+<msg id="110" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:29 2023</timestamp>
+</msg>
+<msg id="111" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/mnt/storage/software/languages/gcc-10.4.0/bin/gcc</arg>
+  <arg>1389</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:37:29 2023</timestamp>
+</msg>
+<msg id="112" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <arg>5184</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="113" tool="trc">
+  <type>FAIL_OPEN_FILE</type>
+  <arg></arg>
+  <severity>ERROR</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="114" tool="trc">
+  <type>PROCESS_ANALYSIS_MODE</type>
+  <arg>full</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="115" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <arg>0x400000</arg>
+  <arg>0x6f52c7</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="116" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <arg>0x2ba6020a0000</arg>
+  <arg>0x2ba6022c314f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="117" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <arg>0x7ffe837fa000</arg>
+  <arg>0x7ffe837fae6c</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="118" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libbfd-2.27-44.base.el7_9.1.so</arg>
+  <arg>0x2ba617aae000</arg>
+  <arg>0x2ba617df683f</arg>
+  <arg>no</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="119" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libdl.so.2</arg>
+  <arg>0x2ba617e2b000</arg>
+  <arg>0x2ba61802e12f</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="120" tool="trc">
+  <type>LOAD_MODULE</type>
+  <arg>/usr/lib64/libc.so.6</arg>
+  <arg>0x2ba618033000</arg>
+  <arg>0x2ba6184001ff</arg>
+  <arg>yes</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:43 2023</timestamp>
+</msg>
+<msg id="121" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:46 2023</timestamp>
+</msg>
+<msg id="122" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/lib64/ld-linux-x86-64.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:46 2023</timestamp>
+</msg>
+<msg id="123" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>[vdso]</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:46 2023</timestamp>
+</msg>
+<msg id="124" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libbfd-2.27-44.base.el7_9.1.so</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:46 2023</timestamp>
+</msg>
+<msg id="125" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libdl.so.2</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:46 2023</timestamp>
+</msg>
+<msg id="126" tool="trc">
+  <type>UNLOAD_MODULE</type>
+  <arg>/usr/lib64/libc.so.6</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:46 2023</timestamp>
+</msg>
+<msg id="127" tool="trc">
+  <type>PROCESS_FINISH</type>
+  <arg>/usr/bin/ld.bfd</arg>
+  <arg>5184</arg>
+  <arg>0x0</arg>
+  <severity>INFO</severity>
+  <timestamp>Tue May  2 14:38:46 2023</timestamp>
+</msg>
+<msg id="128" tool="runtool">
+  <type>app-exit-code</type>
+  <arg>0</arg>
+</msg>
+<msg id="129" tool="runtool">
+  <type>marker-file</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/advixe_project7/e000/trc000/trc000.advixe</arg>
+</msg>
+<msg id="130" tool="runtool">
+  <type>collector-done</type>
+</msg>
+<msg id="131" tool="runtool">
+  <type>log-end</type>
+  <arg>2023/05/02 14:38:51</arg>
+</msg>
+
+</log>
+
