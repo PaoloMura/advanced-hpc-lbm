@@ -4,7 +4,7 @@ See "https://software.intel.com/en-us/intel-advisor-xe" for details.
 
 Intel(R) C Intel(R) 64 Compiler for applications running on Intel(R) 64, Version 19.1.3.304 Build 20200925_000000
 
-Compiler options: -I/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/include -std=c99 -Wall -O3 -xAVX2 -g -qopt-report=5 -simd -vec -qopenmp -L/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release -L/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib -Xlinker --enable-new-dtags -Xlinker -rpath -Xlinker /mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release -Xlinker -rpath -Xlinker /mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib -lmpifort -lmpi -ldl -lrt -lpthread
+Compiler options: -I/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/include -std=c99 -Wall -O3 -xAVX2 -g -qopt-report=5 -simd -vec -qopenmp -lm -o d2q9-bgk -L/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release -L/mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib -Xlinker --enable-new-dtags -Xlinker -rpath -Xlinker /mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib/release -Xlinker -rpath -Xlinker /mnt/storage/software/languages/intel/intel-parallel_studio_xe_2020_u4/compilers_and_libraries_2020.4.304/linux/mpi/intel64/lib -lmpifort -lmpi -ldl -lrt -lpthread
 
     Report from: Interprocedural optimizations [ipo]
 
@@ -34,14 +34,14 @@ Begin optimization report for: main(int, char **)
 
 INLINE REPORT: (main(int, char **)) [1/20=5.0%] d2q9-bgk.c(325,1)
   -> INLINE: (346,5) usage(const char *) (isz = 6) (sz = 10)
-    -> EXTERN: (1245,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1246,3) exit(int)
+    -> EXTERN: (1249,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1250,3) exit(int)
   -> EXTERN: (355,3) MPI_Init(int *, char ***)
   -> EXTERN: (356,3) MPI_Comm_size(MPI_Comm, int *)
   -> EXTERN: (357,3) MPI_Comm_rank(MPI_Comm, int *)
   -> EXTERN: (366,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
-  -> (370,3) initialise(const char *, const char *, t_param *, t_mpi *, t_speed *, t_speed *, t_speed *, int **, int **, float **) (isz = 1724) (sz = 1749)
-     [[ Inlining would exceed -inline-max-size value (1749>230) <1>]]
+  -> (370,3) initialise(const char *, const char *, t_param *, t_mpi *, t_speed *, t_speed *, t_speed *, int **, int **, float **) (isz = 1727) (sz = 1752)
+     [[ Inlining would exceed -inline-max-size value (1752>230) <1>]]
   -> INLINE: (382,31) get_tot_cells(const t_param, const t_mpi, const int *__restrict__) (isz = 32) (sz = 43)
   -> EXTERN: (385,3) MPI_Reduce(const void *, void *, int, MPI_Datatype, MPI_Op, int, MPI_Comm)
   -> EXTERN: (389,3) gettimeofday(struct timeval *__restrict__, __timezone_ptr_t)
@@ -73,16 +73,14 @@ INLINE REPORT: (main(int, char **)) [1/20=5.0%] d2q9-bgk.c(325,1)
   -> EXTERN: (473,5) printf(const char *__restrict__, ...)
   -> EXTERN: (474,5) printf(const char *__restrict__, ...)
   -> INLINE: (474,43) calc_reynolds(const t_param, t_speed *__restrict__, int *__restrict__) (isz = 268) (sz = 279)
-    -> INLINE: (1121,10) av_velocity(const t_param, t_speed *__restrict__, int *__restrict__) (isz = 260) (sz = 271)
+    -> INLINE: (1125,10) av_velocity(const t_param, t_speed *__restrict__, int *__restrict__) (isz = 260) (sz = 271)
   -> EXTERN: (475,5) printf(const char *__restrict__, ...)
   -> EXTERN: (476,5) printf(const char *__restrict__, ...)
   -> EXTERN: (477,5) printf(const char *__restrict__, ...)
   -> EXTERN: (478,5) printf(const char *__restrict__, ...)
   -> (479,5) write_values(const t_param, t_speed *, int *, float *) (isz = 312) (sz = 325)
      [[ Inlining would exceed -inline-max-size value (325>230) <1>]]
-  -> INLINE: (482,3) finalise(const t_param *, const t_mpi *, t_speed *, t_speed *, t_speed *, int **, int **, float **) (isz = 93) (sz = 114)
-    -> EXTERN: (1070,3) _mm_free(void *)
-    -> EXTERN: (1071,3) _mm_free(void *)
+  -> INLINE: (482,3) finalise(const t_param *, const t_mpi *, t_speed *, t_speed *, t_speed *, int **, int **, float **) (isz = 96) (sz = 117)
     -> EXTERN: (1072,3) _mm_free(void *)
     -> EXTERN: (1073,3) _mm_free(void *)
     -> EXTERN: (1074,3) _mm_free(void *)
@@ -90,8 +88,8 @@ INLINE REPORT: (main(int, char **)) [1/20=5.0%] d2q9-bgk.c(325,1)
     -> EXTERN: (1076,3) _mm_free(void *)
     -> EXTERN: (1077,3) _mm_free(void *)
     -> EXTERN: (1078,3) _mm_free(void *)
+    -> EXTERN: (1079,3) _mm_free(void *)
     -> EXTERN: (1080,3) _mm_free(void *)
-    -> EXTERN: (1081,3) _mm_free(void *)
     -> EXTERN: (1082,3) _mm_free(void *)
     -> EXTERN: (1083,3) _mm_free(void *)
     -> EXTERN: (1084,3) _mm_free(void *)
@@ -99,8 +97,8 @@ INLINE REPORT: (main(int, char **)) [1/20=5.0%] d2q9-bgk.c(325,1)
     -> EXTERN: (1086,3) _mm_free(void *)
     -> EXTERN: (1087,3) _mm_free(void *)
     -> EXTERN: (1088,3) _mm_free(void *)
-    -> EXTERN: (1091,5) _mm_free(void *)
-    -> EXTERN: (1092,5) _mm_free(void *)
+    -> EXTERN: (1089,3) _mm_free(void *)
+    -> EXTERN: (1090,3) _mm_free(void *)
     -> EXTERN: (1093,5) _mm_free(void *)
     -> EXTERN: (1094,5) _mm_free(void *)
     -> EXTERN: (1095,5) _mm_free(void *)
@@ -108,9 +106,11 @@ INLINE REPORT: (main(int, char **)) [1/20=5.0%] d2q9-bgk.c(325,1)
     -> EXTERN: (1097,5) _mm_free(void *)
     -> EXTERN: (1098,5) _mm_free(void *)
     -> EXTERN: (1099,5) _mm_free(void *)
-    -> EXTERN: (1102,3) _mm_free(void *)
-    -> EXTERN: (1106,5) _mm_free(void *)
-    -> EXTERN: (1110,3) free(void *)
+    -> EXTERN: (1100,5) _mm_free(void *)
+    -> EXTERN: (1101,5) _mm_free(void *)
+    -> EXTERN: (1104,3) _mm_free(void *)
+    -> EXTERN: (1108,5) _mm_free(void *)
+    -> EXTERN: (1113,5) free(void *)
   -> EXTERN: (483,3) _vla_free(void *, long)
   -> EXTERN: (483,3) _vla_free(void *, long)
   -> EXTERN: (483,3) MPI_Finalize(void)
@@ -300,7 +300,7 @@ d2q9-bgk.c(325,1):remark #34051: REGISTER ALLOCATION : [main] d2q9-bgk.c:325
         
     Routine stack
         Variables     :     396 bytes*
-            Reads     :     183 [1.01e+01 ~ 10.1%]
+            Reads     :     184 [1.01e+01 ~ 10.1%]
             Writes    :      37 [4.19e+00 ~ 4.2%]
         Spills        :     672 bytes*
             Reads     :     161 [2.51e+00 ~ 2.5%]
@@ -456,49 +456,49 @@ Begin optimization report for: write_values(const t_param, t_speed *, int *, flo
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (write_values(const t_param, t_speed *, int *, float *)) [3/20=15.0%] d2q9-bgk.c(1148,1)
-  -> EXTERN: (1157,8) fopen(const char *__restrict__, const char *__restrict__)
-  -> INLINE: (1161,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
-  -> EXTERN: (1212,7) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-  -> EXTERN: (1216,3) fclose(FILE *)
-  -> EXTERN: (1218,8) fopen(const char *__restrict__, const char *__restrict__)
-  -> INLINE: (1222,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
-  -> EXTERN: (1227,5) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-  -> EXTERN: (1230,3) fclose(FILE *)
+INLINE REPORT: (write_values(const t_param, t_speed *, int *, float *)) [3/20=15.0%] d2q9-bgk.c(1152,1)
+  -> EXTERN: (1161,8) fopen(const char *__restrict__, const char *__restrict__)
+  -> INLINE: (1165,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
+  -> EXTERN: (1216,7) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (1220,3) fclose(FILE *)
+  -> EXTERN: (1222,8) fopen(const char *__restrict__, const char *__restrict__)
+  -> INLINE: (1226,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
+  -> EXTERN: (1231,5) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (1234,3) fclose(FILE *)
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at d2q9-bgk.c(1164,3)
-   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(1212,7) ]
+LOOP BEGIN at d2q9-bgk.c(1168,3)
+   remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(1216,7) ]
    remark #15344: loop was not vectorized: vector dependence prevents vectorization
-   remark #15346: vector dependence: assumed ANTI dependence between cells->speeds1 (1187:9) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1212:7)
-   remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1212:7) and cells->speeds1 (1187:9)
+   remark #15346: vector dependence: assumed ANTI dependence between cells->speeds1 (1191:9) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1216:7)
+   remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1216:7) and cells->speeds1 (1191:9)
 
-   LOOP BEGIN at d2q9-bgk.c(1166,5)
-      remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(1212,7) ]
+   LOOP BEGIN at d2q9-bgk.c(1170,5)
+      remark #15382: vectorization support: call to function fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(1216,7) ]
       remark #15344: loop was not vectorized: vector dependence prevents vectorization
-      remark #15346: vector dependence: assumed ANTI dependence between cells->speeds1 (1187:9) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1212:7)
-      remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1212:7) and cells->speeds1 (1187:9)
+      remark #15346: vector dependence: assumed ANTI dependence between cells->speeds1 (1191:9) and call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1216:7)
+      remark #15346: vector dependence: assumed FLOW dependence between call:fprintf(FILE *__restrict__, const char *__restrict__, ...) (1216:7) and cells->speeds1 (1191:9)
    LOOP END
 LOOP END
 
-LOOP BEGIN at d2q9-bgk.c(1225,3)
-   remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(1227,5) ]
+LOOP BEGIN at d2q9-bgk.c(1229,3)
+   remark #15527: loop was not vectorized: function call to fprintf(FILE *__restrict__, const char *__restrict__, ...) cannot be vectorized   [ d2q9-bgk.c(1231,5) ]
 LOOP END
 
     Report from: Code generation optimizations [cg]
 
-d2q9-bgk.c(1148,1):remark #34051: REGISTER ALLOCATION : [write_values] d2q9-bgk.c:1148
+d2q9-bgk.c(1152,1):remark #34051: REGISTER ALLOCATION : [write_values] d2q9-bgk.c:1152
 
     Hardware registers
         Reserved     :    2[ rsp rip]
@@ -1685,9 +1685,7 @@ Begin optimization report for: finalise(const t_param *, const t_mpi *, t_speed 
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (finalise(const t_param *, const t_mpi *, t_speed *, t_speed *, t_speed *, int **, int **, float **)) [15/20=75.0%] d2q9-bgk.c(1066,81)
-  -> EXTERN: (1070,3) _mm_free(void *)
-  -> EXTERN: (1071,3) _mm_free(void *)
+INLINE REPORT: (finalise(const t_param *, const t_mpi *, t_speed *, t_speed *, t_speed *, int **, int **, float **)) [15/20=75.0%] d2q9-bgk.c(1068,81)
   -> EXTERN: (1072,3) _mm_free(void *)
   -> EXTERN: (1073,3) _mm_free(void *)
   -> EXTERN: (1074,3) _mm_free(void *)
@@ -1695,8 +1693,8 @@ INLINE REPORT: (finalise(const t_param *, const t_mpi *, t_speed *, t_speed *, t
   -> EXTERN: (1076,3) _mm_free(void *)
   -> EXTERN: (1077,3) _mm_free(void *)
   -> EXTERN: (1078,3) _mm_free(void *)
+  -> EXTERN: (1079,3) _mm_free(void *)
   -> EXTERN: (1080,3) _mm_free(void *)
-  -> EXTERN: (1081,3) _mm_free(void *)
   -> EXTERN: (1082,3) _mm_free(void *)
   -> EXTERN: (1083,3) _mm_free(void *)
   -> EXTERN: (1084,3) _mm_free(void *)
@@ -1704,8 +1702,8 @@ INLINE REPORT: (finalise(const t_param *, const t_mpi *, t_speed *, t_speed *, t
   -> EXTERN: (1086,3) _mm_free(void *)
   -> EXTERN: (1087,3) _mm_free(void *)
   -> EXTERN: (1088,3) _mm_free(void *)
-  -> EXTERN: (1091,5) _mm_free(void *)
-  -> EXTERN: (1092,5) _mm_free(void *)
+  -> EXTERN: (1089,3) _mm_free(void *)
+  -> EXTERN: (1090,3) _mm_free(void *)
   -> EXTERN: (1093,5) _mm_free(void *)
   -> EXTERN: (1094,5) _mm_free(void *)
   -> EXTERN: (1095,5) _mm_free(void *)
@@ -1713,14 +1711,16 @@ INLINE REPORT: (finalise(const t_param *, const t_mpi *, t_speed *, t_speed *, t
   -> EXTERN: (1097,5) _mm_free(void *)
   -> EXTERN: (1098,5) _mm_free(void *)
   -> EXTERN: (1099,5) _mm_free(void *)
-  -> EXTERN: (1102,3) _mm_free(void *)
-  -> EXTERN: (1106,5) _mm_free(void *)
-  -> EXTERN: (1110,3) free(void *)
+  -> EXTERN: (1100,5) _mm_free(void *)
+  -> EXTERN: (1101,5) _mm_free(void *)
+  -> EXTERN: (1104,3) _mm_free(void *)
+  -> EXTERN: (1108,5) _mm_free(void *)
+  -> EXTERN: (1113,5) free(void *)
 
 
     Report from: Code generation optimizations [cg]
 
-d2q9-bgk.c(1066,81):remark #34051: REGISTER ALLOCATION : [finalise] d2q9-bgk.c:1066
+d2q9-bgk.c(1068,81):remark #34051: REGISTER ALLOCATION : [finalise] d2q9-bgk.c:1068
 
     Hardware registers
         Reserved     :    2[ rsp rip]
@@ -1755,22 +1755,22 @@ Begin optimization report for: calc_reynolds(const t_param, t_speed *__restrict_
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (calc_reynolds(const t_param, t_speed *__restrict__, int *__restrict__)) [16/20=80.0%] d2q9-bgk.c(1118,1)
-  -> INLINE: (1121,10) av_velocity(const t_param, t_speed *__restrict__, int *__restrict__) (isz = 260) (sz = 271)
+INLINE REPORT: (calc_reynolds(const t_param, t_speed *__restrict__, int *__restrict__)) [16/20=80.0%] d2q9-bgk.c(1122,1)
+  -> INLINE: (1125,10) av_velocity(const t_param, t_speed *__restrict__, int *__restrict__) (isz = 260) (sz = 271)
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at d2q9-bgk.c(745,3) inlined into d2q9-bgk.c(1121,10)
+LOOP BEGIN at d2q9-bgk.c(745,3) inlined into d2q9-bgk.c(1125,10)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at d2q9-bgk.c(748,5) inlined into d2q9-bgk.c(1121,10)
+   LOOP BEGIN at d2q9-bgk.c(748,5) inlined into d2q9-bgk.c(1125,10)
    <Peeled loop for vectorization>
       remark #25015: Estimate of max trip count of loop=7
    LOOP END
 
-   LOOP BEGIN at d2q9-bgk.c(748,5) inlined into d2q9-bgk.c(1121,10)
+   LOOP BEGIN at d2q9-bgk.c(748,5) inlined into d2q9-bgk.c(1125,10)
       remark #15389: vectorization support: reference cells->speeds0[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(754,37) ]
       remark #15389: vectorization support: reference cells->speeds1[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(755,39) ]
       remark #15389: vectorization support: reference cells->speeds2[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(756,39) ]
@@ -1808,14 +1808,14 @@ LOOP BEGIN at d2q9-bgk.c(745,3) inlined into d2q9-bgk.c(1121,10)
       remark #15488: --- end vector cost summary ---
    LOOP END
 
-   LOOP BEGIN at d2q9-bgk.c(748,5) inlined into d2q9-bgk.c(1121,10)
+   LOOP BEGIN at d2q9-bgk.c(748,5) inlined into d2q9-bgk.c(1125,10)
    <Remainder loop for vectorization>
    LOOP END
 LOOP END
 
     Report from: Code generation optimizations [cg]
 
-d2q9-bgk.c(1118,1):remark #34051: REGISTER ALLOCATION : [calc_reynolds] d2q9-bgk.c:1118
+d2q9-bgk.c(1122,1):remark #34051: REGISTER ALLOCATION : [calc_reynolds] d2q9-bgk.c:1122
 
     Hardware registers
         Reserved     :    2[ rsp rip]
@@ -1850,35 +1850,35 @@ Begin optimization report for: total_density(const t_param, const t_mpi, t_speed
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (total_density(const t_param, const t_mpi, t_speed *)) [17/20=85.0%] d2q9-bgk.c(1125,1)
+INLINE REPORT: (total_density(const t_param, const t_mpi, t_speed *)) [17/20=85.0%] d2q9-bgk.c(1129,1)
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
 
 
-LOOP BEGIN at d2q9-bgk.c(1128,3)
+LOOP BEGIN at d2q9-bgk.c(1132,3)
    remark #15542: loop was not vectorized: inner loop was already vectorized
 
-   LOOP BEGIN at d2q9-bgk.c(1130,5)
+   LOOP BEGIN at d2q9-bgk.c(1134,5)
    <Peeled loop for vectorization>
       remark #25015: Estimate of max trip count of loop=7
    LOOP END
 
-   LOOP BEGIN at d2q9-bgk.c(1130,5)
-      remark #15389: vectorization support: reference cells->speeds0[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1132,16) ]
-      remark #15389: vectorization support: reference cells->speeds1[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1133,16) ]
-      remark #15389: vectorization support: reference cells->speeds2[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1134,16) ]
-      remark #15389: vectorization support: reference cells->speeds3[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1135,16) ]
-      remark #15389: vectorization support: reference cells->speeds4[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1136,16) ]
-      remark #15389: vectorization support: reference cells->speeds5[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1137,16) ]
-      remark #15389: vectorization support: reference cells->speeds6[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1138,16) ]
-      remark #15389: vectorization support: reference cells->speeds7[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1139,16) ]
-      remark #15389: vectorization support: reference cells->speeds8[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1140,16) ]
+   LOOP BEGIN at d2q9-bgk.c(1134,5)
+      remark #15389: vectorization support: reference cells->speeds0[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1136,16) ]
+      remark #15389: vectorization support: reference cells->speeds1[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1137,16) ]
+      remark #15389: vectorization support: reference cells->speeds2[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1138,16) ]
+      remark #15389: vectorization support: reference cells->speeds3[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1139,16) ]
+      remark #15389: vectorization support: reference cells->speeds4[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1140,16) ]
+      remark #15389: vectorization support: reference cells->speeds5[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1141,16) ]
+      remark #15389: vectorization support: reference cells->speeds6[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1142,16) ]
+      remark #15389: vectorization support: reference cells->speeds7[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1143,16) ]
+      remark #15389: vectorization support: reference cells->speeds8[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1144,16) ]
       remark #15381: vectorization support: unaligned access used inside loop body
       remark #15305: vectorization support: vector length 8
       remark #15399: vectorization support: unroll factor set to 2
       remark #15309: vectorization support: normalized vectorization overhead 1.017
-      remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(1126,15) ]
+      remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(1130,15) ]
       remark #15300: LOOP WAS VECTORIZED
       remark #15442: entire loop may be executed in remainder
       remark #15450: unmasked unaligned unit stride loads: 9 
@@ -1889,21 +1889,21 @@ LOOP BEGIN at d2q9-bgk.c(1128,3)
       remark #15488: --- end vector cost summary ---
    LOOP END
 
-   LOOP BEGIN at d2q9-bgk.c(1130,5)
+   LOOP BEGIN at d2q9-bgk.c(1134,5)
    <Remainder loop for vectorization>
-      remark #15389: vectorization support: reference cells->speeds0[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1132,16) ]
-      remark #15389: vectorization support: reference cells->speeds1[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1133,16) ]
-      remark #15389: vectorization support: reference cells->speeds2[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1134,16) ]
-      remark #15389: vectorization support: reference cells->speeds3[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1135,16) ]
-      remark #15389: vectorization support: reference cells->speeds4[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1136,16) ]
-      remark #15389: vectorization support: reference cells->speeds5[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1137,16) ]
-      remark #15389: vectorization support: reference cells->speeds6[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1138,16) ]
-      remark #15389: vectorization support: reference cells->speeds7[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1139,16) ]
-      remark #15389: vectorization support: reference cells->speeds8[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1140,16) ]
+      remark #15389: vectorization support: reference cells->speeds0[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1136,16) ]
+      remark #15389: vectorization support: reference cells->speeds1[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1137,16) ]
+      remark #15389: vectorization support: reference cells->speeds2[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1138,16) ]
+      remark #15389: vectorization support: reference cells->speeds3[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1139,16) ]
+      remark #15389: vectorization support: reference cells->speeds4[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1140,16) ]
+      remark #15389: vectorization support: reference cells->speeds5[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1141,16) ]
+      remark #15389: vectorization support: reference cells->speeds6[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1142,16) ]
+      remark #15389: vectorization support: reference cells->speeds7[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1143,16) ]
+      remark #15389: vectorization support: reference cells->speeds8[ii+jj*params.nx] has unaligned access   [ d2q9-bgk.c(1144,16) ]
       remark #15381: vectorization support: unaligned access used inside loop body
       remark #15305: vectorization support: vector length 8
       remark #15309: vectorization support: normalized vectorization overhead 2.067
-      remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(1126,15) ]
+      remark #15355: vectorization support: total is float type reduction   [ d2q9-bgk.c(1130,15) ]
       remark #15301: REMAINDER LOOP WAS VECTORIZED
       remark #15442: entire loop may be executed in remainder
       remark #15450: unmasked unaligned unit stride loads: 9 
@@ -1914,14 +1914,14 @@ LOOP BEGIN at d2q9-bgk.c(1128,3)
       remark #15488: --- end vector cost summary ---
    LOOP END
 
-   LOOP BEGIN at d2q9-bgk.c(1130,5)
+   LOOP BEGIN at d2q9-bgk.c(1134,5)
    <Remainder loop for vectorization>
    LOOP END
 LOOP END
 
     Report from: Code generation optimizations [cg]
 
-d2q9-bgk.c(1125,1):remark #34051: REGISTER ALLOCATION : [total_density] d2q9-bgk.c:1125
+d2q9-bgk.c(1129,1):remark #34051: REGISTER ALLOCATION : [total_density] d2q9-bgk.c:1129
 
     Hardware registers
         Reserved     :    2[ rsp rip]
@@ -1956,16 +1956,16 @@ Begin optimization report for: die(const char *, const int, const char *)
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (die(const char *, const int, const char *)) [18/20=90.0%] d2q9-bgk.c(1236,1)
-  -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-  -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-  -> EXTERN: (1239,3) fflush(FILE *)
-  -> EXTERN: (1240,3) exit(int)
+INLINE REPORT: (die(const char *, const int, const char *)) [18/20=90.0%] d2q9-bgk.c(1240,1)
+  -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (1243,3) fflush(FILE *)
+  -> EXTERN: (1244,3) exit(int)
 
 
     Report from: Code generation optimizations [cg]
 
-d2q9-bgk.c(1236,1):remark #34051: REGISTER ALLOCATION : [die] d2q9-bgk.c:1236
+d2q9-bgk.c(1240,1):remark #34051: REGISTER ALLOCATION : [die] d2q9-bgk.c:1240
 
     Hardware registers
         Reserved     :    2[ rsp rip]
@@ -2000,14 +2000,14 @@ Begin optimization report for: usage(const char *)
 
     Report from: Interprocedural optimizations [ipo]
 
-INLINE REPORT: (usage(const char *)) [19/20=95.0%] d2q9-bgk.c(1244,1)
-  -> EXTERN: (1245,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-  -> EXTERN: (1246,3) exit(int)
+INLINE REPORT: (usage(const char *)) [19/20=95.0%] d2q9-bgk.c(1248,1)
+  -> EXTERN: (1249,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+  -> EXTERN: (1250,3) exit(int)
 
 
     Report from: Code generation optimizations [cg]
 
-d2q9-bgk.c(1244,1):remark #34051: REGISTER ALLOCATION : [usage] d2q9-bgk.c:1244
+d2q9-bgk.c(1248,1):remark #34051: REGISTER ALLOCATION : [usage] d2q9-bgk.c:1248
 
     Hardware registers
         Reserved     :    2[ rsp rip]
@@ -2046,52 +2046,52 @@ INLINE REPORT: (initialise(const char *, const char *, t_param *, t_mpi *, t_spe
   -> EXTERN: (831,8) fopen(const char *__restrict__, const char *__restrict__)
   -> EXTERN: (835,5) sprintf(char *__restrict__, const char *__restrict__, ...)
   -> INLINE: (836,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (840,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (842,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (844,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (846,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (848,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (850,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (852,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (854,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (856,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (858,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (860,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (862,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (864,12) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (866,20) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (869,3) fclose(FILE *)
   -> INLINE: (872,28) get_rows_for_rank(int, int, int) (isz = 4) (sz = 15)
   -> EXTERN: (895,32) _mm_malloc(unsigned long long, unsigned long long)
@@ -2104,50 +2104,50 @@ INLINE REPORT: (initialise(const char *, const char *, t_param *, t_mpi *, t_spe
   -> EXTERN: (902,32) _mm_malloc(unsigned long long, unsigned long long)
   -> EXTERN: (903,32) _mm_malloc(unsigned long long, unsigned long long)
   -> INLINE: (905,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (906,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (907,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (908,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (909,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (910,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (911,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (912,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (913,35) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (916,36) _mm_malloc(unsigned long long, unsigned long long)
   -> EXTERN: (917,36) _mm_malloc(unsigned long long, unsigned long long)
   -> EXTERN: (918,36) _mm_malloc(unsigned long long, unsigned long long)
@@ -2158,50 +2158,50 @@ INLINE REPORT: (initialise(const char *, const char *, t_param *, t_mpi *, t_spe
   -> EXTERN: (923,36) _mm_malloc(unsigned long long, unsigned long long)
   -> EXTERN: (924,36) _mm_malloc(unsigned long long, unsigned long long)
   -> INLINE: (926,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (927,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (928,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (929,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (930,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (931,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (932,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (933,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (934,39) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (938,38) _mm_malloc(unsigned long long, unsigned long long)
   -> EXTERN: (939,38) _mm_malloc(unsigned long long, unsigned long long)
   -> EXTERN: (940,38) _mm_malloc(unsigned long long, unsigned long long)
@@ -2212,94 +2212,94 @@ INLINE REPORT: (initialise(const char *, const char *, t_param *, t_mpi *, t_spe
   -> EXTERN: (945,38) _mm_malloc(unsigned long long, unsigned long long)
   -> EXTERN: (946,38) _mm_malloc(unsigned long long, unsigned long long)
   -> INLINE: (948,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (949,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (950,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (951,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (952,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (953,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (954,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (955,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (956,41) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (960,20) _mm_malloc(unsigned long long, unsigned long long)
   -> INLINE: (961,31) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (964,26) _mm_malloc(unsigned long long, unsigned long long)
   -> INLINE: (965,37) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (1012,8) fopen(const char *__restrict__, const char *__restrict__)
   -> EXTERN: (1016,5) sprintf(char *__restrict__, const char *__restrict__, ...)
   -> INLINE: (1017,5) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (1020,27) get_start_row(int, int, int) (isz = 6) (sz = 17)
   -> EXTERN: (1030,20) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> EXTERN: (1030,20) fscanf(FILE *__restrict__, const char *__restrict__, ...)
   -> INLINE: (1033,22) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (1035,40) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (1037,40) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> INLINE: (1039,23) die(const char *, const int, const char *) (isz = 14) (sz = 22)
-    -> EXTERN: (1237,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1238,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
-    -> EXTERN: (1239,3) fflush(FILE *)
-    -> EXTERN: (1240,3) exit(int)
+    -> EXTERN: (1241,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1242,3) fprintf(FILE *__restrict__, const char *__restrict__, ...)
+    -> EXTERN: (1243,3) fflush(FILE *)
+    -> EXTERN: (1244,3) exit(int)
   -> EXTERN: (1053,3) fclose(FILE *)
-  -> EXTERN: (1059,26) malloc(size_t)
+  -> EXTERN: (1060,28) malloc(size_t)
 
 
     Report from: Loop nest, Vector & Auto-parallelization optimizations [loop, vec, par]
@@ -2358,7 +2358,7 @@ d2q9-bgk.c(823,83):remark #34051: REGISTER ALLOCATION : [initialise] d2q9-bgk.c:
         
     Routine stack
         Variables     :    1036 bytes*
-            Reads     :       3 [9.67e-01 ~ 1.0%]
+            Reads     :       3 [9.68e-01 ~ 1.0%]
             Writes    :       0 [0.00e+00 ~ 0.0%]
         Spills        :      64 bytes*
             Reads     :       8 [3.26e+00 ~ 3.3%]

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<log version="1.0" tool="runtool">
+
+<msg id="1" tool="runtool">
+  <type>log-start</type>
+  <arg>2023/05/04 20:10:48</arg>
+</msg>
+<msg id="2" tool="runtool">
+  <type>collector-starts</type>
+</msg>
+<msg id="3" tool="runtool">
+  <type>marker-file</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/advi_results_4/project1/rank.104/trc000/trc000.advixe</arg>
+</msg>
+<msg id="4" tool="pin">
+  <type>2</type>
+  <description>Source/pin/vm_u/vm_signal_impl_unix.cpp: NotifyExit: 2102: assertion failed: _initialized </description>
+  <severity>ERROR</severity>
+  <timestamp>Thu May  4 19:12:17 2023 </timestamp>
+  <pinversion>3.14</pinversion>
+  <kitnumber>98223</kitnumber>
+</msg>
+<msg id="5" tool="trc">
+  <type>PROCESS_START</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/d2q9-bgk</arg>
+  <arg>13014</arg>
+  <severity>INFO</severity>
+  <timestamp>Thu May  4 19:12:17 2023</timestamp>
+</msg>
+<msg id="6" tool="trc">
+  <type>INTERNAL</type>
+  <severity>ERROR</severity>
+  <timestamp>Thu May  4 19:12:17 2023</timestamp>
+</msg>
+<msg id="7" tool="trc">
+  <type>ABNORMAL_TERMINATE</type>
+  <severity>ERROR</severity>
+  <timestamp>Thu May  4 19:12:17 2023</timestamp>
+</msg>
+<msg id="8" tool="runtool">
+  <type>app-exit-code</type>
+  <arg>255</arg>
+</msg>
+<msg id="9" tool="runtool">
+  <type>marker-file</type>
+  <arg>/user/home/rk19763/advanced-hpc-lbm/advi_results_4/project1/rank.104/trc000/trc000.advixe</arg>
+</msg>
+<msg id="10" tool="runtool">
+  <type>collector-done</type>
+</msg>
+<msg id="11" tool="runtool">
+  <type>log-end</type>
+  <arg>2023/05/04 20:12:21</arg>
+</msg>
+
+</log>
+

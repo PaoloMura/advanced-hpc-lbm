@@ -1,0 +1,11 @@
+
+=== Start: [2023/05/04 20:10:38] === 
+Analysis started...
+Result file: /user/home/rk19763/advanced-hpc-lbm/advi_results_4/project1/rank.37/trc000/trc000.advixe 
+Error: An internal error has occurred. Our apologies for this inconvenience. Please gather a description of the steps leading up to the problem and contact the Intel customer support team.
+Error: Internal error. Please contact Intel customer support team. 
+Error: Analysis terminated abnormally. 
+Application exit code: 255 
+Result file: /user/home/rk19763/advanced-hpc-lbm/advi_results_4/project1/rank.37/trc000/trc000.advixe 
+Analysis completed
+=== End: [2023/05/04 20:12:51] === 

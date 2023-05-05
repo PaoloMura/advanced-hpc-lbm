@@ -40,3 +40,6 @@ tripcounts:
 	advixe-cl --collect=survey --project-dir=./advixe_project7 \
 	-- mpiicc -std=c99 -Wall -O3 -xAVX2 -g -qopt-report=5 -simd -vec -qopenmp d2q9-bgk.c
 
+
+mpi_roofline:
+	advixe-cl --report=roofline --project-dir=advi_results_4/project1 --report-output=./mpi_roofline.html

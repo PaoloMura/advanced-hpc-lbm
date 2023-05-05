@@ -1053,10 +1053,12 @@ int initialise(const char* paramfile, const char* obstaclefile, t_param* params,
   fclose(fp);
 
   /*
-  ** allocate space to hold a record of the avarage velocities computed
+  ** allocate space to hold a record of the average velocities computed
   ** at each timestep
   */
-  *av_vels_ptr = (float*)malloc(sizeof(float) * params->maxIters);
+  if (mpi_params->rank == 0) {
+    *av_vels_ptr = (float*)malloc(sizeof(float) * params->maxIters);
+  }
 
   return EXIT_SUCCESS;
 }
@@ -1107,7 +1109,9 @@ int finalise(const t_param* params, const t_mpi* mpi_params,
     *all_obstacles_ptr = NULL;
   }
 
-  free(*av_vels_ptr);
+  if (mpi_params->rank == 0) {
+    free(*av_vels_ptr);
+  }
   *av_vels_ptr = NULL;
 
   return EXIT_SUCCESS;
