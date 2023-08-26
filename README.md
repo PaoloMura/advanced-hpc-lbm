@@ -1,5 +1,22 @@
 # HPC Coursework
 
+This repository contains the work I carried out for my fourth year High Performance Computing module.
+We were provided with starter code for the Lattice Boltzmann fluid dynamics simulation, which ran in serial.
+Our objective was to parallelise the code (using OpenMP and MPI),
+then analyse its performance on BCp4 (Blue Crystal phase 4), the university's supercomputer.
+
+Different branches of this repo correspond to different checkpoints for the progress I made:
+* serial - optimised serial code
+* attempt3 - vectorised
+* attempt2 - parallelised with OpenMP (all 28 cores of 1 node of BCp4)
+* mpi2 - final MPI version (utilising all cores on 4 nodes of BCp4)
+
+The coursework was assessed by two separate reports:
+* "report-openmp.pdf" - the parallel OpenMP version
+* "report-mpi.pdf" - the distributed MPI version
+
+# Original project description
+
 Base coursework for the Advanced High Performance Computing class.
 
 * Source code is in the `d2q9-bgk.c` file
